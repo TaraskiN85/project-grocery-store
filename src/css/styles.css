@@ -14,15 +14,14 @@
 @import url('./popular.css');
 @import url('./footer.css');
 
-
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Neue Montreal', Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 400;
+  font-weight: normal;
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+  color: var(--black-color);
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -30,10 +29,6 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 };
-
-body {
-  background-color: var(--background-color);
-}
 
 .container {
   width: 100%;
