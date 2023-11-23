@@ -1,21 +1,115 @@
-.header {
-  padding: 20px 0;
+:root {
+  --black-color: #010101;
+  --dark-color: rgba(1, 1, 1, 0.30);
+  --light-gray-color: rgba(232, 232, 226, 0.70);
+  --background-color: #E8E8E2;
+  --accent-color: #6D8434;
+  --white-color: #FAFAFA;
+  --luminous-color: #0101014D;
 }
 
-.nav-list {
+.header_nav {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 40px;
+  padding-top: 23px;
+  justify-content: space-between;
 }
 
-.nav-link {
+.header_container_logo{
+  padding: 13px 14px 13px 9px;
+  display: flex;
+  gap: 8px;
+}
+
+.header_logo_svg {
+    border-radius: 50%;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+    fill: var(--background-color);
+    background-color: var(--accent-color);
+}
+
+.header_logo_span {
+  color: var(--black-color);
+  /* font-family: ; */
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+
+.header_container_logo:is(:hover, :focus) {
+  border-radius: 9px;
+  background-color: var(--accent-color);
+}
+.header_container_logo:is(:hover, :focus) .header_logo_link_text {
+  color: var(--background-color);
+}
+
+.header_container_logo:is(:hover, :focus) .header_logo_svg {
+  background-color: var(--background-color);
+  fill: var(--accent-color);
+}
+
+.header_menu_list {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+}
+
+.header_menu_link {
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 18px;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
+  line-height: 1.33;
+  background-color: var(--accent-color);
+  color: var(--background-color);
 }
 
-.nav-link:hover,
-.nav-link:focus {
-  color: #747bff;
+.header_menu_link:is(:hover, :focus) {
+background-color: var(--hover-color);
 }
+
+.header_menu_icon {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+
+}
+.header_menu_icon:is(:hover, :focus){
+  background-color: var(--hover-color);
+}
+.header_menu_svg{
+  fill: var(--background-color);
+}
+
+.header_menu_cart {
+  display: none;
+}
+
+@media screen and (min-width: 768px){
+.header_menu_cart {
+  display: block;
+  color: var(--black-color);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.33;
+    text-transform: uppercase;
+    display: flex;
+      text-align: center;
+    
+}
+
+/* .header_menu_cart {
+    
+}
+.quantity_products {
+} */
+
+}
+
