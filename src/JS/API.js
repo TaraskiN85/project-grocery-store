@@ -7,11 +7,11 @@ export const getAllProducts = async () => {
   return await res.data;
 };
 
-export const getProducts = async options => {
+export const getProducts = async optionsObj => {
   let FULL_URL = `${BASE_URL}products/?`;
 
-  for (const key in options) {
-    FULL_URL += `&${key}=${options[key]}`;
+  for (const key in optionsObj) {
+    FULL_URL += `&${key}=${optionsObj[key]}`;
   }
 
   const res = await axios.get(FULL_URL);
@@ -39,5 +39,21 @@ export const getPopularProducts = async (limit = 5) => {
 
 export const getProductById = async id => {
   const res = await axios.get(`${BASE_URL}products/?id=${id}`);
+  return await res.data;
+};
+
+export const orderProducts = async orderObj => {
+  const res = await axios.post(`${BASE_URL}orders/`, JSON.stringify(orderObj));
+  return await res.data;
+};
+
+export const orderSubscription = async email => {
+  const subscriber = {
+    email: email,
+  };
+  const res = await axios.post(
+    `${BASE_URL}subscription/`,
+    JSON.stringify(subscriber)
+  );
   return await res.data;
 };
