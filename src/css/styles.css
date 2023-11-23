@@ -28,7 +28,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-};
+}
 
 .container {
   width: 100%;
@@ -39,7 +39,7 @@
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
-    padding: 0 60px;
+    padding: 0 32px;
   }
 }
 
