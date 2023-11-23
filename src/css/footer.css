@@ -1,0 +1,41 @@
+.footer {
+    background-color: var(--accent-color);
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+
+.footer-logo-container {}
+
+.footer-logo {
+
+}
+
+.logo-icon {
+    fill: var(--accent-color);
+
+}
+
+.footer-socials {}
+
+.footer-socials-item {}
+
+.footer-socials-link {}
+
+.footer-socials-icon {}
+
+.footer-subtitle {}
+
+.footer-first-text {}
+
+.footer-second-text {}
+
+.form-box {}
+
+.wrapper {}
+
+.form-input {}
+
+.error-icon {}
+
+.btn-send {}
