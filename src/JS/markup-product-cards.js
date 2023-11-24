@@ -1,16 +1,17 @@
 const refs = {
-    divProdCards: document.querySelector(".js-product-cards"),
-  };
-  
-  export function appendMarkup(data) {
-    refs.divProdCards.insertAdjacentHTML("beforeend", createMarkup(data));
-  }
-  
-  function createMarkup(data) {
-    return data.results
-      .map(
-        ({ _id, name, img, category, price, size, popularity }) =>
-          `<div class="product-card" id="${_id}">
+  divProdCards: document.querySelector('.js-product-cards'),
+};
+
+export function appendMarkup(data) {
+  refs.divProdCards.innerHTML = '';
+  refs.divProdCards.insertAdjacentHTML('beforeend', createMarkup(data));
+}
+
+function createMarkup(data) {
+  return data.results
+    .map(
+      ({ _id, name, img, category, price, size, popularity }) =>
+        `<div class="product-card" id="${_id}">
                   <div class="product-card-img">
                       <img class="card-img"
                           src="${img}"
@@ -40,7 +41,6 @@ const refs = {
                       </button>
                   </div>
               </div>`
-      )
-      .join("");
-  }
-  
+    )
+    .join('');
+}
