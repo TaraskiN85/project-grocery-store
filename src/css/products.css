@@ -200,3 +200,95 @@
   
 
     /* end--------------------styles product cards----------------end */
+
+
+    /* start--------------------styles pagination----------------start */
+    .container-pagination {
+      display: flex;
+      flex-direction: row;
+      width: 472px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .container-pagination .button {
+      display: flex;
+      padding: 8px;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 60px;
+      background: var(--white-color);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .container-pagination .button:hover {
+      background-color: var(--accent-color);
+    }
+
+    .container-pagination .button svg {
+      pointer-events: none;
+      fill: #a3a3a3;
+    }
+    .container-pagination .button:hover svg {
+      fill: #FAFAFA;
+    }
+    .container-pagination .button:disabled {
+      pointer-events: none;
+    }
+    
+    .angle-left,
+    .angle-right {
+      fill: #a3a3a3;
+    }
+
+    .pagination-links {
+      display: flex;
+      flex-direction: row;
+      column-gap: 8px;
+    }
+    
+    .pag-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 60px;
+      text-decoration: none;
+      color: #a3a3a3;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.43;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .pag-link:hover {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 60px;
+      background-color: var(--accent-color);
+      color: var(--background-color);
+    }
+    
+    .pag-link.active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 60px;
+      background: var(--accent-color);
+      color: var(--background-color);
+    }
+
+ /* end--------------------styles pagination----------------end */
