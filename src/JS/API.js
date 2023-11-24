@@ -7,18 +7,18 @@ export const getAllProducts = async () => {
   return await res.data;
 };
 
-export const getProducts = async optionsObj => {
+export const getProductsByParams = async optionsObj => {
   let FULL_URL = `${BASE_URL}products/?`;
 
   for (const key in optionsObj) {
-    FULL_URL += `&${key}=${optionsObj[key]}`;
+    FULL_URL += `&${key}=${optionsObj[key].toString()}`;
   }
 
   const res = await axios.get(FULL_URL);
   return await res.data;
 };
 
-export const getCategories = async () => {
+export const getProductsCategories = async () => {
   const res = await axios.get(`${BASE_URL}products/categories/`);
   return await res.data;
 };
@@ -42,18 +42,14 @@ export const getProductById = async id => {
   return await res.data;
 };
 
-export const orderProducts = async orderObj => {
+export const createNewOrder = async orderObj => {
   const res = await axios.post(`${BASE_URL}orders/`, JSON.stringify(orderObj));
   return await res.data;
 };
 
 export const orderSubscription = async email => {
-  const subscriber = {
-    email: email,
-  };
-  const res = await axios.post(
-    `${BASE_URL}subscription/`,
-    JSON.stringify(subscriber)
-  );
+  const res = await axios.post(`${BASE_URL}subscription/`, {
+    email: `${email}`,
+  });
   return await res.data;
 };
