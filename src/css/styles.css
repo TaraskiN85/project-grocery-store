@@ -19,9 +19,7 @@
 :root {
   font-family: 'Neue Montreal', Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 24px;
   font-weight: normal;
-
   color: var(--black-color);
   background-color: var(--background-color);
 
@@ -33,10 +31,9 @@
 }
 
 .container {
-  width: 100%;
-  padding: 0 20px;
   margin: auto;
 };
+
 
 @media screen and (min-width: 768px) {
   .container {
