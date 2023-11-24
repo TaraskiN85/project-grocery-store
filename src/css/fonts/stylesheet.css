@@ -22,15 +22,14 @@
     font-style: normal;
 }
 
-@font-face{
-  font-family: "Quincy CF Black Regular";
-  src: url("7026843a2afae35145b7544bfd004217.eot");
-  src: url("7026843a2afae35145b7544bfd004217.eot?#iefix")format("embedded-opentype"),
-      url("7026843a2afae35145b7544bfd004217.woff")format("woff"),
-      url("7026843a2afae35145b7544bfd004217.woff2")format("woff2"),
-      url("7026843a2afae35145b7544bfd004217.ttf")format("truetype"),
-      url("7026843a2afae35145b7544bfd004217.svg#Quincy CF Black Regular")format("svg");
-  font-weight:normal;
-  font-style:normal;
-  font-display:swap;
+@font-face {
+  font-family: 'Quincy CF';
+  src: url('QuincyCF-Black.eot');
+  src: local('Quincy CF Black'), local('QuincyCF-Black'),
+      url('QuincyCF-Black.eot?#iefix') format('embedded-opentype'),
+      url('QuincyCF-Black.woff2') format('woff2'),
+      url('QuincyCF-Black.woff') format('woff'),
+      url('QuincyCF-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
 }
