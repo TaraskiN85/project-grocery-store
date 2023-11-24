@@ -1,7 +1,85 @@
+
 <header class="header">
   <nav class="nav">
     <h2>Hader</h2>
     <a href="./index.html">Go Home</a>
-    <h1>CART</h1>
+    <link rel="stylesheet" href="./css/styles.css" />
   </nav>
 </header>
+<section class="section_cart">
+  <h1>CART</h1>
+  <div class="cart">
+    <div class="container_cart" id="container_cart">
+
+      <div class="cart_quantity">
+        <img class="cart_icon_quantity" src="../img/icons.svg#icon-cart" alt="icon-cart" width="16" height="16">
+        <div class="cart__num" id="cart_num">Cart (0)</div>
+      </div>
+      <div class="cart_button_de">
+        <button type="button" class="cart__product-delete_all">Delete all</button>
+        <button type="button" class="cart__product-delete" id="cart__product-delete">
+
+          <svg width="24" height="24">
+            <use src="../img/icons.svg#icon-search" class="cart__icon-search"></use>
+          </svg>
+        </button>
+      </div>
+
+
+
+      <div class="cart_product_render">
+        <div class="cart_product">
+          <div class="cart__product-wrap">
+            <img src="" alt="" width="64" height="64" class="cart__product-image">
+            <!---название товара -->
+
+            <h2 class="popup__product-title">Avocado</h2>
+            <div class="item-details-container">
+              <div class="item-detail">
+                <span class="item-detail-title">Category:</span>
+                <span class="item-detail-value">Fresh</span>
+              </div>
+
+              <div class="item-detail">
+                <span class="item-detail-title">Size:</span>
+                <span class="item-detail-value">Each</span>
+              </div>
+            </div>
+
+          </div>
+          <button type="button" class="cart__product-delete_list">✖️</button>
+
+          <div class="popup__product-wrap">
+            <div class="popup__product-price">$1.99</div>
+          </div>
+
+          <div>
+            <span class="cart_quantity-btn">
+              <span class="quantity_btn">+</span>
+
+              <span>3</span>
+
+              <span class="quantity_btn">–</span>
+            </span>
+          </div>
+        </div>
+
+
+      </div>
+      <hr class="custom-hr">
+      <!-- <div id="vert"></div> -->
+      <!-- <div class="cart__rectangle-vline"></div> -->
+
+
+      <div class="cart__container">
+        <div class="cart__body">
+          <h4 class="cart__title">Your Order</h4>
+          <form action="#" class="cart__form">
+            <input type="total" class="cart__input-total" id="cart_cost" placeholder="Total       Sum:">
+            <input autocomplete="off" type="email" reguired name="form[]" placeholder="Mail: Your Email"
+              class="cart__input-email">
+            <button type="submit" class="subscribe__button-cart">Checkout</button>
+          </form>
+        </div>
+      </div>
+</section>
