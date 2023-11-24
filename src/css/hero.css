@@ -1,0 +1,153 @@
+.hero {
+  padding-top: 72px;
+  padding-bottom: 74px;
+}
+
+.container {
+  
+  max-width: 375px;
+  padding: 0 20px;
+}
+
+.hero_container {
+  background-color: var(--accent-color);
+    background-image:
+      url(../img/background_mob-1x-min.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30px;
+    min-height: 480px;
+  position: relative;
+  }
+  .icon_organic_food {
+  transform-origin: center center;
+  animation: rotateAnimation 17s linear infinite;
+  position: absolute;
+  top: -7px;
+  right: 8px;
+  }
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+  }
+
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+  .hero_container {
+    background-image: url(../img/background_mob-2x-min.jpg);
+  }
+}
+.hero_title {
+  color: var(--black-color);
+    text-align: center;
+    font-family: Neue Montreal;
+    font-size: 44px;
+    line-height: 1.09;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+}
+
+.hero_title_accent {
+  color: var(--accent-color);
+}
+
+.hero_text {
+  color: var(--black-color);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  margin: auto;
+  margin-bottom: 32px;
+  max-width: 292px;
+}
+
+
+@media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 128px;
+  }
+  
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
+  .icon_organic_food {
+    top: -30px;
+    right: 10px;;
+  }
+  .hero_title {
+    font-size: 80px;
+    line-height: 1.0;
+    margin: auto;
+    margin-bottom: 20px;
+    max-width: 658px;
+}
+  .hero_text {
+   font-size: 18px;
+   line-height: 1.33;
+   margin: auto;
+   margin-bottom: 40px;
+   max-width: 492px;
+}
+.hero_container {
+  background-color: var(--accent-color);
+    background-image:
+      url(../img/background_tablet-1x-min.jpg);
+    min-height: 580px;
+}
+
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+  .hero_container {
+    background-image: url(../img/background_tablet-2x-min.jpg);
+  }
+}
+}
+
+@media screen and (min-width: 1440px) {
+  .hero {
+    padding-top: 85px;
+  }
+  .container {
+    max-width: 1440px;
+    padding: 0 100px;
+  }
+  .hero_container {
+    background-color: var(--accent-color);
+      background-image:
+        url(../img/background_desktop-1x-min.jpg);
+      min-height: 350px;
+  }
+  
+  @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+    .hero_container {
+      background-image: url(../img/background_desktop-2x-min.jpg);
+    }
+  }
+  .hero_title {
+    margin: auto;
+    margin-bottom: 20px;
+    max-width: 1042px;
+}
+  .hero_text {
+   font-size: 18px;
+   line-height: 1.33;
+   margin: auto;
+   margin-bottom: 40px;
+}
+  .icon_organic_food {
+    top: -50px;
+    right: 10px;;
+  }
+}
