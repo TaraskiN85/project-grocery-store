@@ -1,0 +1,33 @@
+.container {
+  
+  max-width: 375px;
+  padding: 0 20px;
+}
+
+.catalog-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+
+  .container {
+      max-width: 768px;
+      padding: 0 32px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    .hero {
+      padding-top: 85px;
+    }
+    
+    .container {
+      max-width: 1440px;
+      padding: 0 100px;
+    }
+
+    .catalog-container {
+      flex-direction: row;
+    }
+  }

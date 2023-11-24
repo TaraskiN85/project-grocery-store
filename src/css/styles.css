@@ -6,15 +6,17 @@
 */
 @import '../../node_modules/normalize.css/';
 
+@import url('./catalog.css');
 @import url('./fonts/stylesheet.css');
 @import url('./variables.css');
 @import url('./reset.css');
 @import url('./header.css');
 @import url('./cart-header.css');
 @import url('./hero.css');
-@import url('./products.css');
 @import url('./popular.css');
+@import url('./products.css');
 @import url('./footer.css');
+/* @import url('./modal.css'); */
 
 :root {
   font-family: 'Neue Montreal', Inter, Avenir, Helvetica, Arial, sans-serif;

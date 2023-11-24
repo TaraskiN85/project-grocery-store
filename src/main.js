@@ -1,5 +1,10 @@
+import './JS/pagination';
 import { getProductsByParams } from './JS/API';
 import { appendMarkup } from './JS/markup-product-cards';
+import {
+  appendDiscountProductsMarkup,
+  appendPopularProductsMarkup,
+} from './JS/markup-popular-discount-product-cards';
 
 window.addEventListener('resize', fetchBasedOnScreenSize);
 fetchBasedOnScreenSize();
@@ -7,7 +12,7 @@ fetchBasedOnScreenSize();
 function fetchBasedOnScreenSize() {
   const options = {
     keyword: '',
-    page: 1,
+    page: 2,
     limit: '',
   };
   const windowWidth = window.innerWidth;
@@ -28,3 +33,6 @@ function fetchBasedOnScreenSize() {
       .catch(er => console.log(er));
   }
 }
+
+appendPopularProductsMarkup();
+appendDiscountProductsMarkup();
