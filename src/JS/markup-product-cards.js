@@ -11,32 +11,32 @@ function createMarkup(data) {
   return data.results
     .map(
       ({ _id, name, img, category, price, size, popularity }) =>
-        `<div class="product-card" id="${_id}">
-                  <div class="product-card-img">
-                      <img class="card-img"
+        `<div class="product-card-prod" id="${_id}">
+                  <div class="product-card-img-prod">
+                      <img class="card-img-prod"
                           src="${img}"
                           alt="${name}">
                   </div>
-                  <h3 class="produc-card-name">${name}</h3>
-                  <div class="product-card-description">
-                      <div class="card-description">
+                  <h3 class="produc-card-name-prod">${name}</h3>
+                  <div class="product-card-description-prod">
+                      <div class="card-description-prod">
                           <p>Category:</p>
-                          <p class="card-description-value">${category}</p>
+                          <p class="card-description-value-prod">${category}</p>
                       </div>
-                      <div class="card-description">
+                      <div class="card-description-prod">
                           <p>Size:</p>
-                          <p class="card-description-value">${size}</p>
+                          <p class="card-description-value-prod">${size}</p>
                       </div>
-                      <div class="card-description">
+                      <div class="card-description-prod">
                           <p>Popularity:</p>
-                          <p class="card-description-value">${popularity}</p>
+                          <p class="card-description-value-prod">${popularity}</p>
                       </div>
                   </div>
-                  <div class="product-card-price-btn">
-                      <p class="product-card-price">${price}</p>
-                      <button type="button" class="product-card-btn">
+                  <div class="product-card-price-btn-prod">
+                      <p class="product-card-price-prod">${price}</p>
+                      <button type="button" class="product-card-btn-prod">
                           <svg width="18" height="18">
-                              <use class="button-icon" href=""></use>
+                              <use class="button-icon-prod" href="../img/icons.svg#icon-cart"></use>
                           </svg>
                       </button>
                   </div>
