@@ -15,7 +15,9 @@ export const getProductsByParams = async optionsObj => {
   }
 
   const res = await axios.get(FULL_URL);
-  return await res.data;
+  const data = await res.data;
+  localStorage.setItem('fetched-products', JSON.stringify(data.results));
+  return data;
 };
 
 export const getProductsCategories = async () => {
