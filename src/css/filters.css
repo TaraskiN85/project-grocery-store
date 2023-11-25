@@ -1,0 +1,126 @@
+.filter-field{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.search-form{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.filter-text{
+    color: rgba(1, 1, 1, 0.30);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 0.78;
+    margin-bottom: 8px;
+}
+
+.search-input{
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(1, 1, 1, 0.30);
+    background-color: transparent;
+    color: var(--black-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 0.78;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+.search-input:hover,
+.search-input:focus{
+    border: 1px solid var(--accent-color);
+}
+
+.search-input::placeholder{
+    color: var(--black-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 0.78;
+}
+
+.search-button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.category-input{
+    width: 100%;
+        padding: 14px 20px;
+        border-radius: 30px;
+        border: 1px solid rgba(1, 1, 1, 0.30);
+        background-color: transparent;
+        color: var(--black-color);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 0.78;
+        transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        outline: none;
+}
+
+.category-input:hover,
+.category-input:focus {
+    border: 1px solid var(--accent-color);
+}
+
+.sorting-input{
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: #FAFAFA;
+    color: var(--black-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 0.78;
+}
+
+@media screen and (min-width: 768px){
+    .filter-field{
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .search-form{
+        width: 269px;
+    }
+
+    .search-input{
+        font-size: 18px;
+        line-height: 0.75;
+    }
+    
+    .category-input{
+        width: 189px;
+        font-size: 18px;
+        line-height: 0.75;
+    }
+
+    .sorting-input{
+        width: 200px;
+        font-size: 18px;
+        line-height: 0.75;
+    }
+
+    .search-input::placeholder {
+        font-size: 18px;
+        line-height: 0.75;
+    }
+}
