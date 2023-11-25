@@ -2,11 +2,6 @@ import axios from 'axios';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api/';
 
-export const getAllProducts = async () => {
-  const res = await axios.get(`${BASE_URL}products/`);
-  return await res.data;
-};
-
 export const getProductsByParams = async optionsObj => {
   let FULL_URL = `${BASE_URL}products/?`;
 

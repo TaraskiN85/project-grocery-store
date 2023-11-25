@@ -12,7 +12,7 @@ fetchBasedOnScreenSize();
 function fetchBasedOnScreenSize() {
   const options = {
     keyword: '',
-    page: 2,
+    page: 1,
     limit: '',
   };
   const windowWidth = window.innerWidth;
@@ -37,4 +37,4 @@ function fetchBasedOnScreenSize() {
 appendPopularProductsMarkup();
 appendDiscountProductsMarkup();
 
-import "./JS/modal"
+import './JS/modal';

@@ -1,5 +1,7 @@
 import { getProductById } from '/js/API.js';
+
 import axios from 'axios';
+
 
 document.addEventListener('DOMContentLoaded', async function () {
   const productContainer = document.querySelector('.container-product-cards');
@@ -43,6 +45,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 }
 
+
   
 async function handleProductClick(event) {
   const clickedElement = event.target.closest('.product-card');
@@ -54,6 +57,13 @@ async function handleProductClick(event) {
     modal.setAttribute('id', productId);
 
     const product = await getProductDetails(productId);
+=======
+  const closeModalBtn = document.querySelector('.modal-close-btn');
+
+  closeModalBtn.addEventListener('click', function () {
+    modal.style.display = 'none';
+  });
+
 
     if (product) {
       displayProductDetails(product);
@@ -100,6 +110,7 @@ async function handleDicountClick(event) {
       console.log('Product ID not found in fetched-products');
     }
 
+
   } else {
     console.log('Product ID not found in fetched-products');
   }
@@ -134,4 +145,7 @@ async function handleDicountClick(event) {
   discountContainer.addEventListener('click', handleDicountClick);
   addToCartBtn.addEventListener('click', addToCart);
   
+=======
+  });
+
 });

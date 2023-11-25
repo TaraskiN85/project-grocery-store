@@ -24,29 +24,31 @@ function createPopularMarkup(data) {
                           src="${img}"
                           alt="${name}">
                   </div>
+                 <div class="container-for-name-descr">
                   <div class="card-product-name-container">
                   <h3 class="aside-card-name">${name}</h3>
                      </div>
-                  <div class="product-card-description">
+                  <div class="products-card-description">
                       <div class="aside-card-description">
-                          <p>Category:</p>
-                          <p class="card-description-value">${category}</p>
+                          <p class="descr-p">Category:</p>
+                          <p class="card-descr-value">${category}</p>
                       </div>
                       <div class="size-popularity-container">
                       <div class="aside-card-description">
-                          <p>Size:</p>
-                          <p class="card-description-value">${size}</p>
+                          <p class="descr-p">Size:</p>
+                          <p class="card-descr-value">${size}</p>
                       </div>
                       <div class="aside-card-description">
-                          <p>Popularity:</p>
-                          <p class="card-description-value">${popularity}</p>
+                          <p class="descr-p">Popularity:</p>
+                          <p class="card-descr-value">${popularity}</p>
                       </div>
                   </div>
                   </div>
-                  <div class="product-card-price-btn">
-                      <button type="button" class="product-card-btn">
-                          <svg width="18" height="18">
-                              <use class="button-icon" href="../img/icons.svg#icon-cart"></use>
+                  </div>
+                  <div class="product-card-prices-btn">
+                      <button type="button" class="products-card-btn">
+                          <svg width="16" height="16">
+                              <use class="popular-button-icon" href="../img/icons.svg#icon-cart"></use>
                           </svg>
                       </button>
                   </div>
@@ -75,9 +77,15 @@ function createDiscountMarkup(data) {
                       <img class="discount-card-img"
                           src="${img}"
                           alt="${name}">
+                          <span class="discount-svg">
+                          <svg width="60" height="60" >
+                              <use  href="../img/icons.svg#icon-discount"></use>
+                          </svg>
+                          </span>
                   </div>
-                  <div class="product-card-price-btn">
+                  <div class="product-card-prices-btn">
                   <h3 class="discount-product-card-name">${name}</h3>
+                 <div class="discount-price-icon-container">
                       <p class="product-card-price">${price}</p>
                       <button type="button" class="discount-product-card-btn">
                           <svg width="18" height="18">
@@ -85,7 +93,7 @@ function createDiscountMarkup(data) {
                           </svg>
                       </button>
                   </div>
-                  
+                  </div>
               </div>
               </div>`
     )
