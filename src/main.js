@@ -1,5 +1,10 @@
+import './JS/pagination';
 import { getProductsByParams } from './JS/API';
 import { appendMarkup } from './JS/markup-product-cards';
+import {
+  appendDiscountProductsMarkup,
+  appendPopularProductsMarkup,
+} from './JS/markup-popular-discount-product-cards';
 
 window.addEventListener('resize', fetchBasedOnScreenSize);
 fetchBasedOnScreenSize();
@@ -28,3 +33,8 @@ function fetchBasedOnScreenSize() {
       .catch(er => console.log(er));
   }
 }
+
+appendPopularProductsMarkup();
+appendDiscountProductsMarkup();
+
+import './JS/modal';
