@@ -11,6 +11,7 @@
 @import url('./products.css');
 @import url('./popular.css');
 @import url('./footer.css');
+@import url('./modal.css');
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
