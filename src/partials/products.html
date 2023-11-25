@@ -1,30 +1,60 @@
 <section class="products">
-  <h2>Products</h2>
-  <div>Filters</div>
-  <div>Products preview</div>
+  <div class="container">
+    <h2>Products</h2>
+    <p class="filter-text">Filters:</p>
+    <div class="filter-field">
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search for anything"
+          class="search-input"
+        />
+        <button type="submit" class="search-button">
+          <svg class="icon-search" width="20" height="20">
+            <use href="./img/icons.svg#icon-search"></use>
+          </svg>
+        </button>
+      </form>
 
-  <div class="container-product-cards js-product-cards"></div>
+      <form>
+        <select class="category-input form-select" name="category">
+          <option value="" disabled selected>Category</option>
+        </select>
+      </form>
 
-  <div class="container-pagination">
-    <button class="button prevNext" id="prev">
-      <svg class="angle-left" width="24" height="24">
-        <use href="./img/icons.svg#icon-caret-left"></use>
-      </svg>
-    </button>
-    <div class="pagination-links">
-      <a href="#" class="pag-link active">1</a>
-      <a href="#" class="pag-link">2</a>
-      <a href="#" class="pag-link">3</a>
-      <a href="#" class="pag-link">4</a>
-      <a href="#" class="pag-link">5</a>
+      <form>
+        <select class="sorting-input form-select" name="sorting">
+          <option value="" disabled selected>A to Z</option>
+        </select>
+      </form>
     </div>
-    <button class="button prev-next prevNext" id="next">
-      <i class="angle-right"></i>
-      <svg class="angle-right" width="24" height="24">
-        <use href="./img/icons.svg#icon-caret-right"></use>
-      </svg>
-    </button>
-  </div>
+    <div>Products preview</div>
 
-  <div>pagination</div>
+    <div class="container-product-cards js-product-cards"></div>
+
+    <div class="container-pagination">
+      <button class="button prevNext" id="prev">
+        <svg class="angle-left" width="24" height="24">
+          <use href="./img/icons.svg#icon-caret-left"></use>
+        </svg>
+      </button>
+      <div class="pagination-links">
+        <a href="#" class="pag-link active">1</a>
+        <a href="#" class="pag-link">2</a>
+        <a href="#" class="pag-link">3</a>
+        <a href="#" class="pag-link">4</a>
+        <a href="#" class="pag-link">5</a>
+      </div>
+      <button class="button prev-next prevNext" id="next">
+        <i class="angle-right"></i>
+        <svg class="angle-right" width="24" height="24">
+          <use href="./img/icons.svg#icon-caret-right"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div>pagination</div>
+  </div>
 </section>
