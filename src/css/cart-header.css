@@ -362,11 +362,16 @@
       max-width: 1440px;
       padding: 0 100px;
     }
+    .container_cart {
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+    }
     .cart__body {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap; 
-        justify-content: space-between;
+        /* justify-content: space-between; */
     }
   
     .cart_quantity {
