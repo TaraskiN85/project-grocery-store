@@ -1,38 +1,7 @@
-/* :root {
-    --black-color: #010101;
-    --dark-color: rgba(1, 1, 1, 0.3);
-    --light-gray-color: rgba(232, 232, 226, 0.7);
-    --background-color: #e8e8e2;
-    --accent-color: #6d8434;
-    --white-color: #fafafa;
-    --luminous-color: #0101014d;
-  } */
-/*   
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  } */
-  
-  /* body {
-    background: var(--background-color);
-    font-family: "Neue Montreal", sans-serif;
-  } */
-/*   
-  ul {
-    list-style: none;
-  } */
-  
-  /* .container {
-    width: 100%;
-    padding: 0 20px;
-    margin: auto;
-  } */
-
 
 
   /* start--------------------styles product cards----------------start */
-  .container-product-cards {
+  .container-product-cards-prod {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -42,14 +11,14 @@
     row-gap: 20px;
   }
   
-  .product-card {
+  .product-card-prod {
     max-width: 335px;
     border-radius: 20px;
     background: var(--white-color);
     padding: 20px;
   }
   
-  .product-card-img {
+  .product-card-img-prod {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,12 +28,12 @@
     background: var(--background-color);
   }
   
-  .card-img {
+  .card-img-prod {
     max-width: 140px;
     max-height: 140px;
   }
   
-  .produc-card-name {
+  .produc-card-name-prod {
     margin: 0;
     padding-top: 20px;
     color: var(--text-color);
@@ -73,7 +42,7 @@
     line-height: 1.11;
   }
   
-  .product-card-description {
+  .product-card-description-prod {
     margin: 0;
     padding: 0;
     display: flex;
@@ -87,7 +56,7 @@
     gap: 8px;
   }
   
-  .card-description {
+  .card-description-prod {
     margin: 0;
     padding: 0;
     display: flex;
@@ -95,27 +64,27 @@
     gap: 4px;
   }
   
-  .card-description p {
+  .card-description-prod p {
     margin: 0;
     padding: 0;
   }
   
-  .card-description-value {
+  .card-description-value-prod {
     margin: 0;
     padding: 0;
-    color: var(--text-color);
+    color: var(--black-color);
     display: flex;
     flex-direction: row;
   }
   
-  .product-card-price-btn {
+  .product-card-price-btn-prod {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     padding-top: 20px;
   }
   
-  .product-card-price {
+  .product-card-price-prod {
     margin: 0;
     padding: 0;
     color: var(--text-color);
@@ -124,7 +93,7 @@
     line-height: 1.11;
   }
   
-  .product-card-btn {
+  .product-card-btn-prod {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,39 +105,35 @@
     cursor: pointer;
   }
   
-  .button-icon {
-    color: var(--background-color);
+  .button-icon-prod {
+    fill: var(--background-color);
   }
   
   /* ---------------------------------- */
   
   @media screen and (min-width: 768px) {
-    /* .container {
-      max-width: 768px;
-      padding: 0 32px;
-    } */
   
-    .container-product-cards {
+    .container-product-cards-prod {
       flex-direction: row;
       padding: 40px 0 50px 0;
       row-gap: 32px;
       column-gap: 32px;
     }
   
-    .product-card {
+    .product-card-prod {
       max-width: 336px;
     }
   
-    .product-card-img {
+    .product-card-img-prod {
       max-width: 296px;
     }
   
-    .produc-card-name {
+    .produc-card-name-prod {
       font-size: 20px;
       line-height: 1.2;
     }
   
-    .product-card-price {
+    .product-card-price-prod {
       font-size: 20px;
       line-height: 1.2;
     }
@@ -177,23 +142,18 @@
   /* ---------------------------------- */
   
   @media screen and (min-width: 1440px) {
-    /* .container {
-      max-width: 1440px;
-      padding: 0 100px;
-    } */
   
-    .container-product-cards {
+    .container-product-cards-prod {
       max-width: 925px;
-      /* padding: 60px 0 40px 0; */
       row-gap: 40px;
       column-gap: 20px;
     }
   
-    .product-card {
+    .product-card-prod {
       max-width: 295px;
     }
   
-    .product-card-img {
+    .product-card-img-prod {
       max-width: 255px;
     }
   }
