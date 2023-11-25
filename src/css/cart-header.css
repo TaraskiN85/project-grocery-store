@@ -30,11 +30,10 @@
     gap: 14px;
 }
 .cart_icon_quantity {
-
     width: 24px;
     height: 24px;
     border-radius: 30px;
-    background: #6D8434;
+    background: var(--accent-color);
     display: flex;
     padding: 10px;
     justify-content: center;
@@ -67,17 +66,19 @@
     font-weight: 500;
     line-height: 18px; /* 128.571% */
 }
-.cart__icon-search {
+
+.cart__product-delete {
     fill:  #010101;
 }
-.cart__product-delete {
-}
+
 .cart_product_render {
     
 }
-.cart_product {
 
+.cart_product {
+    display: flex;
 }
+
 .cart__product-wrap {
     display: flex;
 }
@@ -87,22 +88,47 @@
     height: 100px;
     border-radius: 10px;
     background: #FAFAFA;
+    gap: 20px;
 }
+
 .popup__product-title {
+    display: flex;
+    color: #010101;
+font-family: Neue Montreal;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px; /* 111.111% */
+
+flex-direction: column;
+}
+.cart_quantity-span {
+    display: none;
 }
 .item-details-container {
 }
 .item-detail {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
+
 .item-detail-title {
 }
 .item-detail-value {
 }
 .cart__product-delete_list {
+    display: flex;
+    justify-content: end;
 }
 .popup__product-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    padding: 0px 0px 0px 20px;
 }
 .popup__product-price {
+    display: flex;
 }
 .quantity_btn {
 }
@@ -159,7 +185,7 @@ font-weight: 500;
 line-height: 18px; /* 128.571% */
 color: #E8E8E2;
 border-radius: 30px;
-background: #6D8434;
+background: var(--accent-color );
 max-width: 335px;
 height: 42px;
 display: inline-flex;
@@ -211,6 +237,7 @@ margin-top: 14px;
   .quantity_btn:hover {
     background: #dedede;
   }
+
 @media screen and (min-width: 768px) {
     .container {
       max-width: 768px;
@@ -223,6 +250,11 @@ margin-top: 14px;
       max-width: 1440px;
       padding: 0 100px;
     }
+
+    .cart_quantity {
+        display: flex;
+    }
+
     .cart__num {
         color: #010101;
         font-family: Neue Montreal;
