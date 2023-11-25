@@ -14,9 +14,21 @@ document.addEventListener('DOMContentLoaded', async function () {
   );
   const addToCartBtn = document.querySelector('.addtocart-btn');
 
+  let productObj;
   function addToCart(event) {
-    const modalId = modal.getAttribute('id');
-    console.log(modalId);
+    event.preventDefault();
+    console.log(productObj);
+    const cartProducts = JSON.parse(localStorage.getItem('cart-products-list'));
+    if (cartProducts.some(product => product._id === productObj._id)) {
+      alert(`Product is already in cart!`);
+      return;
+    } else {
+      cartProducts.push(productObj);
+      localStorage.setItem('cart-products-list', JSON.stringify(cartProducts));
+    }
+
+    // const modalId = modal.getAttribute('id');
+    // console.log(modalId);
   }
 
   function openModal() {
@@ -37,24 +49,25 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   closeModalBtn.addEventListener('click', closeModal);
 
-  async function getProductDetails(productId) {
+  const getProductDetails = async productId => {
     try {
       const response = await axios.get(
         `https://food-boutique.b.goit.study/api/products/${productId}`
       );
+      productObj = response.data;
       return response.data;
     } catch (error) {
       console.error('Error fetching product details:', error);
       return null;
     }
-  }
+  };
 
   async function handleProductClick(event) {
     const clickedElement = event.target.closest('.product-card-prod');
 
     if (clickedElement) {
       const productId = clickedElement.id;
-      console.log('Clicked Product ID:', productId);
+      // console.log('Clicked Product ID:', productId);
 
       modal.setAttribute('id', productId);
 
@@ -78,7 +91,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const clickedPopular = event.target.closest('.aside-product-card');
     if (clickedPopular) {
       const popularid = clickedPopular.id;
-      console.log('Clicked Product ID:', popularid);
+      // console.log('Clicked Product ID:', popularid);
 
       modal.setAttribute('id', popularid);
 
@@ -98,7 +111,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const clickedDiscount = event.target.closest('.discount-product-card');
     if (clickedDiscount) {
       const discountId = clickedDiscount.id;
-      console.log('Clicked Product ID:', discountId);
+      // console.log('Clicked Product ID:', discountId);
 
       modal.setAttribute('id', discountId);
 
@@ -116,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   function displayProductDetails(product) {
     const { name, price, desc, img, category, size, popularity } = product;
-    console.log('Product Details:', { name, price, desc });
+    // console.log('Product Details:', { name, price, desc });
 
     openModal();
 
