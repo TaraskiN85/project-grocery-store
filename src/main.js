@@ -1,5 +1,5 @@
 import './JS/pagination';
-import { getProductsByParams } from './JS/API';
+import { getProductsByParams, getProductsCategories } from './JS/API';
 import { appendMarkup } from './JS/markup-product-cards';
 import {
   appendDiscountProductsMarkup,
