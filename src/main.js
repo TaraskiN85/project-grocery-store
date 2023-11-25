@@ -36,3 +36,5 @@ function fetchBasedOnScreenSize() {
 
 appendPopularProductsMarkup();
 appendDiscountProductsMarkup();
+
+import "./JS/modal"

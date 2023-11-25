@@ -16,7 +16,7 @@
 @import url('./popular.css');
 @import url('./products.css');
 @import url('./footer.css');
-/* @import url('./modal.css'); */
+@import url('./modal.css');
 
 :root {
   font-family: 'Neue Montreal', Inter, Avenir, Helvetica, Arial, sans-serif;
