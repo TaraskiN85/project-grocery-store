@@ -1,18 +1,4 @@
-import { getProductById, getAllProducts } from '/js/API.js';
-
-async function saveAllProducts() {
-  try {
-    const { results } = await getAllProducts();
-    console.log(results); // Виведення об'єкту results у консоль
-
-    // Тут ви можете зберегти results в localStorage або використати його для іншої обробки
-    localStorage.setItem('allProducts', JSON.stringify(results));
-  } catch (error) {
-    console.error('Error while saving products:', error);
-  }
-}
-
-saveAllProducts();
+import { getProductById } from '/js/API.js';
 
 document.addEventListener('DOMContentLoaded', async function () {
   const productContainer = document.querySelector('.container-product-cards');
@@ -31,11 +17,11 @@ document.addEventListener('DOMContentLoaded', async function () {
     modal.style.display = 'none';
   }
 
-  const closeModalBtn = document.querySelector('.modal-close-btn')
+  const closeModalBtn = document.querySelector('.modal-close-btn');
 
-  closeModalBtn.addEventListener('click', function() {
-    modal.style.display = 'none' ;
-  })
+  closeModalBtn.addEventListener('click', function () {
+    modal.style.display = 'none';
+  });
 
   productContainer.addEventListener('click', async function (event) {
     const clickedElement = event.target.closest('.product-card');
@@ -51,5 +37,4 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
     }
   });
-
 });
