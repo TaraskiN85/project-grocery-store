@@ -1,6 +1,42 @@
 <section class="products">
-  <div>Filters</div>
 
-  <div class="container-product-cards-prod js-product-cards"></div>
-  <div id="pagination" class="tui-pagination"></div>
+  <div class="container">
+    <h2>Products</h2>
+    <p class="filter-text">Filters:</p>
+    <div class="filter-field">
+      <form class="search-form">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search for anything"
+          class="search-input"
+        />
+        <button type="submit" class="search-button">
+          <svg class="icon-search" width="20" height="20">
+            <use href="./img/icons.svg#icon-search"></use>
+          </svg>
+        </button>
+      </form>
+
+      <form>
+        <select class="category-input" name="category">
+          <option value="" disabled selected>Category</option>
+        </select>
+      </form>
+
+
+      <form>
+        <select class="sorting-input" name="sorting">
+          <option value="" disabled selected>A to Z</option>
+        </select>
+      </form>
+    </div>
+
+    <div>Products preview</div>
+
+    <div class="container-product-cards-prod js-product-cards"></div>
+    <div id="pagination" class="tui-pagination"></div>
+   
 </section>
+
