@@ -1,0 +1,317 @@
+/* @import url('./cart-header.css'); */
+.section_cart {
+}
+.cart {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color:#E8E8E2 ;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+   /* display: none; по умолчанию */
+    justify-content: center;
+    user-select: none;
+    overflow-y: scroll;
+}
+.container_cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    min-width: 300px;
+    background-color: fff;
+    position: relative;
+}
+.cart_quantity {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.cart_icon_quantity {
+
+    width: 24px;
+    height: 24px;
+    border-radius: 30px;
+    background: #6D8434;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.cart__num {
+    margin-top: 14px;
+    color: #010101;
+    font-family: Neue Montreal;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 116.667% */
+    text-transform: uppercase;
+    width: 150px ;
+    height: 28px;
+}
+.cart_button_de {
+    display: flex;
+    margin-bottom: 44px;
+    justify-content: end;
+    margin-top: 14px;
+}
+.cart__product-delete_all {
+    color: #010101;
+    font-family: Neue Montreal;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 128.571% */
+}
+.cart__icon-search {
+    fill:  #010101;
+}
+.cart__product-delete {
+}
+.cart_product_render {
+    
+}
+.cart_product {
+
+}
+.cart__product-wrap {
+    display: flex;
+}
+.cart__product-image {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background: #FAFAFA;
+}
+.popup__product-title {
+}
+.item-details-container {
+}
+.item-detail {
+}
+.item-detail-title {
+}
+.item-detail-value {
+}
+.cart__product-delete_list {
+}
+.popup__product-wrap {
+}
+.popup__product-price {
+}
+.quantity_btn {
+}
+.custom-hr {
+}
+.cart__container {
+}
+.cart__body {
+    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.cart__title {
+    display: block;
+    text-align: start;
+    color: #010101;
+    font-family: Neue Montreal;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 116.667% */
+    text-transform: uppercase;
+    margin-bottom: 54px;
+}
+.cart__form {
+}
+.cart__input-total {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 364px; 
+
+max-width: 335px;
+height: 60px; 
+border-radius: 30px;
+border: 1px solid rgba(1, 1, 1, 0.30);
+margin-bottom: 44px ;
+}
+.cart__input-email {
+    padding: 12px 183px 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    max-width: 335px;
+    height: 42px;
+    border-radius: 30px;
+    border: 1px solid rgba(1, 1, 1, 0.30);
+}
+.subscribe__button-cart {
+font-family: Neue Montreal;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 128.571% */
+color: #E8E8E2;
+border-radius: 30px;
+background: #6D8434;
+max-width: 335px;
+height: 42px;
+display: inline-flex;
+padding: 12px 138px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+margin-bottom: 80px;
+margin-top: 14px;
+
+}
+
+.item-details-container {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .item-detail-title {
+    color: gray;
+  }
+  
+  .item-detail-value {
+    font-size: 1.25rem;
+  }
+  
+  .cart_quantity-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem;
+    border: 1px solid gray;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .quantity_btn {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    padding: 0.2rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .quantity_btn:hover {
+    background: #dedede;
+  }
+@media screen and (min-width: 768px) {
+    .container {
+      max-width: 768px;
+      padding: 0 60px;
+    }
+  }
+  
+  @media screen and (min-width: 1440px) {
+    .container {
+      max-width: 1440px;
+      padding: 0 100px;
+    }
+    .cart__num {
+        color: #010101;
+        font-family: Neue Montreal;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 32px; /* 100% */
+        text-transform: uppercase;
+        }
+    .cart__product-delete_all {
+            color: #010101;
+            font-family: Neue Montreal;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px; /* 125% */
+        }
+    .cart__title {
+        display: flex;
+        color: #010101;
+        font-family: Neue Montreal;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 32px; /* 100% */
+        text-transform: uppercase;
+        }
+    .cart__input-email {
+        display: inline-flex;
+        padding: 15px 172px 15px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 30px;
+        border: 1px solid rgba(1, 1, 1, 0.30);
+        
+        
+        }
+    .subscribe__button-cart {
+        color: #E8E8E2;
+        border-radius: 30px;
+        background: #6D8434;
+        font-family: Neue Montreal;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px; /* 120% */
+        width: 215px;
+        height: 54px;
+        
+        }
+        .custom-hr {
+            display: block;
+            height: 190px;
+            width: 9px;
+            border: 0;
+            border-radius: 20px;
+            background: rgba(1, 1, 1, 0.08);
+            
+          }
+  }
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------- */
+ .custom-hr {
+    display: none;
+    height: 117px;
+    width: 5px;
+    border: 0;
+    border-radius: 20px;
+    background: rgba(1, 1, 1, 0.08);
+    flex-shrink: 0;
+  } 
+
+
+
+/* .vline{
+    border-left: 1px solid black;
+   } */
+/* #vert {
+    height: 190px;
+    width: 9px;
+    border:none;
+    border-left: 1px solid #000;
+} */
