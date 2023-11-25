@@ -3,18 +3,16 @@ import { getProductById } from '/js/API.js';
 import axios from 'axios';
 
 document.addEventListener('DOMContentLoaded', async function () {
-  const productContainer = document.querySelector('.container-product-cards');
+  const productContainer = document.querySelector('.container-product-cards-prod');
   const modal = document.querySelector('.modal');
   const closeModalBtn = document.querySelector('.modal-close-btn');
   const popularContainer = document.querySelector('.container-aside-cards');
-  const discountContainer = document.querySelector(
-    '.container-discount-product-cards'
+  const discountContainer = document.querySelector('.container-discount-product-cards'
   );
   const addToCartBtn = document.querySelector('.addtocart-btn');
 
   function addToCart(event) {
     const modalId = modal.getAttribute('id');
-    console.log(modalId);
   }
 
   function openModal() {
@@ -48,12 +46,10 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   async function handleProductClick(event) {
-    const clickedElement = event.target.closest('.product-card');
+    const clickedElement = event.target.closest('.product-card-prod');
 
     if (clickedElement) {
       const productId = clickedElement.id;
-      console.log('Clicked Product ID:', productId);
-
       modal.setAttribute('id', productId);
 
       const product = await getProductDetails(productId);
@@ -66,8 +62,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 
       if (product) {
         displayProductDetails(product);
-      } else {
-        console.log('Product ID not found in fetched-products');
       }
     }
   }
@@ -76,7 +70,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const clickedPopular = event.target.closest('.aside-product-card');
     if (clickedPopular) {
       const popularid = clickedPopular.id;
-      console.log('Clicked Product ID:', popularid);
+  
 
       modal.setAttribute('id', popularid);
 
@@ -96,7 +90,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const clickedDiscount = event.target.closest('.discount-product-card');
     if (clickedDiscount) {
       const discountId = clickedDiscount.id;
-      console.log('Clicked Product ID:', discountId);
+      
 
       modal.setAttribute('id', discountId);
 
@@ -114,7 +108,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   function displayProductDetails(product) {
     const { name, price, desc, img, category, size, popularity } = product;
-    console.log('Product Details:', { name, price, desc });
 
     openModal();
 

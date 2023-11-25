@@ -179,6 +179,7 @@
         background: #6D8434;    
         color: #E8E8E2;
         border: none;
+        cursor: pointer;
     }
 
     .addtocart-btn:hover {
