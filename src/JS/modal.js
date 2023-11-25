@@ -3,7 +3,9 @@ import { getProductById } from '/js/API.js';
 import axios from 'axios';
 
 document.addEventListener('DOMContentLoaded', async function () {
-  const productContainer = document.querySelector('.container-product-cards');
+  const productContainer = document.querySelector(
+    '.container-product-cards-prod'
+  );
   const modal = document.querySelector('.modal');
   const closeModalBtn = document.querySelector('.modal-close-btn');
   const popularContainer = document.querySelector('.container-aside-cards');
@@ -48,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   async function handleProductClick(event) {
-    const clickedElement = event.target.closest('.product-card');
+    const clickedElement = event.target.closest('.product-card-prod');
 
     if (clickedElement) {
       const productId = clickedElement.id;
