@@ -183,8 +183,8 @@
     } */
   
     .container-product-cards {
-      width: 925px;
-      padding: 60px 0 40px 0;
+      max-width: 925px;
+      /* padding: 60px 0 40px 0; */
       row-gap: 40px;
       column-gap: 20px;
     }
@@ -206,7 +206,7 @@
     .container-pagination {
       display: flex;
       flex-direction: row;
-      width: 472px;
+      max-width: 472px;
       justify-content: space-between;
       align-items: center;
     }
