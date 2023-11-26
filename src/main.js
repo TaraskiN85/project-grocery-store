@@ -4,11 +4,13 @@ import {
   appendDiscountProductsMarkup,
   appendPopularProductsMarkup,
 } from './JS/markup-popular-discount-product-cards';
+import './JS/footer-subscription';
 import {
   renderSelect,
   fetchBasedOnScreenSize,
   checkedForm,
 } from './JS/filters';
+
 
 window.addEventListener('resize', fetchBasedOnScreenSize);
 checkedForm();
