@@ -10,7 +10,6 @@ p {
 .footer-container {
   padding-top: 40px;
   padding-bottom: 20px;
-  max-width: 375px;
 }
 
 .footer-left-side {
@@ -105,8 +104,6 @@ p {
   margin-bottom: 14px;
 }
 
-
-
 .footer-second-text {
   color: var(--light-gray-color);
   font-size: 14px;
@@ -150,7 +147,6 @@ p {
   color: var(--light-gray-color);
 }
 
-
 .footer-form-btn {
   width: 335px;
   height: 42px;
@@ -183,10 +179,7 @@ p {
 }
 
 @media screen and (min-width: 768px) {
-  .footer-container {
-    max-width: 768px;
-  }
-
+ 
   .footer-first-container {
     display: flex;
     gap: 78px;
@@ -266,9 +259,6 @@ p {
 }
 
 @media screen and (min-width: 1440px) {
-  .footer-container {
-      max-width: 1440px;
-    }
 
   .footer-first-container {
     gap: 148px;
