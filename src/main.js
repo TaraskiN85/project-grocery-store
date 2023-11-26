@@ -11,7 +11,6 @@ import {
   checkedForm,
 } from './JS/filters';
 
-
 window.addEventListener('resize', fetchBasedOnScreenSize);
 checkedForm();
 fetchBasedOnScreenSize();
