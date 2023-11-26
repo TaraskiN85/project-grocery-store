@@ -135,6 +135,10 @@ margin-bottom: 80px;
     line-height: 1.6;
 }
 
+.full {
+  display: flex;
+  flex-direction: column;
+}
 
 
 .card_container_price {}
@@ -403,6 +407,7 @@ padding: 12px 20px;
 
 .container_full_cart {
   display: flex;
+  justify-content: space-between;
   gap: 101px;
 }
 }
