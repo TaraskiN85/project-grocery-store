@@ -7,4 +7,6 @@
   --hover-color: #586F1F;
   --white-color: #FAFAFA;
   --luminous-color: #0101014D;
+  --border-color: rgba(232, 232, 226, 0.30);
+  --hover-icon-color: rgba(232, 232, 226, 0.30);
 };

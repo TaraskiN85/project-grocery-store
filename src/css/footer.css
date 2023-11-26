@@ -17,12 +17,20 @@ p {
 }
 
 .footer-logo-container {
-    display: flex;
-    align-items: center;
-    border-radius: 9px;
-    gap: 8px;
-    margin-bottom: 20px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  border-radius: 9px;
+  gap: 8px;
+  margin-bottom: 20px;
+  transition: border-radius 0.3s ease;
 }
+
+.footer-logo-container:is(:hover, :focus) {
+  border-radius: 9px;
+  background-color: var(--background-color);
+}
+
 
 .footer-logo-svg {
   border-radius: 50%;
@@ -31,6 +39,12 @@ p {
   align-items: center;
   fill: var(--accent-color);
   background-color: var(--background-color);
+  transition: background-color 0.3s ease, fill 0.3s ease;
+}
+
+ .footer-logo-container:is(:hover, :focus) .footer-logo-svg {
+  fill:var(--background-color);
+  background-color: var(--accent-color);
 }
 
 .footer-logo-text {
@@ -39,27 +53,11 @@ p {
     font-size: 18px;
     line-height: 1.11;
     letter-spacing: -0.02em;
+    transition: color 0.3s ease;
 }
 
-.footer-logo {
-  color: var(--background-color);
-  font-family: Quincy CF;
-  font-size: 18px;
-  line-height: 1.11;
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-}
-
-.logo-icon-box {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background-color: var(--background-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 8px;
+.footer-logo-container:is(:hover, :focus) .footer-logo-text {
+  color: var(--black-color);
 }
 
 .logo-icon {
@@ -79,12 +77,17 @@ p {
 
 .footer-socials-link {
   border-radius: 10px;
-  border: 1px solid rgba(232, 232, 226, 0.3);
+  border: 1px solid var(--border-color);;
   padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--background-color);
+  transition: background-color 0.3s ease;
+}
+
+.footer-socials-link:is(:hover, :focus) {
+  background-color: var(--hover-icon-color);
 }
 
 .footer-socials-icon {
@@ -147,6 +150,11 @@ p {
   color: var(--light-gray-color);
 }
 
+.form-input::placeholder:hover, 
+.form-input::placeholder:focus {
+  color: var(--background-color);
+}
+
 .footer-form-btn {
   width: 335px;
   height: 42px;
@@ -157,6 +165,14 @@ p {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28;
+  transition: color 0.3s ease;
+}
+
+.footer-form-btn:hover,
+.footer-form-btn:focus,
+.footer-form-btn:active
+{
+  color: var(--accent-color);
 }
 
 .footer-bottom {
