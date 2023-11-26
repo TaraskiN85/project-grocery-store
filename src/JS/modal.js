@@ -1,5 +1,3 @@
-import { getProductById } from '/js/API.js';
-
 import axios from 'axios';
 
 document.addEventListener('DOMContentLoaded', async function () {
