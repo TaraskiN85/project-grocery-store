@@ -4,7 +4,7 @@
     <h2>Products</h2>
     <p class="filter-text">Filters:</p>
     <div class="filter-field">
-      <form class="search-form">
+      <form class="search-form js-search-input">
         <input
           type="text"
           name="searchQuery"
@@ -20,8 +20,9 @@
       </form>
 
       <form>
-        <select class="category-input" name="category">
-          <option value="" disabled selected>Category</option>
+        <select class="category-input js-category" name="category">
+          <option value="" disabled selected hidden>Category</option>
+          <option value="">Show All</option>
         </select>
       </form>
 
