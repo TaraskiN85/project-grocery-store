@@ -1,28 +1,33 @@
 import { orderSubscription } from './API';
 
-try {
-    const form = document.querySelector('.footer-form');
-    form.addEventListener('submit', onSubscribe);
-  async function onSubscribe() {
-    // e.preventDefault();
-    const email = form.querySelector('#footer-email').value;
 
+  const form = document.querySelector('.footer-form');
+  form.addEventListener('submit', onSubscribe);
+
+async function onSubscribe(event) {
+  event.preventDefault();
+  // const email = document.querySelector('.form-input').value;
+  const email =  form.querySelector('#footer-email').value;
+ 
+
+  try {
     if (!email) {
       throw new Error('Email is required!');
+      
     }
 
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       throw new Error('Invalid email format!');
     }
 
     const message = await orderSubscription(email);
     console.log(message);
-  }
+    // }
 
-  onSubscribe();
-} catch (error) {
-  console.error(error);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 // -------II variant------

@@ -9,6 +9,7 @@ import {
   appendDiscountProductsMarkup,
   appendPopularProductsMarkup,
 } from './JS/markup-popular-discount-product-cards';
+import './JS/footer-subscription';
 
 window.addEventListener('resize', fetchBasedOnScreenSize);
 const options = {
