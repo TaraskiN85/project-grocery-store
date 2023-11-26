@@ -4,7 +4,7 @@ const refs = {
 
 export function appendMarkup(data) {
   refs.divProdCards.innerHTML = '';
-  refs.divProdCards.insertAdjacentHTML('beforeend', createMarkup(data));
+  refs.divProdCards.insertAdjacentHTML('afterbegin', createMarkup(data));
 }
 
 function createMarkup(data) {
