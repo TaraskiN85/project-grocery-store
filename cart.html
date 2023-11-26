@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <title>Cart</title>
-    <script type="module" crossorigin src="/project-grocery-store/assets/styles-c5b7ee65.js"></script>
-    <link rel="stylesheet" href="/project-grocery-store/assets/styles-559e7ae9.css">
+    <script type="module" crossorigin src="/project-grocery-store/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-grocery-store/assets/styles-9f48612f.js">
+    <link rel="stylesheet" href="/project-grocery-store/assets/styles-743cbec7.css">
   </head>
   <body>
     <header class="header">
@@ -200,6 +201,34 @@
   </div>
 </footer>
 
+    <div class="modal-cart is-hidden">
+  <div class="modal-cart-section">
+    <div class="modal-cart-content">
+      <div class="modal-cart-img"><img class="img-succes" src="/project-grocery-store/assets/tomato-84c5f20c.png" alt="tomato" /></div>
+      <div class="modal-cart-title">
+        <h3 class="cart-title">Order success</h3>
+      </div>
+      <div class="modal-cart-text">
+        <p class="cart-text">
+          Thank you for shopping at Food Boutique. Your order has been received
+          and is now being freshly prepared just for you! Get ready to indulge
+          in nourishing goodness, delivered right to your doorstep. We're
+          thrilled to be part of your journey to better health and happiness.
+        </p>
+      </div>
+      <div class="modal-cart-btn">
+        <button class="close-btn">
+          <svg class="cart-icon-close">
+            <use href="/project-grocery-store/assets/icons-9c2f0f33.svg#icon-delete-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+   
     <script type="module" src="/project-grocery-store/cart.js"></script>
+     
   </body>
 </html>
