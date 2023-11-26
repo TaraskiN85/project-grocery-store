@@ -10,7 +10,6 @@
         transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
         margin:0 auto;
         padding: 0;
-
     }
 
     .modal-product {
@@ -82,7 +81,19 @@
         align-items: center;
         margin-bottom: 20px;
         border-radius: 10px;
+        position:relative;
     }
+
+    .modal-discount-svg {
+        position: absolute;
+        background-color: transparent;
+        border: none;
+        top: -20px;
+        left: -10px;
+        transform-origin: center center;
+        animation: rotateAnimation 15s linear infinite;
+        display: none;
+      }
 
     .img-content {
         width: 180px;
