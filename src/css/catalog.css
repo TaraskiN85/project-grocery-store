@@ -1,8 +1,10 @@
-.container {
+/* стили .container прописаны в корневом файле styles.css, тут я их закомментирую */
+
+/* .container {
   
   max-width: 375px;
   padding: 0 20px;
-}
+} */
 
 .catalog-container {
   display: flex;
@@ -11,21 +13,23 @@
 
 @media screen and (min-width: 768px) {
 
-  .container {
+  /* .container {
       max-width: 768px;
       padding: 0 32px;
-    }
+    } */
   }
 
   @media screen and (min-width: 1440px) {
-    .hero {
-      padding-top: 85px;
-    }
     
-    .container {
+    /* для чего в секции каталог класс из .hero? В catalog.html его нет. тут закомментировал */
+    /* .hero {
+      padding-top: 85px;
+    } */
+    
+    /* .container {
       max-width: 1440px;
       padding: 0 100px;
-    }
+    } */
 
     .catalog-container {
       flex-direction: row;

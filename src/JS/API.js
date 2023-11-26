@@ -4,7 +4,7 @@ const BASE_URL = 'https://food-boutique.b.goit.study/api/';
 
 export const getProductsByParams = async optionsObj => {
   let FULL_URL = `${BASE_URL}products/?`;
-
+  // const options = JSON.parse(localStorage.getItem('search-params'));
   for (const key in optionsObj) {
     FULL_URL += `&${key}=${optionsObj[key].toString()}`;
   }
@@ -18,8 +18,9 @@ export const getProductsByParams = async optionsObj => {
 export const getProductsCategories = async () => {
   const res = await axios.get(`${BASE_URL}products/categories/`);
   const data = await res.data;
+  // data.unshift('Show All');
   localStorage.setItem('product-categories', JSON.stringify(data));
-  return data;
+  return await res.data;
 };
 
 export const getDiscountProducts = async () => {
@@ -37,7 +38,7 @@ export const getPopularProducts = async (limit = 5) => {
 };
 
 export const getProductById = async id => {
-  const res = await axios.get(`${BASE_URL}products/?id=${id}`);
+  const res = await axios.get(`${BASE_URL}products/${id}`);
   return await res.data;
 };
 

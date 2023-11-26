@@ -1,41 +1,42 @@
 import './JS/pagination';
-import { getProductsByParams, getProductsCategories } from './JS/API';
-import { appendMarkup } from './JS/markup-product-cards';
+import { getProductsCategories, getProductById } from './JS/API';
 import {
   appendDiscountProductsMarkup,
   appendPopularProductsMarkup,
 } from './JS/markup-popular-discount-product-cards';
+import './JS/footer-subscription';
+import {
+  renderSelect,
+  fetchBasedOnScreenSize,
+  checkedForm,
+} from './JS/filters';
+
 
 window.addEventListener('resize', fetchBasedOnScreenSize);
+checkedForm();
 fetchBasedOnScreenSize();
-
-function fetchBasedOnScreenSize() {
-  const options = {
-    keyword: '',
-    page: 1,
-    limit: '',
-  };
-  const windowWidth = window.innerWidth;
-  if (windowWidth < 768) {
-    options.limit = 6;
-    getProductsByParams(options)
-      .then(data => appendMarkup(data))
-      .catch(er => console.log(er));
-  } else if (windowWidth >= 768 && windowWidth < 1440) {
-    options.limit = 8;
-    getProductsByParams(options)
-      .then(data => appendMarkup(data))
-      .catch(er => console.log(er));
-  } else {
-    options.limit = 9;
-    getProductsByParams(options)
-      .then(data => appendMarkup(data))
-      .catch(er => console.log(er));
-  }
-}
+getProductsCategories()
+  .then(data => {
+    renderSelect(data);
+  })
+  .catch(er => {
+    console.log(er);
+  });
 
 appendPopularProductsMarkup();
 appendDiscountProductsMarkup();
-getProductsCategories();
+// getProductsCategories();
+const cartProducts = JSON.parse(localStorage.getItem('cart-products-list'));
+if (!cartProducts) {
+  localStorage.setItem('cart-products-list', JSON.stringify([]));
+}
+
+const prodId = '640c2dd963a319ea671e383b';
+
+const getObjById = async () => {
+  const data = await getProductById(prodId);
+  console.log(data);
+};
+getObjById();
 
 import './JS/modal';

@@ -1,4 +1,3 @@
-
 import Pagination from 'tui-pagination';
 import { getProductsByParams } from './API';
 import { appendMarkup } from './markup-product-cards';
@@ -56,12 +55,10 @@ pagination.on('afterMove', function (eventData) {
 
   async function fetchData(pageNum) {
     try {
-      const options = {
-        keyword,
-        category,
-        page: pageNum,
-        limit: itemsPerPage,
-      };
+      const options = JSON.parse(localStorage.getItem('search-params'));
+      options.page = pageNum;
+      localStorage.setItem('search-params', JSON.stringify(options));
+
       const data = await getProductsByParams(options);
       appendMarkup(data);
       const prevButton = container.querySelector('.tui-prev');
