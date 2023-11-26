@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', async function () {
   let productObj;
   function addToCart(event) {
     event.preventDefault();
-    console.log(productObj);
     const cartProducts = JSON.parse(localStorage.getItem('cart-products-list'));
     if (cartProducts.some(product => product._id === productObj._id)) {
       alert(`Product is already in cart!`);
       return;
     } else {
+      productObj.quantity = 1;
       cartProducts.push(productObj);
       localStorage.setItem('cart-products-list', JSON.stringify(cartProducts));
     }
