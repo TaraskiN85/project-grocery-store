@@ -15,20 +15,20 @@
     color: rgba(1, 1, 1, 0.30);
     font-size: 14px;
     font-weight: 400;
-    line-height: 0.78;
+    line-height: 1.28;
     margin-bottom: 8px;
 }
 
 .search-input{
     width: 100%;
-    padding: 14px 20px;
+    padding: 14.25px 20px;
     border-radius: 30px;
     border: 1px solid rgba(1, 1, 1, 0.30);
     background-color: transparent;
     color: var(--black-color);
     font-size: 14px;
     font-weight: 400;
-    line-height: 0.78;
+    line-height: 1.28;
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
     outline: none;
 }
@@ -42,7 +42,7 @@
     color: var(--black-color);
     font-size: 14px;
     font-weight: 400;
-    line-height: 0.78;
+    line-height: 1.28;
 }
 
 .search-button {
@@ -62,16 +62,19 @@
 
 .category-input{
     width: 100%;
-        padding: 14px 20px;
+        padding: 14.25px 20px;
         border-radius: 30px;
         border: 1px solid rgba(1, 1, 1, 0.30);
         background-color: transparent;
         color: var(--black-color);
         font-size: 14px;
         font-weight: 400;
-        line-height: 0.78;
+        line-height: 1.28;
         transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
         outline: none;
+        appearance: none;
+        background: url(../img/chevron-down.svg) no-repeat right;
+        background-position-x: calc(100% - 20px)
 }
 
 .category-input:hover,
@@ -81,14 +84,16 @@
 
 .sorting-input{
     width: 100%;
-    padding: 14px 20px;
+    padding: 15.05px 20px;
     border: none;
     border-radius: 30px;
-    background-color: #FAFAFA;
     color: var(--black-color);
     font-size: 14px;
     font-weight: 400;
-    line-height: 0.78;
+    line-height: 1.28;
+    appearance: none;
+    background: #FAFAFA url(../img/chevron-down.svg) no-repeat right;
+    background-position-x: calc(100% - 20px)
 }
 
 @media screen and (min-width: 768px){
@@ -104,23 +109,27 @@
 
     .search-input{
         font-size: 18px;
-        line-height: 0.75;
+        line-height: 1.33;
+        padding: 13.25px 20px;
+        
     }
     
     .category-input{
         width: 189px;
         font-size: 18px;
-        line-height: 0.75;
+        line-height: 1.33;
+        padding: 13.25px 20px;
     }
 
     .sorting-input{
         width: 200px;
         font-size: 18px;
-        line-height: 0.75;
+        line-height: 1.33;
+        padding: 14.05px 20px;
     }
 
     .search-input::placeholder {
         font-size: 18px;
-        line-height: 0.75;
+        line-height: 1.33;
     }
 }
