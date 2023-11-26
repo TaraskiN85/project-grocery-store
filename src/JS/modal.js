@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', async function () {
   const modal = document.querySelector('.modal');
   const closeModalBtn = document.querySelector('.modal-close-btn');
   const popularContainer = document.querySelector('.container-aside-cards');
-  const discountContainer = document.querySelector(
-    '.container-discount-product-cards'
+  const discountContainer = document.querySelector('.container-discount-product-cards'
   );
   const addToCartBtn = document.querySelector('.addtocart-btn');
-
+  const discountSvg = document.querySelector('.modal-discount-svg')
+  
   let productObj;
   function addToCart(event) {
     event.preventDefault();
@@ -25,16 +25,17 @@ document.addEventListener('DOMContentLoaded', async function () {
       localStorage.setItem('cart-products-list', JSON.stringify(cartProducts));
     }
 
-    // const modalId = modal.getAttribute('id');
-    // console.log(modalId);
+  
   }
 
   function openModal() {
     modal.classList.remove('is-hidden');
+    document.body.style.overflow = 'hidden'; 
   }
 
   function closeModal() {
     modal.classList.add('is-hidden');
+    document.body.style.overflow = 'visible'; 
   }
 
   function handleModalClick(event) {
@@ -65,31 +66,28 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     if (clickedElement) {
       const productId = clickedElement.id;
-      // console.log('Clicked Product ID:', productId);
+  
 
       modal.setAttribute('id', productId);
 
       const product = await getProductDetails(productId);
-
-      const closeModalBtn = document.querySelector('.modal-close-btn');
-
-      closeModalBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
-      });
 
       if (product) {
         displayProductDetails(product);
       } else {
         console.log('Product ID not found in fetched-products');
       }
+    } else {
+      console.log('Product ID not found in fetched-products');
     }
+    
   }
 
   async function handlePopularClick(event) {
     const clickedPopular = event.target.closest('.aside-product-card');
     if (clickedPopular) {
       const popularid = clickedPopular.id;
-      // console.log('Clicked Product ID:', popularid);
+      
 
       modal.setAttribute('id', popularid);
 
@@ -109,11 +107,12 @@ document.addEventListener('DOMContentLoaded', async function () {
     const clickedDiscount = event.target.closest('.discount-product-card');
     if (clickedDiscount) {
       const discountId = clickedDiscount.id;
-      // console.log('Clicked Product ID:', discountId);
+      
 
       modal.setAttribute('id', discountId);
 
       const product = await getProductDetails(discountId);
+
 
       if (product) {
         displayProductDetails(product);
@@ -126,10 +125,22 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   function displayProductDetails(product) {
-    const { name, price, desc, img, category, size, popularity } = product;
-    // console.log('Product Details:', { name, price, desc });
+    const { name, price, desc, img, category, size, popularity, is10PercentOff } = product;
+
 
     openModal();
+
+
+  const discountValue = product.is10PercentOff;
+
+
+      if (discountValue === true) {
+          discountSvg.style.display = 'block';
+      } else {
+          discountSvg.style.display = 'none';
+      }
+
+    console.log(is10PercentOff)
 
     const modalNameElement = document.querySelector('.modal-title');
     const modalPriceElement = document.querySelector('.price');
