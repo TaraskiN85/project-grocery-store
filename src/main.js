@@ -38,4 +38,5 @@ export function updateCartFromLocalStorage() {
   const quantityCart = document.querySelector('.quantity_products');
   quantityCart.textContent = '(' + objectsCount + ')';
 }
+
 updateCartFromLocalStorage()

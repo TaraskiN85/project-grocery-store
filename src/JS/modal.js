@@ -1,8 +1,9 @@
-import axios from 'axios';
-
 import { getProductById } from './API';
 
+
 import { updateCartFromLocalStorage } from '../main';
+
+
 
 document.addEventListener('DOMContentLoaded', async function () {
   const productContainer = document.querySelector(
@@ -46,12 +47,6 @@ document.addEventListener('DOMContentLoaded', async function () {
       console.error('Error managing cart:', error);
     }
   }
-
-  addToCartBtn.addEventListener('click', async (event) => {
-    event.preventDefault();
-    const productId = addToCartBtn.id;
-    await manageCart(productId);
-  });
 
 
   function checkProductCart() {
@@ -213,5 +208,9 @@ document.addEventListener('DOMContentLoaded', async function () {
   popularContainer.addEventListener('click', handlePopularClick);
   productContainer.addEventListener('click', handleProductClick);
   discountContainer.addEventListener('click', handleDicountClick);
-  // addToCartBtn.addEventListener('click', addToCart);
+    addToCartBtn.addEventListener('click', async (event) => {
+    event.preventDefault();
+    const productId = addToCartBtn.id;
+    await manageCart(productId);
+  });
 });

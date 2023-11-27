@@ -1,6 +1,6 @@
 import { renderCartProducts,cartProductsList } from './JS/markup-cart-products';
 
-   renderCartProducts();
+renderCartProducts();
 const deleteProductBtn = document.querySelector('.card-product-delete-button').parentNode;
 const deleteAllBtn = document.querySelector('.cart-product-delete-all-button').parentNode;
   
@@ -27,4 +27,6 @@ function deleteFromCart() {
 function deleteAllFromCart() { 
   localStorage.setItem('cart-products-list', JSON.stringify([]));
   cartProductsList.innerHTML = ''
+  
 };
+
