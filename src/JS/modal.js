@@ -6,9 +6,7 @@ import { updateCartFromLocalStorage } from '../main';
 
 
 document.addEventListener('DOMContentLoaded', async function () {
-  const productContainer = document.querySelector(
-    '.container-product-cards-prod'
-  );
+  const productContainer = document.querySelector('.container-product-cards-prod');
   const modal = document.querySelector('.modal');
   const closeModalBtn = document.querySelector('.modal-close-btn');
   const popularContainer = document.querySelector('.container-aside-cards');
@@ -28,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       const existingProductIndex = cartProducts.findIndex(p => p._id === product._id);
   
       if (existingProductIndex !== -1) {
-        // Видалення продукту з кошика, якщо вже існує
+
         cartProducts.splice(existingProductIndex, 1);
         localStorage.setItem('cart-products-list', JSON.stringify(cartProducts));
         checkProductCart();
@@ -103,63 +101,60 @@ document.addEventListener('DOMContentLoaded', async function () {
 };
 
   async function handleProductClick(event) {
-    const clickedElement = event.target.closest('.product-card-prod');
-
-    if (clickedElement) {
-      const productId = clickedElement.id;
-
+    const clickedImage = event.target.closest('.product-card-img-prod');
+  
+    if (clickedImage) {
+      const productId = clickedImage.closest('.product-card-prod').id;
+  
       addToCartBtn.setAttribute('id', productId);
       modal.setAttribute('id', productId);
-
+  
       const product = await getProductDetails(productId);
-
+  
       if (product) {
         displayProductDetails(product);
       } else {
         console.log('Product ID not found in fetched-products');
       }
-    } else {
-      console.log('Product ID not found in fetched-products');
-    }
+    } 
   }
+  
 
   async function handlePopularClick(event) {
-    const clickedPopular = event.target.closest('.aside-product-card');
-    if (clickedPopular) {
-      const popularid = clickedPopular.id;
+    const clickedPopular = event.target.closest('.aside-card-img');
 
+    if (clickedPopular) {
+      const popularid = clickedPopular.closest('.aside-product-card').id;
+  
       addToCartBtn.setAttribute('id', popularid);
       modal.setAttribute('id', popularid);
-
+  
       const product = await getProductDetails(popularid);
-
+  
       if (product) {
         displayProductDetails(product);
       } else {
         console.log('Product ID not found in fetched-products');
       }
-    } else {
-      console.log('Product ID not found in fetched-products');
     }
   }
 
   async function handleDicountClick(event) {
-    const clickedDiscount = event.target.closest('.discount-product-card');
-    if (clickedDiscount) {
-      const discountId = clickedDiscount.id;
+    const clickedDiscount = event.target.closest('.discount-product-card-img');
 
+    if (clickedDiscount) {
+      const  discountId = clickedDiscount.closest('.discount-product-card').id;
+  
       addToCartBtn.setAttribute('id', discountId);
       modal.setAttribute('id', discountId);
-
+  
       const product = await getProductDetails(discountId);
-
+  
       if (product) {
         displayProductDetails(product);
       } else {
         console.log('Product ID not found in fetched-products');
       }
-    } else {
-      console.log('Product ID not found in fetched-products');
     }
   }
 
