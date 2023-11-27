@@ -1,4 +1,4 @@
-import"./assets/styles-4ec84f8c.js";const r=document.querySelector(".cart-list"),p=JSON.parse(localStorage.getItem("cart-products-list")),_=t=>t.map(({_id:e,name:c,img:o,category:i,price:l,size:u,popularity:L,quantity:h,is10PercentOff:k,desc:C})=>`<li class="card_container_product" id="${e}">
+import"./assets/styles-2ecbfd29.js";const r=document.querySelector(".cart-list"),p=JSON.parse(localStorage.getItem("cart-products-list")),_=t=>t.map(({_id:e,name:c,img:o,category:i,price:l,size:u,popularity:L,quantity:h,is10PercentOff:k,desc:C})=>`<li class="card_container_product" id="${e}">
 
          <div class="description">
           <div class="card_container-product_img">
