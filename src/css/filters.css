@@ -62,19 +62,20 @@
 
 .category-input{
     width: 100%;
-        padding: 14.25px 20px;
-        border-radius: 30px;
-        border: 1px solid rgba(1, 1, 1, 0.30);
-        background-color: transparent;
-        color: var(--black-color);
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1.28;
-        transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-        outline: none;
-        appearance: none;
-        background: url(../img/chevron-down.svg) no-repeat right;
-        background-position-x: calc(100% - 20px)
+    padding: 14.25px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(1, 1, 1, 0.30);
+    background-color: transparent;
+    color: var(--black-color);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    appearance: none;
+    background: url(../img/chevron-down.svg) no-repeat right;
+    background-position-x: calc(100% - 20px);
+    cursor: pointer;
 }
 
 .category-input:hover,
@@ -86,6 +87,8 @@
     width: 100%;
     padding: 15.05px 20px;
     border: none;
+    outline: none;
+    cursor: pointer;
     border-radius: 30px;
     color: var(--black-color);
     font-size: 14px;
