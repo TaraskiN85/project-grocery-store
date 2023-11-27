@@ -227,6 +227,10 @@ p {
     height: 28px;
   }
 
+  .footer-right-text {
+    margin-bottom: 64px;
+  }
+
   .footer-main-text {
     font-size: 40px;
     line-height: 1.1;
@@ -286,6 +290,10 @@ p {
     gap: 148px;
   }
 
+  .footer-right-text {
+    margin-bottom: 0;
+  }
+  
   .footer-second-text {
     margin-bottom: 0;
   }
