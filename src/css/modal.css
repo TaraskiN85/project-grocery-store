@@ -191,6 +191,12 @@
         color: #E8E8E2;
         border: none;
         cursor: pointer;
+        text-align: center;
+        color: #E8E8E2;
+
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px; 
     }
 
     .addtocart-btn:hover {
@@ -290,6 +296,11 @@
 
     .addtocart-btn {
         padding:10px 28px;
-        width:130px;
+
+
+font-size: 16px;
+
+
+line-height: 20px; 
     }
 }
