@@ -2,6 +2,7 @@ import { getProductsByParams } from './API';
 import { appendMarkup } from './markup-product-cards';
 
 const select = document.querySelector('.js-category');
+const sorting = document.querySelector('.js-sorting');
 const search_input = document.querySelector('.js-search-input');
 const storage_key = 'search-params';
 const params = {
@@ -12,6 +13,7 @@ const params = {
 };
 
 select.addEventListener('input', changeCategoryInLocal);
+sorting.addEventListener('input', changeSortingInLocal);
 search_input.addEventListener('submit', changeKeywordInLocal);
 
 export function renderSelect(categories) {
@@ -21,7 +23,6 @@ export function renderSelect(categories) {
     })
     .join('');
   select.insertAdjacentHTML('afterbegin', markup);
-  console.log(select.options.length);
   getCategoryInput();
 }
 
@@ -92,4 +93,56 @@ function getCategoryInput() {
       break;
     }
   }
+}
+
+function changeSortingInLocal() {
+  const options = JSON.parse(localStorage.getItem('search-params'));
+  switch (sorting.options[sorting.selectedIndex].value) {
+    case 'a_z':
+      options.byABC = true;
+      delete options.byPrice;
+      delete options.byPopularity;
+      break;
+
+    case 'z_a':
+      options.byABC = false;
+      delete options.byPrice;
+      delete options.byPopularity;
+      break;
+
+    case 'cheap':
+      options.byPrice = true;
+      delete options.byABC;
+      delete options.byPopularity;
+      break;
+
+    case 'expensive':
+      options.byPrice = false;
+      delete options.byABC;
+      delete options.byPopularity;
+      break;
+
+    case 'popular':
+      options.byPopularity = true;
+      delete options.byPrice;
+      delete options.byABC;
+      break;
+
+    case 'not_popular':
+      options.byPopularity = false;
+      delete options.byPrice;
+      delete options.byABC;
+      break;
+
+    case 'All':
+      options.page = 1;
+      delete options.byPrice;
+      delete options.byPopularity;
+      delete options.byABC;
+      break;
+  }
+  localStorage.setItem(storage_key, JSON.stringify(options));
+  getProductsByParams()
+    .then(data => appendMarkup(data))
+    .catch(er => console.log(er));
 }
