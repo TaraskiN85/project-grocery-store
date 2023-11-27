@@ -133,10 +133,6 @@
     width: calc((100% - 32px * 1) / 2);
   }
 
-  .product-card-img-prod {
-
-  }
-
   .produc-card-name-prod {
     font-size: 20px;
     line-height: 1.2;
@@ -153,6 +149,7 @@
 @media screen and (min-width: 1440px) {
   .container-product-cards-prod {
     max-width: 925px;
+    width: 925px;
     row-gap: 40px;
     column-gap: 20px;
   }
