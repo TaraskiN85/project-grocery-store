@@ -36,6 +36,7 @@ function displayByBuyModal() {
 function handleModalClick(event) {
   if (event.target === modalCartByBuy) {
     closeModal();
+
   }
 }
 
