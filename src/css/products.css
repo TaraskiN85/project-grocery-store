@@ -8,6 +8,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
+  min-height: 356px;
   padding: 0 0 40px 0;
   gap: 20px;
   max-width: 100%;
@@ -118,11 +119,48 @@
   fill: var(--background-color);
 }
 
-/* ---------------------------------- */
+/* nothing container */
+.products-nothing-container {
+  /* width: 279px; */
+  height: auto;
+  text-align: center;
+  margin: auto;
+  padding: 60px 0 0 0;
+}
 
+p.products-nothing-headline {
+  color: var(--black-color);
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.11;
+  margin: auto;
+  margin-top: 60px;
+  width: 261px;
+  padding-bottom: 14px;
+}
+
+.nothing-headline-span {
+  color: var(--accent-color);
+}
+
+.products-nothing-text {
+  color: var(--black-color);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  margin: auto;
+  margin-bottom: 32px;
+  max-width: 292px;
+}
+
+/* ---------------------------------- */
 @media screen and (min-width: 768px) {
   .container-product-cards-prod {
     flex-direction: row;
+    justify-content: center;
     padding:  0 0 50px 0;
     row-gap: 32px;
     column-gap: 32px;
@@ -131,10 +169,6 @@
 
   .product-card-prod {
     width: calc((100% - 32px * 1) / 2);
-  }
-
-  .product-card-img-prod {
-
   }
 
   .produc-card-name-prod {
@@ -146,12 +180,31 @@
     font-size: 20px;
     line-height: 1.2;
   }
+
+  p.products-nothing-headline {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: auto;
+    margin-top: 110px;
+    width: 261px;
+    padding-bottom: 14px;
+  }
+
+  .products-nothing-text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.20;
+    margin: auto;
+    max-width: 371px;
+  }
 }
 
 /* ---------------------------------- */
-
 @media screen and (min-width: 1440px) {
   .container-product-cards-prod {
+    min-width: 925px;
     max-width: 925px;
     row-gap: 40px;
     column-gap: 20px;
@@ -165,9 +218,18 @@
   .product-card-img-prod {
     max-width: 255px;
   }
+  
+  .products-nothing-container {
+    width: 925px;
+  }
+
+  p.products-nothing-headline {
+    margin: auto;
+    margin-top: 140px;
+  }
 }
 
-/* end--------------------styles product cards----------------end */
+/* end--------styles product cards and nothing container-------end */
 
 /* start--------------------styles pagination----------------start */
 .tui-pagination {
@@ -248,12 +310,7 @@
   pointer-events: none;
 }
 
-@media screen and (min-width: 768px) {
-
-}
-
 /* ---------------------------------- */
-
 @media screen and (min-width: 1440px) {
   .tui-pagination {
     gap: 8px;
@@ -261,7 +318,6 @@
   .tui-prev {
     margin-right: 40px;
   }
-
   .tui-next {
     margin-left: 40px;
   }
