@@ -31,12 +31,12 @@ if (!cartProducts) {
   localStorage.setItem('cart-products-list', JSON.stringify([]));
 }
 
-const prodId = '640c2dd963a319ea671e383b';
-
-const getObjById = async () => {
-  const data = await getProductById(prodId);
-  console.log(data);
-};
-getObjById();
-
 import './JS/modal';
+
+export function updateCartFromLocalStorage() {
+  const productsInLocalStorage = JSON.parse(localStorage.getItem('cart-products-list')) || [];
+  const objectsCount = productsInLocalStorage.length;
+  const quantityCart = document.querySelector('.quantity_products');
+  quantityCart.textContent = '(' + objectsCount + ')';
+}
+updateCartFromLocalStorage()
