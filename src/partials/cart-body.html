@@ -11,48 +11,16 @@
       </li>
     </ul>
     <div class="container_full_cart">
-      <div class="card_container_product" id="${_id}">
-        <div class="full">
-          <div class="cart-container-delete">
-            <span class="cart-product-delete-span">Delete all</span>
-            <button type="button" class="cart-product-delete-button">
-              <svg class="cart-icon-delete-all" width="24" height="24">
-                <use src="../img/icons.svg#icon-delete-close"></use>
-              </svg>
-            </button>
-          </div>
-          <div class="description">
-            <div class="card_container-product_img">
-              <img class="card_product_img" src="${img}" alt="${name}" />
-            </div>
-
-            <div class="card_container_product_fullDs">
-              <div class="card_container_product_name">
-                <h3 class="card_product_name">${name}</h3>
-              </div>
-              <div class="card_container_product_description">
-                <div class="card-description">
-                  <p class="cart_product_description">
-                    <span class="cart_product_span">Category:</span>${category}
-                  </p>
-                  <p class="cart_product_description">
-                    <span class="cart_product_span">Size:</span>${size}
-                  </p>
-                </div>
-              </div>
-              <div class="card_container_price">
-                <p class="card_product_price">${price}</p>
-              </div>
-            </div>
-            <div class="card-product-close-button">
-              <button type="button" class="cart-product-close-button">
-                <svg class="cart-icon-close-" width="18" height="18">
-                  <use src="../img/icons.svg#icon-delete-close"></use>
-                </svg>
-              </button>
-            </div>
-          </div>
+      <div class="full">
+        <div class="cart-container-delete">
+          <span class="cart-product-delete-span">Delete all</span>
+          <button type="button" class="cart-product-delete-all-button">
+            <svg class="cart-icon-delete-all" width="24" height="24">
+              <use src="./img/icons.svg#icon-delete-close"></use>
+            </svg>
+          </button>
         </div>
+        <ul class="cart-list"></ul>
       </div>
       <div class="cart_container_total_price">
         <h3 class="cart_title">Your Order</h3>
@@ -77,3 +45,36 @@
     </div>
   </div>
 </section>
+<div class="container">
+  <div class="empty-basket">
+    <div class="basket_container">
+      <ul class="basket_list">
+        <li class="basket_item">
+          <svg class="basket_svg" width="18" height="18">
+            <use href="../img/icons.svg#icon-cart"></use>
+          </svg>
+        </li>
+        <li class="basket_item">
+          <p class="basket_text">Cart<span class="basket_span">()</span></p>
+        </li>
+      </ul>
+    </div>
+    <img
+      class="basket_img"
+      srcset="../img/basket_1x.png, ../img/basket_2x.png"
+      src="./img/basket_1x.pngg"
+      alt="milk-chocolate"
+      width="132"
+      height="114"
+    />
+    <div class="basket_container_text">
+      <h3 class="basket_title">
+        Your basket is <span class="basket_title_span">empty...</span>
+      </h3>
+      <p class="basket-text">
+        Go to the main page to select your favorite products and add them to the
+        cart.
+      </p>
+    </div>
+  </div>
+</div>

@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api/';
 
-export const getProductsByParams = async optionsObj => {
+export const getProductsByParams = async () => {
   let FULL_URL = `${BASE_URL}products/?`;
-  // const options = JSON.parse(localStorage.getItem('search-params'));
+  const optionsObj = JSON.parse(localStorage.getItem('search-params'));
   for (const key in optionsObj) {
     FULL_URL += `&${key}=${optionsObj[key].toString()}`;
   }
@@ -18,7 +18,6 @@ export const getProductsByParams = async optionsObj => {
 export const getProductsCategories = async () => {
   const res = await axios.get(`${BASE_URL}products/categories/`);
   const data = await res.data;
-  // data.unshift('Show All');
   localStorage.setItem('product-categories', JSON.stringify(data));
   return await res.data;
 };
