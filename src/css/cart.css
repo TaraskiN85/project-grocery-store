@@ -13,13 +13,13 @@ p, h3 {
   }
 }
 
-.cart_list {
+ .cart_list {
   display: flex;
   align-items: center;
   gap: 14px;
   margin-bottom: 17px;
 
-}
+} 
 
 
 
@@ -43,7 +43,7 @@ p, h3 {
   display: flex;
   text-align: center;
   color: var(--black-color);
-}
+} */
 
 .card-description {
   display: flex;
@@ -411,3 +411,119 @@ padding: 12px 20px;
   gap: 101px;
 }
 }
+
+/* =================================empty-basket================================ */
+
+.empty-basket{
+  padding-top: 72px;
+  padding-bottom: 120px;
+}
+.basket_list {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 100px;
+
+}
+
+.basket_svg {
+  fill: var(--background-color);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  transition: background-color 0.3s ease
+}
+
+.basket_text,
+.basket_span {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.16;
+  text-transform: uppercase;
+  display: flex;
+  text-align: center;
+  color: var(--black-color);
+}
+
+
+.basket_img {
+  margin: auto;
+  margin-bottom: 28px;
+
+}
+
+.basket_container_text{
+  max-width: 279px;
+  margin: auto;
+  text-align: center;
+}
+.basket_title {
+  color: var(--black-color);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.basket_title_span {
+  color: var(--accent-color);
+  
+}
+
+.basket-text {
+  color: rgba(1, 1, 1, 0.70);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
+}
+
+@media screen and (min-width: 768px) {
+
+.empty-basket {
+  padding-top: 99px
+  }
+
+.basket_list {
+    padding-bottom: 130px;
+  }
+  .basket_text,
+  .basket_span {
+      font-size: 32px;
+      line-height: 1.0;
+    }
+.basket_img {
+    margin-bottom: 40px;
+    width: 164px;
+    height: 140px;
+  }
+
+  .basket_container_text {
+    max-width: 387px;
+  }
+.basket_title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.basket-text {
+  font-size: 18px;
+  line-height: 1.33;
+}
+}
+@media screen and (min-width: 1440px) {
+
+.empty-basket {
+    padding-top: 81px;
+    padding-bottom: 150px;
+  }
+.basket_list {
+  padding-bottom: 150px;
+}
+.basket_container_text{
+    
+    }
+
+}
+

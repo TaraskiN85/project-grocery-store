@@ -1,4 +1,4 @@
-const cartProductsList = document.querySelector('.cart-list');
+export const cartProductsList = document.querySelector('.cart-list');
 
 const cartProductsInfo = JSON.parse(localStorage.getItem('cart-products-list'));
 
@@ -19,7 +19,7 @@ const createMarkup = cartProductsInfo => {
       }) =>
         `<li class="card_container_product" id="${_id}">
 
-        <div class="description">
+         <div class="description">
           <div class="card_container-product_img">
             <img class="card_product_img" src="${img}" alt="${name}" />
           </div>
@@ -42,8 +42,8 @@ const createMarkup = cartProductsInfo => {
               <p class="card_product_price">${price}</p>
             </div>
           </div>
-          <div class="card-product-close-button">
-            <button type="button" class="cart-product-close-button">
+          <div class="card-product-delete-button">
+            <button type="button" class="cart-product-delete-button">
               <svg class="cart-icon-close-" width="18" height="18">
                 <use src="../img/icons.svg#icon-delete-close"></use>
               </svg>
@@ -57,6 +57,7 @@ const createMarkup = cartProductsInfo => {
 };
 
 export const renderCartProducts = () => {
+  cartProductsList.innerHTML = ''
   cartProductsList.insertAdjacentHTML(
     'afterbegin',
     createMarkup(cartProductsInfo)
