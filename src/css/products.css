@@ -106,7 +106,13 @@
   border-radius: 30px;
   background: var(--accent-color);
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.product-card-btn-prod:hover {
+  background-color: var(--hover-color);
+}
+
 
 .button-icon-prod {
   fill: var(--background-color);
