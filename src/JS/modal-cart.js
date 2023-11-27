@@ -1,10 +1,8 @@
-
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const cartBtnSubmit = document.querySelector('.cart_form_button')
-const modalCartByBuy = document.querySelector('.modal-cart')
-const modalCartClose = document.querySelector('.close-btn')
-
+const cartBtnSubmit = document.querySelector('.cart_form_button');
+const modalCartByBuy = document.querySelector('.modal-cart');
+const modalCartClose = document.querySelector('.close-btn');
 
 function displayByBuyModal(event) {
   event.preventDefault();
@@ -13,30 +11,16 @@ function displayByBuyModal(event) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(emailInputValue)) {
     alert('Please, enter valid Email.');
-  //   Notify.failure('Please, enter valid Email.');
+    //   Notify.failure('Please, enter valid Email.');
     return;
   }
-    modalCartByBuy.classList.remove('is-hidden')
-    document.body.style.overflow = 'hidden'; 
-  }
-
- 
-
-
-const cartBtnSubmit = document.querySelector('.cart_form_button');
-const modalCartByBuy = document.querySelector('.modal-cart');
-const modalCartClose = document.querySelector('.close-btn');
-
-function displayByBuyModal() {
   modalCartByBuy.classList.remove('is-hidden');
   document.body.style.overflow = 'hidden';
 }
 
-
 function handleModalClick(event) {
   if (event.target === modalCartByBuy) {
     closeModal();
-
   }
 }
 
