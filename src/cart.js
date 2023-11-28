@@ -48,6 +48,7 @@ async function handleProductClick(event) {
     const productId = clickedButton.closest('.card_container_product').id;
     deleteProductAndUpdateCart(productId);
   }
+  calculationTotalPrice();
 }
 
 cartContainer.addEventListener('click', handleProductClick);
@@ -56,7 +57,26 @@ function deleteAllFromCart() {
   localStorage.setItem('cart-products-list', JSON.stringify([]));
   cartProductsList.innerHTML = '';
   updateCartFromLocalStorage();
+  calculationTotalPrice();
 }
 
 // Додаємо обробник події для кнопки видалення всіх товарів
 deleteAllButton.addEventListener('click', deleteAllFromCart);
+
+const totalPriceProducts = document.querySelector('.cart_total_cost')
+function calculationTotalPrice() {
+
+const objectProducts = JSON.parse(localStorage.getItem('cart-products-list'));
+
+const totalPrice = objectProducts.reduce((acc, product) => {
+
+  return acc + product.price;
+}, 0);
+
+totalPriceProducts.textContent = `$ ${totalPrice.toFixed(2)}`;
+  
+}
+calculationTotalPrice();
+
+
+

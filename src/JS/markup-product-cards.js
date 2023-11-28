@@ -42,7 +42,7 @@ function createMarkup(data) {
               <p class="product-card-price-prod">${price}</p>
               <button type="button" class="product-card-btn-prod">
                 <svg width="18" height="18">
-                  <use class="button-icon-prod" href="../img/icons.svg#icon-cart"></use>
+                  <use class="button-icon-prod" href="./img/icons.svg#icon-cart"></use>
                 </svg>
               </button>
             </div>
