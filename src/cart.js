@@ -16,9 +16,6 @@ function updateCartFromLocalStorage() {
 
 updateCartFromLocalStorage();
 
-const deleteProductButtons = document.querySelectorAll(
-  '.card-product-delete-button'
-);
 const deleteAllButton = document.querySelector(
   '.cart-product-delete-all-button'
 );
@@ -40,22 +37,18 @@ function deleteProductAndUpdateCart(productId) {
   }
 }
 
-function deleteFromCart(event) {
-  const clickedButton = event.target.closest('.card_container_product');
+const cartContainer = document.querySelector('.cart-list');
+
+async function handleProductClick(event) {
+  const clickedButton = event.target.closest('.card-product-delete-button');
 
   if (clickedButton) {
-    const productId = clickedButton.id;
+    const productId = clickedButton.closest('.card_container_product').id;
     deleteProductAndUpdateCart(productId);
-  } else {
-    console.log('Delete button not found');
   }
 }
 
-// Видалення попередніх слухачів подій перед призначенням нових
-deleteProductButtons.forEach(button => {
-  button.removeEventListener('click', deleteFromCart);
-  button.addEventListener('click', deleteFromCart);
-});
+cartContainer.addEventListener('click', handleProductClick);
 
 function deleteAllFromCart() {
   localStorage.setItem('cart-products-list', JSON.stringify([]));
