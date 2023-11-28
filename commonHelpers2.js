@@ -26,7 +26,7 @@ import{g as u,a as W,b as K,c as G,d as U}from"./assets/footer-subscription-05dc
               <p class="product-card-price-prod">${n}</p>
               <button type="button" class="product-card-btn-prod">
                 <svg width="18" height="18">
-                  <use class="button-icon-prod" href="../img/icons.svg#icon-cart"></use>
+                  <use class="button-icon-prod" href="./img/icons.svg#icon-cart"></use>
                 </svg>
               </button>
             </div>
@@ -61,7 +61,7 @@ import{g as u,a as W,b as K,c as G,d as U}from"./assets/footer-subscription-05dc
                   <div class="product-card-prices-btn">
                       <button type="button" class="products-card-btn">
                           <svg width="16" height="16">
-                              <use class="popular-button-icon" href="img/icons.svg#icon-cart"></use>
+                              <use class="popular-button-icon" href="./img/icons.svg#icon-cart"></use>
                           </svg>
                       </button>
                   </div>
@@ -74,7 +74,7 @@ import{g as u,a as W,b as K,c as G,d as U}from"./assets/footer-subscription-05dc
                           alt="${r}">
                           <span class="discount-svg">
                           <svg width="60" height="60" >
-                              <use  href="img/icons.svg#icon-discount"></use>
+                              <use  href="./img/icons.svg#icon-discount"></use>
                           </svg>
                           </span>
                   </div>
