@@ -30,11 +30,15 @@ getProductsByParams(options)
           '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
         moveButton:
           '<a href="#" class="tui-page-btn tui-{{type}}">' +
-          '<span class="tui-ico-{{type}}">{{type}}</span>' +
+          '<svg width="40" height="40">' +
+          '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+          '</svg>' +
           '</a>',
         disabledMoveButton:
           '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-          '<span class="tui-ico-{{type}}">{{type}}</span>' +
+          '<svg width="40" height="40">' +
+          '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+          '</svg>' +
           '</span>',
         moreButton:
           '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
@@ -81,7 +85,7 @@ function handleSelectChange() {
       const pagination = new Pagination(container, {
         totalItems,
         itemsPerPage,
-        visiblePages: 3,
+        visiblePages: 4,
         page: 1,
         centerAlign: false,
         firstItemClassName: 'tui-first-child',
@@ -92,11 +96,15 @@ function handleSelectChange() {
             '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
           moveButton:
             '<a href="#" class="tui-page-btn tui-{{type}}">' +
-            '<span class="tui-ico-{{type}}">{{type}}</span>' +
+            '<svg width="40" height="40">' +
+            '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+            '</svg>' +
             '</a>',
           disabledMoveButton:
             '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-            '<span class="tui-ico-{{type}}">{{type}}</span>' +
+            '<svg width="40" height="40">' +
+            '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+            '</svg>' +
             '</span>',
           moreButton:
             '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
@@ -107,8 +115,6 @@ function handleSelectChange() {
     })
     .catch(er => console.log(er));
 }
-
-
 
 document
   .querySelector('.js-search-input')
@@ -131,7 +137,7 @@ function handlInputChange(event) {
       const pagination = new Pagination(container, {
         totalItems,
         itemsPerPage,
-        visiblePages: 3,
+        visiblePages: 4,
         page: 1,
         centerAlign: false,
         firstItemClassName: 'tui-first-child',
@@ -142,11 +148,15 @@ function handlInputChange(event) {
             '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
           moveButton:
             '<a href="#" class="tui-page-btn tui-{{type}}">' +
-            '<span class="tui-ico-{{type}}">{{type}}</span>' +
+            '<svg width="40" height="40">' +
+            '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+            '</svg>' +
             '</a>',
           disabledMoveButton:
             '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-            '<span class="tui-ico-{{type}}">{{type}}</span>' +
+            '<svg width="40" height="40">' +
+            '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+            '</svg>' +
             '</span>',
           moreButton:
             '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
