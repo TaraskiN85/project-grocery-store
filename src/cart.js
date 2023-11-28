@@ -11,7 +11,9 @@ function updateCartFromLocalStorage() {
     JSON.parse(localStorage.getItem('cart-products-list')) || [];
   const objectsCount = productsInLocalStorage.length;
   const quantityCart = document.querySelector('.quantity_products');
+  const quantityCartIcon = document.querySelector('.cart-span');
   quantityCart.textContent = '(' + objectsCount + ')';
+  quantityCartIcon.textContent = '(' + objectsCount + ')'
 }
 
 updateCartFromLocalStorage();
