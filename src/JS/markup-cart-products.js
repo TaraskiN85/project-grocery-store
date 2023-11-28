@@ -39,7 +39,7 @@ const createMarkup = cartProductsInfo => {
               </div>
             </div>
             <div class="card_container_price">
-              <p class="card_product_price">${price}</p>
+              <p class="card_product_price">$${price}</p>
             </div>
           </div>
           <div class="card-product-delete-button">
