@@ -5,7 +5,7 @@
   |============================
 */
 @import '../../node_modules/normalize.css/';
-
+@import url('./helpers.css');
 @import url('./catalog.css');
 @import url('./fonts/stylesheet.css');
 @import url('./variables.css');

@@ -1,6 +1,5 @@
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { orderSubscription } from './API';
-
+import { showError, showSuccess } from './helpers';
 const form = document.querySelector('.footer-form');
 form.addEventListener('submit', onSubscribe);
 
@@ -10,22 +9,19 @@ async function onSubscribe(event) {
 
   try {
     if (!email) {
-      throw new Error('Email is required!');
+      showError('Email is required!');
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      // alert('Please, enter valid Email.');
-    throw new Error('Invalid email format!');
-       }
-
-      const message = await orderSubscription(email);
-      console.log(message);
-      form.querySelector('#footer-email').value = '';
-    alert('Thank you for subscribe!');
-    // Notify.success('Thank you for subscribe!');
-    } catch (error) {
-      console.error(error);
+      showError('Please, enter valid Email!');
     }
+    const res = await orderSubscription(email);
+    form.querySelector('#footer-email').value = '';
+    showSuccess(res.message);
+  } catch (error) {
+    error.response.data.message
+      ? showError(error.response.data.message)
+      : showError('Ooops! There`s an Error! Please, try again later!');
   }
-
+}
