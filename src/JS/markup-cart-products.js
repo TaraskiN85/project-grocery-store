@@ -43,9 +43,9 @@ const createMarkup = cartProductsInfo => {
             </div>
           </div>
           <div class="card-product-delete-button">
-            <button type="button" class="cart-product-delete-button">
+            <button type="button" class="cart-product-delete-button id="${_id}">
               <svg class="cart-icon-close-" width="18" height="18">
-                <use src="../img/icons.svg#icon-delete-close"></use>
+                <use src="./img/icons.svg#icon-delete-close"></use>
               </svg>
             </button>
           </div>
@@ -63,3 +63,10 @@ export const renderCartProducts = () => {
     createMarkup(cartProductsInfo)
   );
 };
+
+export const updateCartProducts = () => {
+  const productsArr = JSON.parse(localStorage.getItem('cart-products-list')) || [];
+  cartProductsList.innerHTML = '';
+  cartProductsList.insertAdjacentHTML('afterbegin', createMarkup(productsArr));
+};
+

@@ -1,32 +1,62 @@
-import { renderCartProducts,cartProductsList } from './JS/markup-cart-products';
+import {
+  renderCartProducts,
+  cartProductsList,
+  updateCartProducts,
+} from './JS/markup-cart-products';
 
 renderCartProducts();
-const deleteProductBtn = document.querySelector('.card-product-delete-button').parentNode;
-const deleteAllBtn = document.querySelector('.cart-product-delete-all-button').parentNode;
-  
-deleteProductBtn.addEventListener('click', deleteFromCart);
-deleteAllBtn.addEventListener('click', deleteAllFromCart);
 
-console.log(deleteProductBtn);
+function updateCartFromLocalStorage() {
+  const productsInLocalStorage =
+    JSON.parse(localStorage.getItem('cart-products-list')) || [];
+  const objectsCount = productsInLocalStorage.length;
+  const quantityCart = document.querySelector('.quantity_products');
+  const quantityCartIcon = document.querySelector('.cart-span');
+  quantityCart.textContent = '(' + objectsCount + ')';
+  quantityCartIcon.textContent = '(' + objectsCount + ')'
+}
 
-function deleteFromCart() {
-  const clickedElement = deleteProductBtn.parentNode.id;
-  console.log(clickedElement);
-  
-  const productsArr = JSON.parse(localStorage.getItem('cart-products-list'))
-  console.log(productsArr)
-  const newProductArr = productsArr.filter(product => {
-    return product._id !== clickedElement 
-  })
-  localStorage.setItem('cart-products-list', JSON.stringify(newProductArr));
-  console.log(newProductArr)
-  cartProductsList.innerHTML = ''
-  renderCartProducts();
-};
+updateCartFromLocalStorage();
 
-function deleteAllFromCart() { 
+const deleteAllButton = document.querySelector(
+  '.cart-product-delete-all-button'
+);
+
+function deleteProductAndUpdateCart(productId) {
+  let productsArr =
+    JSON.parse(localStorage.getItem('cart-products-list')) || [];
+  const indexToDelete = productsArr.findIndex(
+    product => product._id === productId
+  );
+
+  if (indexToDelete !== -1) {
+    productsArr.splice(indexToDelete, 1);
+    localStorage.setItem('cart-products-list', JSON.stringify(productsArr));
+    updateCartProducts();
+    updateCartFromLocalStorage();
+  } else {
+    console.log('Product not found in cart');
+  }
+}
+
+const cartContainer = document.querySelector('.cart-list');
+
+async function handleProductClick(event) {
+  const clickedButton = event.target.closest('.card-product-delete-button');
+
+  if (clickedButton) {
+    const productId = clickedButton.closest('.card_container_product').id;
+    deleteProductAndUpdateCart(productId);
+  }
+}
+
+cartContainer.addEventListener('click', handleProductClick);
+
+function deleteAllFromCart() {
   localStorage.setItem('cart-products-list', JSON.stringify([]));
-  cartProductsList.innerHTML = ''
-  
-};
+  cartProductsList.innerHTML = '';
+  updateCartFromLocalStorage();
+}
 
+// Додаємо обробник події для кнопки видалення всіх товарів
+deleteAllButton.addEventListener('click', deleteAllFromCart);

@@ -56,10 +56,10 @@ document.addEventListener('DOMContentLoaded', async function () {
   
     if (isInCart) {
       addToCartBtn.innerHTML =
-        'Remove from <svg width="18" height="18"><use class="button-icon" href="/img/icons.svg#icon-cart"></use></svg>';
+        'Remove from <svg width="18" height="18"><use class="button-icon" href="./img/icons.svg#icon-cart"></use></svg>';
     } else {
       addToCartBtn.innerHTML =
-        'Add to <svg width="18" height="18"><use class="button-icon" href="/img/icons.svg#icon-cart"></use></svg>';
+        'Add to <svg width="18" height="18"><use class="button-icon" href="./img/icons.svg#icon-cart"></use></svg>';
     }
   }
 
