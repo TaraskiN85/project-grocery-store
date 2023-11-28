@@ -1,4 +1,4 @@
-import"./assets/footer-subscription-05dc7ea4.js";import"./assets/vendor-8a888f22.js";const r=document.querySelector(".cart-list"),m=JSON.parse(localStorage.getItem("cart-products-list")),d=e=>e.map(({_id:t,name:c,img:o,category:l,price:u,size:p,popularity:h,quantity:$,is10PercentOff:k,desc:M})=>`<li class="card_container_product" id="${t}">
+import"./assets/footer-subscription-63044206.js";import"./assets/vendor-8a888f22.js";const r=document.querySelector(".cart-list"),m=JSON.parse(localStorage.getItem("cart-products-list")),d=e=>e.map(({_id:t,name:c,img:o,category:l,price:u,size:p,popularity:h,quantity:$,is10PercentOff:k,desc:M})=>`<li class="card_container_product" id="${t}">
 
          <div class="description">
           <div class="card_container-product_img">
