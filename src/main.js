@@ -9,7 +9,10 @@ import {
   renderSelect,
   fetchBasedOnScreenSize,
   checkedForm,
+  sorting,
 } from './JS/filters';
+import Choices from 'choices.js';
+import 'choices.js/public/assets/styles/choices.min.css';
 
 window.addEventListener('resize', fetchBasedOnScreenSize);
 checkedForm();
@@ -22,6 +25,11 @@ getProductsCategories()
     console.log(er);
   });
 
+const choicesSorting = new Choices(sorting, {
+  searchEnabled: false,
+  allowHTML: true,
+});
+
 appendPopularProductsMarkup();
 appendDiscountProductsMarkup();
 // getProductsCategories();
@@ -33,10 +41,11 @@ if (!cartProducts) {
 import './JS/modal';
 
 export function updateCartFromLocalStorage() {
-  const productsInLocalStorage = JSON.parse(localStorage.getItem('cart-products-list')) || [];
+  const productsInLocalStorage =
+    JSON.parse(localStorage.getItem('cart-products-list')) || [];
   const objectsCount = productsInLocalStorage.length;
   const quantityCart = document.querySelector('.quantity_products');
   quantityCart.textContent = '(' + objectsCount + ')';
 }
 
-updateCartFromLocalStorage()
+updateCartFromLocalStorage();

@@ -1,8 +1,10 @@
 import { getProductsByParams } from './API';
 import { appendMarkup } from './markup-product-cards';
+import Choices from 'choices.js';
+import 'choices.js/public/assets/styles/choices.min.css';
 
 const select = document.querySelector('.js-category');
-const sorting = document.querySelector('.js-sorting');
+export const sorting = document.querySelector('.js-sorting');
 const search_input = document.querySelector('.js-search-input');
 const storage_key = 'search-params';
 const params = {
@@ -19,11 +21,17 @@ search_input.addEventListener('submit', changeKeywordInLocal);
 export function renderSelect(categories) {
   const markup = categories
     .map(category => {
-      return `<option value="${category}">${category}</option>`;
+      const wordsArray = category.split('_');
+      const formattedText = wordsArray.join(' ');
+      return `<option value="${category}">${formattedText}</option>`;
     })
     .join('');
   select.insertAdjacentHTML('afterbegin', markup);
   getCategoryInput();
+  const choicesCategory = new Choices(select, {
+    searchEnabled: false,
+    allowHTML: true,
+  });
 }
 
 export function fetchBasedOnScreenSize() {
@@ -62,11 +70,11 @@ export function checkedForm() {
 
 function changeCategoryInLocal() {
   const options = JSON.parse(localStorage.getItem('search-params'));
-  if (select.options[select.selectedIndex].value === 'All') {
+  if (select.option.value === 'All') {
     options.category = '';
     options.page = 1;
   } else {
-    options.category = select.options[select.selectedIndex].value;
+    options.category = select.option.value;
   }
   localStorage.setItem(storage_key, JSON.stringify(options));
   getProductsByParams()
