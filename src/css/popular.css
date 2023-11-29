@@ -261,6 +261,7 @@
 
 .discount-button-icon {
   fill: var(--background-color);
+  color: white;
 }
 
 /* ---------------------------------- */
