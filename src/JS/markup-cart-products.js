@@ -1,8 +1,8 @@
-export const cartProductsList = document.querySelector('.cart-list');
+export const cartProductsList = document.querySelector('.container_full_cart');
 
 const cartProductsInfo = JSON.parse(localStorage.getItem('cart-products-list'));
 
-const createMarkup = cartProductsInfo => {
+export const createMarkup = cartProductsInfo => {
   return cartProductsInfo
     .map(
       ({
