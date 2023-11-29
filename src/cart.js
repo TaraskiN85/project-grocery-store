@@ -4,6 +4,16 @@ import {
   updateCartProducts,
 } from './JS/markup-cart-products';
 
+import {
+  displayByBuyModal
+} from './JS/modal-cart';
+
+import {
+  createNewOrder
+} from './JS/API';
+
+import { showError } from './JS/helpers';
+
 renderCartProducts();
 
 function updateCartFromLocalStorage() {
@@ -78,5 +88,35 @@ totalPriceProducts.textContent = `$ ${totalPrice.toFixed(2)}`;
 }
 calculationTotalPrice();
 
+const cartBtnSubmit = document.querySelector('.cart_form_button');
+cartBtnSubmit.addEventListener('click', makeOrder);
 
+function clearLocalStorage() {
+  localStorage.removeItem('cart-products-list');
+}
+
+async function makeOrder() {
+  const emailInputValue = document.querySelector('.cart_form_input').value;
+  const objectProducts = JSON.parse(localStorage.getItem('cart-products-list'));
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  if (!emailRegex.test(emailInputValue)) {
+    showError('Please, enter valid Email!');
+    return;
+  }
+
+  const orderObj = {
+    email: emailInputValue,
+    products: objectProducts,
+  };
+console.log(orderObj);
+  try {
+    const response = await createNewOrder(orderObj);
+    clearLocalStorage();
+    displayByBuyModal(response);
+  } catch (error) {
+    console.error('Error creating order:', error);
+    showError('Error creating order. Please try again later.');
+  }
+}
 
