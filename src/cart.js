@@ -99,7 +99,7 @@ async function makeOrder() {
   const emailInputValue = document.querySelector('.cart_form_input').value;
   const objectProducts = JSON.parse(localStorage.getItem('cart-products-list'));
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+  
   if (!emailRegex.test(emailInputValue)) {
     showError('Please, enter valid Email!');
     return;
@@ -112,8 +112,6 @@ async function makeOrder() {
 console.log(orderObj);
   try {
     const response = await createNewOrder(orderObj);
-    modalCartByBuy.classList.remove('is-hidden');
-    document.body.style.overflow = 'hidden';
     clearLocalStorage();
     displayByBuyModal(response);
   } catch (error) {
