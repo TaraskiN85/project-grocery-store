@@ -1,4 +1,4 @@
-import{g as u,a as K,b as R,c as G,d as U}from"./assets/footer-subscription-63044206.js";import{P as O}from"./assets/vendor-8a888f22.js";const J={divProdCards:document.querySelector(".js-product-cards")};function m(t){J.divProdCards.innerHTML="",J.divProdCards.insertAdjacentHTML("afterbegin",X(t))}function X(t){return t.results.length===0?`<div clas="products-nothing-container">
+import{g as u,a as K,b as R,d as G,e as U}from"./assets/footer-subscription-0dc6c13c.js";import{P as O}from"./assets/vendor-8a888f22.js";const J={divProdCards:document.querySelector(".js-product-cards")};function m(t){J.divProdCards.innerHTML="",J.divProdCards.insertAdjacentHTML("afterbegin",X(t))}function X(t){return t.results.length===0?`<div clas="products-nothing-container">
               <p class="products-nothing-headline">Nothing was found for the selected
                 <span class="nothing-headline-span">filters...</span>
               </p>
