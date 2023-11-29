@@ -4,13 +4,14 @@ import { appendMarkup } from './markup-product-cards';
 const select = document.querySelector('.js-category');
 const sorting = document.querySelector('.js-sorting');
 const search_input = document.querySelector('.js-search-input');
-const storage_key = 'search-params';
-const params = {
+const defaultParams = {
   keyword: '',
   category: '',
   page: 1,
-  limit: 9,
+  limit: 6,
 };
+
+const searchParams = JSON.parse(localStorage.getItem('search-params'));
 
 select.addEventListener('input', changeCategoryInLocal);
 sorting.addEventListener('input', changeSortingInLocal);
@@ -29,20 +30,23 @@ export function renderSelect(categories) {
 export function fetchBasedOnScreenSize() {
   const windowWidth = window.innerWidth;
   if (windowWidth < 768) {
-    params.limit = 6;
-    localStorage.setItem(storage_key, JSON.stringify(params));
+    const searchParams = JSON.parse(localStorage.getItem('search-params'));
+    searchParams.limit = 6;
+    localStorage.setItem('search-params', JSON.stringify(searchParams));
     getProductsByParams()
       .then(data => appendMarkup(data))
       .catch(er => console.log(er));
   } else if (windowWidth >= 768 && windowWidth < 1440) {
-    params.limit = 8;
-    localStorage.setItem(storage_key, JSON.stringify(params));
+    const searchParams = JSON.parse(localStorage.getItem('search-params'));
+    searchParams.limit = 8;
+    localStorage.setItem('search-params', JSON.stringify(searchParams));
     getProductsByParams()
       .then(data => appendMarkup(data))
       .catch(er => console.log(er));
   } else {
-    params.limit = 9;
-    localStorage.setItem(storage_key, JSON.stringify(params));
+    const searchParams = JSON.parse(localStorage.getItem('search-params'));
+    searchParams.limit = 9;
+    localStorage.setItem('search-params', JSON.stringify(searchParams));
     getProductsByParams()
       .then(data => appendMarkup(data))
       .catch(er => console.log(er));
@@ -50,25 +54,24 @@ export function fetchBasedOnScreenSize() {
 }
 
 export function checkedForm() {
-  const savedParams = localStorage.getItem(storage_key);
-  if (savedParams) {
-    const parsedData = JSON.parse(savedParams);
-    search_input.elements.searchQuery.value = parsedData.keyword ?? '';
-    params.keyword = search_input.elements.searchQuery.value;
-    select.options[select.selectedIndex].value = parsedData.category ?? '';
-    params.category = select.options[select.selectedIndex].value;
+  const searchParams = JSON.parse(localStorage.getItem('search-params'));
+  if (searchParams) {
+    search_input.elements.searchQuery.value = searchParams.keyword ?? '';
+    select.options[select.selectedIndex].value = searchParams.category ?? '';
   }
 }
 
 function changeCategoryInLocal() {
-  const options = JSON.parse(localStorage.getItem('search-params'));
+  const searchParams = JSON.parse(localStorage.getItem('search-params'));
   if (select.options[select.selectedIndex].value === 'All') {
-    options.category = '';
-    options.page = 1;
+    console.log('categAll');
+    sorting.selectedIndex = 0;
+    select.selectedIndex = 13;
+    localStorage.setItem('search-params', JSON.stringify(defaultParams));
   } else {
-    options.category = select.options[select.selectedIndex].value;
+    searchParams.category = select.options[select.selectedIndex].value;
+    localStorage.setItem('search-params', JSON.stringify(searchParams));
   }
-  localStorage.setItem(storage_key, JSON.stringify(options));
   getProductsByParams()
     .then(data => appendMarkup(data))
     .catch(er => console.log(er));
@@ -76,19 +79,22 @@ function changeCategoryInLocal() {
 
 function changeKeywordInLocal(evt) {
   evt.preventDefault();
-  const options = JSON.parse(localStorage.getItem('search-params'));
-  options.keyword = search_input.elements.searchQuery.value;
-  localStorage.setItem(storage_key, JSON.stringify(options));
+  if (search_input.elements.searchQuery.value === '') {
+    sorting.selectedIndex = 0;
+    select.selectedIndex = 13;
+    localStorage.setItem('search-params', JSON.stringify(defaultParams));
+  } else {
+    searchParams.keyword = search_input.elements.searchQuery.value;
+    localStorage.setItem('search-params', JSON.stringify(searchParams));
+  }
   getProductsByParams()
     .then(data => appendMarkup(data))
     .catch(er => console.log(er));
 }
 
 function getCategoryInput() {
-  const savedParams = localStorage.getItem(storage_key);
-  const parsedData = JSON.parse(savedParams);
   for (let i = 0; i < select.options.length; i++) {
-    if (select.options[i].value === parsedData.category) {
+    if (select.options[i].value === searchParams.category) {
       select.options[i].selected = true;
       break;
     }
@@ -96,52 +102,52 @@ function getCategoryInput() {
 }
 
 function changeSortingInLocal() {
-  const options = JSON.parse(localStorage.getItem('search-params'));
+  const searchParams = JSON.parse(localStorage.getItem('search-params'));
   switch (sorting.options[sorting.selectedIndex].value) {
     case 'a_z':
-      options.byABC = true;
-      delete options.byPrice;
-      delete options.byPopularity;
+      searchParams.byABC = true;
+      delete searchParams.byPrice;
+      delete searchParams.byPopularity;
       break;
 
     case 'z_a':
-      options.byABC = false;
-      delete options.byPrice;
-      delete options.byPopularity;
+      searchParams.byABC = false;
+      delete searchParams.byPrice;
+      delete searchParams.byPopularity;
       break;
 
     case 'cheap':
-      options.byPrice = true;
-      delete options.byABC;
-      delete options.byPopularity;
+      searchParams.byPrice = true;
+      delete searchParams.byABC;
+      delete searchParams.byPopularity;
       break;
 
     case 'expensive':
-      options.byPrice = false;
-      delete options.byABC;
-      delete options.byPopularity;
+      searchParams.byPrice = false;
+      delete searchParams.byABC;
+      delete searchParams.byPopularity;
       break;
 
     case 'popular':
-      options.byPopularity = true;
-      delete options.byPrice;
-      delete options.byABC;
+      searchParams.byPopularity = true;
+      delete searchParams.byPrice;
+      delete searchParams.byABC;
       break;
 
     case 'not_popular':
-      options.byPopularity = false;
-      delete options.byPrice;
-      delete options.byABC;
+      searchParams.byPopularity = false;
+      delete searchParams.byPrice;
+      delete searchParams.byABC;
       break;
 
     case 'All':
-      options.page = 1;
-      delete options.byPrice;
-      delete options.byPopularity;
-      delete options.byABC;
+      searchParams.page = 1;
+      delete searchParams.byPrice;
+      delete searchParams.byPopularity;
+      delete searchParams.byABC;
       break;
   }
-  localStorage.setItem(storage_key, JSON.stringify(options));
+  localStorage.setItem('search-params', JSON.stringify(searchParams));
   getProductsByParams()
     .then(data => appendMarkup(data))
     .catch(er => console.log(er));
