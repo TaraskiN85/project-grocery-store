@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', async function () {
   const addToCartBtn = document.querySelector('.addtocart-btn');
   const discountSvg = document.querySelector('.modal-discount-svg');
 
-
   async function manageCart(productId) {
     try {
       const product = await getProductDetails(productId);
@@ -34,14 +33,15 @@ document.addEventListener('DOMContentLoaded', async function () {
         );
         checkProductCart();
         updateCartFromLocalStorage();
-        updateButtonContent()
+        updateButtonContent();
       } else {
+        product.amount = 1;
         cartProducts.push(product);
         localStorage.setItem(
           'cart-products-list',
           JSON.stringify(cartProducts)
         );
-        updateButtonContent()
+        updateButtonContent();
         checkProductCart();
         updateCartFromLocalStorage();
       }
@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', async function () {
       console.error('Error managing cart:', error);
     }
   }
-  
 
   function checkProductCart() {
     const productId = addToCartBtn.id;
@@ -59,8 +58,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     const isInCart = cartProductsList.some(
       product => product._id === productId
     );
-    updateIconModal(isInCart)
-    updateButtonContent()
+    updateIconModal(isInCart);
+    updateButtonContent();
   }
 
   function updateIconModal(isInCart) {
@@ -75,31 +74,40 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   async function updateButtonContent() {
     try {
-        const cartProductsList = await JSON.parse(localStorage.getItem('cart-products-list')) || [];
-        
-        const cardContainer = document.querySelector('.container-product-cards-prod');
-        if (cardContainer) {
-            const cards = cardContainer.querySelectorAll('.product-card-prod');
-            cards.forEach(card => {
-                const cardId = card.id;
-                const addButton = card.querySelector('.product-card-price-btn-prod .product-card-btn-prod');
-                
-                if (addButton) {
-                    const isInCart = cartProductsList.some(product => product._id === cardId);
-                    addButton.disabled = isInCart; // Встановлюємо значення властивості disabled згідно з умовою
-    
-                    if (isInCart) {
-                        addButton.innerHTML = '<svg width="18" height="18"><use class="button-icon" href="./img/icons.svg#icon-check"></use></svg>';
-                    } else {
-                        addButton.innerHTML = '<svg width="18" height="18"><use class="button-icon" href="./img/icons.svg#icon-cart"></use></svg>';
-                    }
-                }
-            });
-        }
+      const cartProductsList =
+        (await JSON.parse(localStorage.getItem('cart-products-list'))) || [];
+
+      const cardContainer = document.querySelector(
+        '.container-product-cards-prod'
+      );
+      if (cardContainer) {
+        const cards = cardContainer.querySelectorAll('.product-card-prod');
+        cards.forEach(card => {
+          const cardId = card.id;
+          const addButton = card.querySelector(
+            '.product-card-price-btn-prod .product-card-btn-prod'
+          );
+
+          if (addButton) {
+            const isInCart = cartProductsList.some(
+              product => product._id === cardId
+            );
+            addButton.disabled = isInCart; // Встановлюємо значення властивості disabled згідно з умовою
+
+            if (isInCart) {
+              addButton.innerHTML =
+                '<svg width="18" height="18"><use class="button-icon" href="./img/icons.svg#icon-check"></use></svg>';
+            } else {
+              addButton.innerHTML =
+                '<svg width="18" height="18"><use class="button-icon" href="./img/icons.svg#icon-cart"></use></svg>';
+            }
+          }
+        });
+      }
     } catch (error) {
-        console.error('Error updating button content:', error);
+      console.error('Error updating button content:', error);
     }
-}
+  }
 
   function openModal() {
     modal.classList.remove('is-hidden');
@@ -137,8 +145,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   };
 
-  
-
   async function handleProductClick(event) {
     const clickedImage = event.target.closest('.product-card-img-prod');
 
@@ -147,7 +153,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 
       addToCartBtn.setAttribute('id', productId);
       modal.setAttribute('id', productId);
-      
 
       const product = await getProductDetails(productId);
 
@@ -159,14 +164,12 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
 
-
   async function productClick(event) {
     const clickedCard = event.target.closest('.product-card-btn-prod');
 
     if (clickedCard) {
       const productId = clickedCard.closest('.product-card-prod').id;
 
-      
       if (productId) {
         manageCart(productId);
         checkProductCart();
@@ -285,7 +288,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     modalCategory.textContent = category;
     modalPop.textContent = popularity;
   }
-
 
   productContainer.addEventListener('click', handleProductClick);
   productContainer.addEventListener('click', productClick);
