@@ -1,7 +1,6 @@
 import {
   renderCartProducts,
   cartProductsList,
-  updateCartProducts,
 } from './JS/markup-cart-products';
 import { displayByBuyModal } from './JS/modal-cart';
 import { createNewOrder } from './JS/API';
@@ -16,7 +15,9 @@ function updateCartFromLocalStorage() {
   const quantityCart = document.querySelector('.quantity_products');
   const quantityCartIcon = document.querySelector('.cart-span');
   quantityCart.textContent = '(' + objectsCount + ')';
-  quantityCartIcon.textContent = '(' + objectsCount + ')';
+  if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
+    quantityCartIcon.textContent = '(' + objectsCount + ')';
+  }
 }
 
 updateCartFromLocalStorage();
@@ -35,17 +36,22 @@ function deleteProductAndUpdateCart(productId) {
   if (indexToDelete !== -1) {
     productsArr.splice(indexToDelete, 1);
     localStorage.setItem('cart-products-list', JSON.stringify(productsArr));
-    updateCartProducts();
+    renderCartProducts();
     updateCartFromLocalStorage();
+    if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
+      cartContainer.addEventListener('click', handleProductClick);
+    }
   } else {
-    console.log('Product not found in cart');
+    showError('Product not found in cart');
   }
+  location.reload();
 }
 
 const cartContainer = document.querySelector('.cart-list');
 
-async function handleProductClick(event) {
+function handleProductClick(event) {
   const clickedButton = event.target.closest('.card-product-delete-button');
+
   if (clickedButton) {
     const productId = clickedButton.closest('.card_container_product').id;
     deleteProductAndUpdateCart(productId);
@@ -53,28 +59,39 @@ async function handleProductClick(event) {
   calculationTotalPrice();
 }
 
-cartContainer.addEventListener('click', handleProductClick);
+if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
+  cartContainer.addEventListener('click', handleProductClick);
+}
 
 function deleteAllFromCart() {
   localStorage.setItem('cart-products-list', JSON.stringify([]));
   cartProductsList.innerHTML = '';
   updateCartFromLocalStorage();
   calculationTotalPrice();
+  cartContainer.removeEventListener('click', handleProductClick);
+  renderCartProducts();
 }
 
-deleteAllButton.addEventListener('click', deleteAllFromCart);
+if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
+  deleteAllButton.addEventListener('click', deleteAllFromCart);
+}
 const totalPriceProducts = document.querySelector('.cart_total_cost');
 function calculationTotalPrice() {
   const objectProducts = JSON.parse(localStorage.getItem('cart-products-list'));
   const totalPrice = objectProducts.reduce((acc, product) => {
     return acc + product.price;
   }, 0);
-  totalPriceProducts.textContent = `$ ${totalPrice.toFixed(2)}`;
+  if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
+    totalPriceProducts.textContent = `$ ${totalPrice.toFixed(2)}`;
+  }
 }
 calculationTotalPrice();
 
 const cartBtnSubmit = document.querySelector('.cart_form_button');
-cartBtnSubmit.addEventListener('click', makeOrder);
+
+if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
+  cartBtnSubmit.addEventListener('click', makeOrder);
+}
 
 async function makeOrder() {
   const emailInputValue = document.querySelector('.cart_form_input').value;
