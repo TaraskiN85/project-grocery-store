@@ -1,5 +1,5 @@
 /* start--------------------styles product cards----------------start */
-.container-product-cards{
+.container-product-cards {
   margin: 0;
   padding: 0;
 }
@@ -114,7 +114,6 @@
   background-color: var(--hover-color);
 }
 
-
 .button-icon-prod {
   fill: var(--background-color);
 }
@@ -161,7 +160,7 @@ p.products-nothing-headline {
   .container-product-cards-prod {
     flex-direction: row;
     justify-content: center;
-    padding:  0 0 50px 0;
+    padding: 0 0 50px 0;
     row-gap: 32px;
     column-gap: 32px;
     max-width: 768px;
@@ -195,7 +194,7 @@ p.products-nothing-headline {
   .products-nothing-text {
     font-size: 18px;
     font-weight: 400;
-    line-height: 1.20;
+    line-height: 1.2;
     margin: auto;
     max-width: 371px;
   }
@@ -219,7 +218,7 @@ p.products-nothing-headline {
   .product-card-img-prod {
     max-width: 255px;
   }
-  
+
   .products-nothing-container {
     width: 925px;
   }
@@ -242,6 +241,7 @@ p.products-nothing-headline {
   align-items: center;
   background: var(--background-color);
   color: #a3a3a3;
+  user-select: none;
 }
 
 .tui-page-btn {
@@ -275,28 +275,39 @@ p.products-nothing-headline {
   background: var(--accent-color);
   color: var(--background-color);
 }
-.tui-prev {
-  margin-right: 0;
+/* .tui-prev {
+  margin-right: 19px;
 }
-
 .tui-next {
-  margin-left: 0;
-}
+  margin-left: 19px;
+} */
 
+.tui-first {
+  margin-right: 15px;
+}
+.tui-last {
+  margin-left: 15px;
+}
+.tui-last,
 .tui-first,
 .tui-prev,
-.tui-next,
-.tui-last {
+.tui-next {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 40px;
   height: 40px;
   border: none;
   border-radius: 60px;
-  background: var(--white-color);
+  background-color: var(--white-color);
   color: #a3a3a3;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.tui-prev,
+.tui-next {
+  display: none;
 }
 
 .tui-first:hover,
@@ -307,20 +318,39 @@ p.products-nothing-headline {
   color: #fafafa;
 }
 
+.tui-btn-icon {
+  fill: #a3a3a3;
+  transition: fill 0.3s ease;
+}
+
+.tui-first:hover .tui-btn-icon,
+.tui-prev:hover .tui-btn-icon,
+.tui-next:hover .tui-btn-icon,
+.tui-last:hover .tui-btn-icon {
+  fill: #fafafa;
+}
+
 .tui-is-disabled {
   pointer-events: none;
 }
 
 /* ---------------------------------- */
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 768px) {
   .tui-pagination {
     gap: 8px;
   }
-  .tui-prev {
+  /* .tui-prev {
     margin-right: 40px;
   }
   .tui-next {
     margin-left: 40px;
+  } */
+
+  .tui-first {
+    margin-right: 80px;
+  }
+  .tui-last {
+    margin-left: 80px;
   }
 }
 /* end--------------------styles pagination----------------end */

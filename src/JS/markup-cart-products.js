@@ -45,7 +45,7 @@ const createMarkup = cartProductsInfo => {
           <div class="card-product-delete-button">
             <button type="button" class="cart-product-delete-button id="${_id}">
               <svg class="cart-icon-close-" width="18" height="18">
-                <use src="./img/icons.svg#icon-delete-close"></use>
+                 <use href="./img/icons.svg#icon-delete-close"></use>
               </svg>
             </button>
           </div>
