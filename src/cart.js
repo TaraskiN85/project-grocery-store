@@ -22,7 +22,7 @@ function updateCartFromLocalStorage() {
 updateCartFromLocalStorage();
 
 const deleteAllButton = document.querySelector(
-  '.container_full_cart'
+  '.cart-product-delete-all-button'
 );
 
 function deleteProductAndUpdateCart(productId) {
@@ -42,7 +42,7 @@ function deleteProductAndUpdateCart(productId) {
   }
 }
 
-const cartContainer = document.querySelector('.container_full_cart');
+const cartContainer = document.querySelector('.cart-list');
 
 async function handleProductClick(event) {
   const clickedButton = event.target.closest('.card-product-delete-button');
@@ -63,20 +63,6 @@ function deleteAllFromCart() {
 }
 
 deleteAllButton.addEventListener('click', deleteAllFromCart);
-
-document.addEventListener('DOMContentLoaded', calculationTotalPrice)
-
-async function calculationTotalPrice() {
-  const totalPriceProducts = document.querySelector('.cart_total_cost_span');
-  const objectProducts = await JSON.parse(localStorage.getItem('cart-products-list')) || [];
-  const totalPrice = objectProducts.reduce((acc, product) => {
-    return acc + product.price;
-     
-  }, 0);
-  
-  totalPriceProducts.innerHTML = `${totalPrice.toFixed(2)}`; 
-}
-
 const totalPriceProducts = document.querySelector('.cart_total_cost');
 function calculationTotalPrice() {
   const objectProducts = JSON.parse(localStorage.getItem('cart-products-list'));

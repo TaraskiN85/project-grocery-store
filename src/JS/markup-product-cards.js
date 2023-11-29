@@ -9,7 +9,7 @@ export function appendMarkup(data) {
 
 function createMarkup(data) {
   if (data.results.length === 0) {
-    return `<div class="products-nothing-container">
+    return `<div clas="products-nothing-container">
               <p class="products-nothing-headline">Nothing was found for the selected
                 <span class="nothing-headline-span">filters...</span>
               </p>

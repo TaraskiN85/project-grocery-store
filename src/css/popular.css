@@ -384,37 +384,3 @@
     margin-bottom: 20px;
   }
 }
-
-/* ===================================SCROLL_UP===================================== */
-
-.scroll_up{
-  position: fixed;
-  right: 1px;
-  bottom: 30px;
-  display: none;
-  border: none;
-  cursor: pointer;
-  scroll-behavior: auto;
-  fill: var(--dark-color);
-  transition: fill 300ms ease;
-
-}
-
-.scroll_up:hover {
-  fill: var(--hover-color);
-}
-
-.visible{
-  display: block;
-}
-
-@media screen and (min-width: 768px) {
-  .scroll_up {
-    right: 30px;
-    bottom: 30px;
-  }
-  .svg_scroll_up{
-    width: 45px;
-    height: 45px;
-  }
-}
