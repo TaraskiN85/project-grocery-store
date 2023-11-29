@@ -188,11 +188,10 @@
         gap: 10px;
         border-radius: 30px;
         background: #6D8434;    
-        color: #E8E8E2;
         border: none;
         cursor: pointer;
         text-align: center;
-        color: #E8E8E2;
+        color: var(background-color);
 
         font-size: 14px;
         font-weight: 500;
@@ -204,7 +203,7 @@
     }
 
     .button-icon {
-        fill: #E8E8E2;
+        fill: currentColor;
     }
 
   }
