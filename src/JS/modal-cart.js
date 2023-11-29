@@ -1,4 +1,4 @@
-
+import { showError, showSuccess } from './helpers';
 
 const cartBtnSubmit = document.querySelector('.cart_form_button');
 const modalCartByBuy = document.querySelector('.modal-cart');
@@ -10,12 +10,14 @@ function displayByBuyModal(event) {
   const emailInputValue = document.querySelector('.cart_form_input').value;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(emailInputValue)) {
-    alert('Please, enter valid Email.');
+    showError('Please, enter valid Email!');
     return;
   }
   modalCartByBuy.classList.remove('is-hidden');
   document.body.style.overflow = 'hidden';
 }
+
+const InputElement = document.querySelector('#')
 
 function handleModalClick(event) {
   if (event.target === modalCartByBuy) {
