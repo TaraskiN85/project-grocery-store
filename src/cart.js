@@ -3,6 +3,9 @@ import {
   cartProductsList,
   updateCartProducts,
 } from './JS/markup-cart-products';
+import { displayByBuyModal } from './JS/modal-cart';
+import { createNewOrder } from './JS/API';
+import { showError } from './JS/helpers';
 
 renderCartProducts();
 
@@ -13,7 +16,7 @@ function updateCartFromLocalStorage() {
   const quantityCart = document.querySelector('.quantity_products');
   const quantityCartIcon = document.querySelector('.cart-span');
   quantityCart.textContent = '(' + objectsCount + ')';
-  quantityCartIcon.textContent = '(' + objectsCount + ')'
+  quantityCartIcon.textContent = '(' + objectsCount + ')';
 }
 
 updateCartFromLocalStorage();
@@ -43,7 +46,6 @@ const cartContainer = document.querySelector('.container_full_cart');
 
 async function handleProductClick(event) {
   const clickedButton = event.target.closest('.card-product-delete-button');
-
   if (clickedButton) {
     const productId = clickedButton.closest('.card_container_product').id;
     deleteProductAndUpdateCart(productId);
@@ -60,7 +62,6 @@ function deleteAllFromCart() {
   calculationTotalPrice();
 }
 
-// Додаємо обробник події для кнопки видалення всіх товарів
 deleteAllButton.addEventListener('click', deleteAllFromCart);
 
 document.addEventListener('DOMContentLoaded', calculationTotalPrice)
@@ -76,3 +77,45 @@ async function calculationTotalPrice() {
   totalPriceProducts.innerHTML = `${totalPrice.toFixed(2)}`; 
 }
 
+const totalPriceProducts = document.querySelector('.cart_total_cost');
+function calculationTotalPrice() {
+  const objectProducts = JSON.parse(localStorage.getItem('cart-products-list'));
+  const totalPrice = objectProducts.reduce((acc, product) => {
+    return acc + product.price;
+  }, 0);
+  totalPriceProducts.textContent = `$ ${totalPrice.toFixed(2)}`;
+}
+calculationTotalPrice();
+
+const cartBtnSubmit = document.querySelector('.cart_form_button');
+cartBtnSubmit.addEventListener('click', makeOrder);
+
+async function makeOrder() {
+  const emailInputValue = document.querySelector('.cart_form_input').value;
+  const objectProducts = JSON.parse(localStorage.getItem('cart-products-list'));
+  const orderData = objectProducts.map(product => {
+    return {
+      productId: product._id,
+      amount: product.amount,
+    };
+  });
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailInputValue)) {
+    showError('Please, enter valid Email!');
+    return;
+  }
+
+  const requestObj = {
+    email: emailInputValue,
+    products: orderData,
+  };
+  try {
+    const response = await createNewOrder(requestObj);
+    deleteAllFromCart();
+    displayByBuyModal(response);
+  } catch (error) {
+    console.error('Error creating order:', error);
+    showError('Error creating order. Please try again later.');
+  }
+}

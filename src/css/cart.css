@@ -211,7 +211,8 @@ display: flex;
     font-weight: 400;
     line-height: 1.28;
     margin-bottom: 14px;
-
+  outline: transparent;
+  background-color: transparent;
 }
 .cart_form_input::placeholder{
 color: rgba(1, 1, 1, 0.50);
