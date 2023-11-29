@@ -32,13 +32,13 @@ getProductsByParams(options)
           '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
         moveButton:
           '<a href="#" class="tui-page-btn tui-{{type}}">' +
-          '<svg width="32" height="32">' +
+          '<svg width="14" height="14">' +
           '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
           '</svg>' +
           '</a>',
         disabledMoveButton:
           '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-          '<svg width="32" height="32">' +
+          '<svg width="14" height="14">' +
           '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
           '</svg>' +
           '</span>',
