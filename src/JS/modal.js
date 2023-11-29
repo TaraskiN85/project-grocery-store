@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 '<svg width="18" height="18"><use class="button-icon" href="./src/img/icons.svg#icon-check"></use></svg>';
             } else {
               addButton.innerHTML =
-                '<svg width="18" height="18"><use class="button-icon" href="./src/img/icons.svg#icon-cart"></use></svg>';
+                '<svg width="18" height="18"><use class="button-icon" href="./img/icons.svg#icon-cart"></use></svg>';
             }
           }
         });
