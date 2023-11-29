@@ -184,6 +184,7 @@ color: var(--black-color);
     font-size: 24px;
     font-weight: 500;
     line-height: 1.6;
+    padding-left: 4px;
 }
 
 .cart_total_cost_span {
@@ -319,6 +320,7 @@ padding: 12px 20px;
 .cart_total_cost {
   font-size: 32px;
   line-height: 1.0;
+  padding-left: 8px;
 }
 
 .cart_total_cost_span {
@@ -326,7 +328,7 @@ padding: 12px 20px;
   font-size: 12px;
   font-weight: 400;
   line-height: 1.16;
-  margin-right: 8px;
+  /* margin-right: 8px; */
 }
 .cart_container_form {
   display: flex;

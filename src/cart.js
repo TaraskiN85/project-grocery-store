@@ -19,7 +19,7 @@ function updateCartFromLocalStorage() {
 updateCartFromLocalStorage();
 
 const deleteAllButton = document.querySelector(
-  '.cart-product-delete-all-button'
+  '.container_full_cart'
 );
 
 function deleteProductAndUpdateCart(productId) {
@@ -39,7 +39,7 @@ function deleteProductAndUpdateCart(productId) {
   }
 }
 
-const cartContainer = document.querySelector('.cart-list');
+const cartContainer = document.querySelector('.container_full_cart');
 
 async function handleProductClick(event) {
   const clickedButton = event.target.closest('.card-product-delete-button');
@@ -63,20 +63,16 @@ function deleteAllFromCart() {
 // Додаємо обробник події для кнопки видалення всіх товарів
 deleteAllButton.addEventListener('click', deleteAllFromCart);
 
-const totalPriceProducts = document.querySelector('.cart_total_cost')
-function calculationTotalPrice() {
+document.addEventListener('DOMContentLoaded', calculationTotalPrice)
 
-const objectProducts = JSON.parse(localStorage.getItem('cart-products-list'));
-
-const totalPrice = objectProducts.reduce((acc, product) => {
-
-  return acc + product.price;
-}, 0);
-
-totalPriceProducts.textContent = `$ ${totalPrice.toFixed(2)}`;
+async function calculationTotalPrice() {
+  const totalPriceProducts = document.querySelector('.cart_total_cost_span');
+  const objectProducts = await JSON.parse(localStorage.getItem('cart-products-list')) || [];
+  const totalPrice = objectProducts.reduce((acc, product) => {
+    return acc + product.price;
+     
+  }, 0);
   
+  totalPriceProducts.innerHTML = `${totalPrice.toFixed(2)}`; 
 }
-calculationTotalPrice();
-
-
 
