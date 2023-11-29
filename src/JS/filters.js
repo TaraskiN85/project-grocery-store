@@ -1,7 +1,8 @@
 import { getProductsByParams } from './API';
 import { appendMarkup } from './markup-product-cards';
 import Choices from 'choices.js';
-import 'choices.js/public/assets/styles/choices.min.css';
+// import 'choices.js/public/assets/styles/base.min.css';
+// import 'choices.js/public/assets/styles/choices.min.css';
 
 const select = document.querySelector('.js-category');
 export const sorting = document.querySelector('.js-sorting');
@@ -30,7 +31,9 @@ export function renderSelect(categories) {
   getCategoryInput();
   const choicesCategory = new Choices(select, {
     searchEnabled: false,
+    itemSelectText: '',
     allowHTML: true,
+    shouldSort: false,
   });
 }
 

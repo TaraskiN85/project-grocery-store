@@ -27,6 +27,7 @@ getProductsCategories()
 
 const choicesSorting = new Choices(sorting, {
   searchEnabled: false,
+  itemSelectText: '',
   allowHTML: true,
 });
 

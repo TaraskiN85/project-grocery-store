@@ -60,43 +60,102 @@
 
 }
 
-.category-input{
+body main .form-category .choices[data-type*=select-one] .choices__inner {
+    padding-bottom: 14px;
+}
+
+body main .form-sorting .choices[data-type*=select-one] .choices__inner {
+    padding-bottom: 14px;
+}
+
+body main .form-category .choices {
     width: 100%;
-    padding: 14.25px 20px;
     border-radius: 30px;
     border: 1px solid rgba(1, 1, 1, 0.30);
     background-color: transparent;
-    color: var(--black-color);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.28;
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    outline: none;
-    appearance: none;
-    background: url(../img/chevron-down.svg) no-repeat right;
-    background-position-x: calc(100% - 20px);
-    cursor: pointer;
 }
 
-.category-input:hover,
-.category-input:focus {
+ body main .form-category  .choices.is-open,
+ body main .form-category .choices.is-focused{
     border: 1px solid var(--accent-color);
+ }
+
+body main .form-sorting .choices {
+    width: 100%;
+    border-radius: 30px;
+    background-color: #fafafa;
 }
 
-.sorting-input{
-    width: 100%;
-    padding: 15.05px 20px;
-    border: none;
-    outline: none;
-    cursor: pointer;
+body main .form-category .choices__inner{
+    max-width: 335px;
     border-radius: 30px;
+  padding: 14px 20px;
+  padding-bottom: 14px;
+   font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
     color: var(--black-color);
+    background-color: transparent;
+    min-height: 0;
+}
+
+body main .form-sorting .choices__inner {
+    width: 335px;
+    border-radius: 30px;
+    padding: 14px 20px;
+    padding-bottom: 14px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.28;
-    appearance: none;
-    background: #FAFAFA url(../img/chevron-down.svg) no-repeat right;
-    background-position-x: calc(100% - 20px)
+    color: var(--black-color);
+    background-color: #FAFAFA;
+    min-height: 0;
+}
+
+body main .form-category .choices__list--single{
+    padding: 0;
+}
+
+body main .form-sorting .choices__list--single {
+    padding: 0;
+}
+
+body main .form-category .choices__placeholder{
+    opacity: 1;
+}
+
+body main .choices[data-type*=select-one]::after{
+    content: "";
+    height: 7px;
+    width: 7px;
+    border: 1px solid black;
+    border-width: 0 0 3px 3px;
+    transform: rotate(-45deg);
+    position: absolute;
+    right: 20px;
+    top: 40%;
+    margin-top: -2.5px;
+    pointer-events: none;
+    z-index: 3;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body main .choices[data-type*=select-one].is-open::after{
+    transform: rotate(135deg);
+    top: 60%;
+    border-color: black;
+}
+
+body main .choices__list--dropdown,
+body main .choices__list[aria-expanded]{
+  top: calc(100% + 8px);
+  border-radius: 15px;
+  padding-left: 14px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+color: rgba(1, 1, 1, 0.50);
+z-index: 5;
 }
 
 @media screen and (min-width: 768px){
@@ -116,19 +175,34 @@
         padding: 13.25px 20px;
         
     }
-    
-    .category-input{
+
+    body main .form-category .choices {
         width: 189px;
-        font-size: 18px;
-        line-height: 1.33;
-        padding: 13.25px 20px;
     }
 
-    .sorting-input{
+    body main .form-sorting .choices {
         width: 200px;
+        
+    }
+
+    body main .form-category .choices__inner {
+            font-size: 18px;
+            line-height: 1.33;
+            padding: 12.5px 20px;
+    }
+    
+    body main .form-sorting .choices__inner {
         font-size: 18px;
         line-height: 1.33;
-        padding: 14.05px 20px;
+        padding: 12.5px 20px;
+    }
+
+    body main .form-category .choices[data-type*=select-one] .choices__inner {
+            padding-bottom: 12.5px;
+    }
+    
+    body main .form-sorting .choices[data-type*=select-one] .choices__inner {
+            padding-bottom: 12.5px;
     }
 
     .search-input::placeholder {
