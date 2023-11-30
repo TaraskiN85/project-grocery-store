@@ -17,7 +17,7 @@ function createPopularMarkup(data) {
   return data
     .map(
       ({ _id, name, img, category, size, popularity }) =>
-        `<div class="container-for-popular-items">
+        `<div class="container-for-popular-items" id="${_id}">
           <div class="aside-product-card" id="${_id}">
                   <div class="aside-card-img">
                       <img class="aside-img"
@@ -46,7 +46,7 @@ function createPopularMarkup(data) {
                   </div>
                   </div>
                   <div class="product-card-prices-btn">
-                      <button type="button" class="products-card-btn">
+                      <button type="button" class="products-card-btn" id="${_id}">
                           <svg width="16" height="16">
                               <use class="popular-button-icon" href="./img/icons.svg#icon-cart"></use>
                           </svg>
@@ -71,7 +71,7 @@ function createDiscountMarkup(data) {
   return renderData
     .map(
       ({ _id, name, img, price }) =>
-        `<div class="container-for-discount-items">
+        `<div class="container-for-discount-items" id="${_id}">
           <div class="discount-product-card" id="${_id}">
                   <div class="discount-product-card-img">
                       <img class="discount-card-img"
@@ -85,9 +85,10 @@ function createDiscountMarkup(data) {
                   </div>
                   <div class="product-card-prices-btn">
                   <h3 class="discount-product-card-name">${name}</h3>
+
                  <div class="discount-price-icon-container">
                       <p class="product-card-price">$${price}</p>
-                      <button type="button" class="discount-product-card-btn">
+                      <button type="button" class="discount-product-card-btn" id="${_id}">
                           <svg width="18" height="18">
                               <use class="discount-button-icon" href="./img/icons.svg#icon-cart"></use>
                           </svg>
