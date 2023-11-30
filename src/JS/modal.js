@@ -2,6 +2,7 @@ import { getProductById } from './API';
 
 import { updateCartFromLocalStorage } from '../main';
 
+
 document.addEventListener('DOMContentLoaded', async function () {
   const productContainer = document.querySelector(
     '.container-product-cards-prod'
@@ -184,9 +185,17 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }
 
-  setInterval(updateButtonDiscounts, 2000);
-  setInterval(updateButtonContent, 2000);
-  setInterval(updateButtonPopular, 2000);
+  setTimeout(() => {
+    updateButtonDiscounts();
+}, 2000);
+
+setTimeout(() => {
+    updateButtonContent();
+}, 2000);
+
+setTimeout(() => {
+    updateButtonPopular();
+}, 2000);
 
   function openModal() {
     modal.classList.remove('is-hidden');
