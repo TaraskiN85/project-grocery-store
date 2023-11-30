@@ -38,18 +38,12 @@ function deleteProductAndUpdateCart(productId) {
     localStorage.setItem('cart-products-list', JSON.stringify(productsArr));
     renderCartProducts();
     updateCartFromLocalStorage();
-    if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
-      cartContainer.addEventListener('click', handleProductClick);
-    }
-  } else {
-    showError('Product not found in cart');
-  }
-  location.reload();
+  } 
 }
 
 const cartContainer = document.querySelector('.cart-list');
 
-function handleProductClick(event) {
+function handleContainerClick(event) {
   const clickedButton = event.target.closest('.card-product-delete-button');
 
   if (clickedButton) {
@@ -59,15 +53,17 @@ function handleProductClick(event) {
   }
 }
 
-if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
-  cartContainer.addEventListener('click', handleProductClick);
-}
+document.addEventListener('click', handleContainerClick);
+
+
+
 
 function deleteAllFromCart() {
   localStorage.setItem('cart-products-list', JSON.stringify([]));
   cartProductsList.innerHTML = '';
   updateCartFromLocalStorage();
   calculationTotalPrice();
+  cartContainer.removeEventListener('click', handleProductClick);
   renderCartProducts();
 }
 
