@@ -38,7 +38,7 @@ function deleteProductAndUpdateCart(productId) {
     localStorage.setItem('cart-products-list', JSON.stringify(productsArr));
     renderCartProducts();
     updateCartFromLocalStorage();
-  } 
+  }
 }
 
 const cartContainer = document.querySelector('.cart-list');
@@ -55,14 +55,11 @@ function handleContainerClick(event) {
 
 document.addEventListener('click', handleContainerClick);
 
-
-
 function deleteAllFromCart() {
   localStorage.setItem('cart-products-list', JSON.stringify([]));
   cartProductsList.innerHTML = '';
   updateCartFromLocalStorage();
   calculationTotalPrice();
-  cartContainer.removeEventListener('click', handleProductClick);
   renderCartProducts();
 }
 
