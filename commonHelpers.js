@@ -1,4 +1,4 @@
-import{i as r,s as _,c as f}from"./assets/footer-subscription-37f98d9c.js";import"./assets/vendor-8a888f22.js";const o=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const S=e=>{const t=e.map(({_id:c,name:a,img:l,category:s,price:h,size:b,popularity:x,quantity:N,is10PercentOff:P,desc:w})=>`<li class="card_container_product" id="${c}">
+import{i as r,s as _,c as f}from"./assets/footer-subscription-dbf972ba.js";import"./assets/vendor-8a888f22.js";const o=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const S=e=>{const t=e.map(({_id:c,name:a,img:l,category:s,price:h,size:b,popularity:x,quantity:N,is10PercentOff:P,desc:w})=>`<li class="card_container_product" id="${c}">
 
          <div class="description">
           <div class="card_container-product_img">
