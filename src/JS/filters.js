@@ -1,9 +1,16 @@
 import { getProductsByParams } from './API';
 import { appendMarkup } from './markup-product-cards';
 
-const select = document.querySelector('.js-category');
-const sorting = document.querySelector('.dropdown__input-hidden');
+const categoryList = document.querySelector('.js-category-list');
 const search_input = document.querySelector('.js-search-input');
+const dropDownCatBtn = document.querySelector('.dropdown-categoryBtn');
+const categoryInput = document.querySelector('.js-category-input');
+
+const dropDownBtn = document.querySelector('.dropdown-sortingBtn');
+const dropDownList = document.querySelector('.js-sorting-list');
+const dropDownListItems = dropDownList.querySelectorAll('.js-sorting-item');
+const dropDownInput = document.querySelector('.js-sorting-input');
+
 const defaultParams = {
   keyword: '',
   category: '',
@@ -11,19 +18,32 @@ const defaultParams = {
   limit: 6,
 };
 
-localStorage.setItem('search-params', JSON.stringify(defaultParams));
+if (!JSON.parse(localStorage.getItem('search-params'))) {
+  localStorage.setItem('search-params', JSON.stringify(defaultParams));
+}
 
-select.addEventListener('input', changeCategoryInLocal);
-sorting.addEventListener('input', changeSortingInLocal);
 search_input.addEventListener('submit', changeKeywordInLocal);
 
 export function renderSelect(categories) {
   const markup = categories
     .map(category => {
-      return `<option value="${category}">${category}</option>`;
+      const wordsArray = category.split('_');
+      const formattedText = wordsArray.join(' ');
+      return `<li class="dropdown-sorting__item js-category-item" data-value="${category}">${formattedText}</li>`;
     })
     .join('');
-  select.insertAdjacentHTML('afterbegin', markup);
+  categoryList.insertAdjacentHTML('afterbegin', markup);
+  const catListItems = document.querySelectorAll('.js-category-item');
+  catListItems.forEach(function (listItems) {
+    listItems.addEventListener('click', function (e) {
+      console.log('dropinner');
+      e.stopPropagation();
+      dropDownCatBtn.innerText = this.innerText;
+      categoryInput.value = this.dataset.value;
+      changeCategoryInLocal(categoryInput);
+      categoryList.classList.remove('dropdown__list--visible');
+    });
+  });
   getCategoryInput();
 }
 
@@ -57,18 +77,17 @@ export function checkedForm() {
   const searchParams = JSON.parse(localStorage.getItem('search-params'));
   if (searchParams) {
     search_input.elements.searchQuery.value = searchParams.keyword ?? '';
-    select.options[select.selectedIndex].value = searchParams.category ?? '';
+    categoryInput.value = searchParams.category;
   }
 }
 
-function changeCategoryInLocal() {
+function changeCategoryInLocal(info) {
   const searchParams = JSON.parse(localStorage.getItem('search-params'));
-  if (select.options[select.selectedIndex].value === 'All') {
-    sorting.selectedIndex = 0;
-    select.selectedIndex = select.options.length - 1;
-    localStorage.setItem('search-params', JSON.stringify(defaultParams));
+  if (info.value === 'All') {
+    searchParams.category = '';
+    localStorage.setItem('search-params', JSON.stringify(searchParams));
   } else {
-    searchParams.category = select.options[select.selectedIndex].value;
+    searchParams.category = info.value;
     localStorage.setItem('search-params', JSON.stringify(searchParams));
   }
   getProductsByParams()
@@ -81,8 +100,12 @@ function changeKeywordInLocal(evt) {
   if (search_input.elements.searchQuery.value === '') {
     const searchParams = JSON.parse(localStorage.getItem('search-params'));
     searchParams.page = 1;
-    sorting.selectedIndex = 0;
-    // select.selectedIndex = select.options.length - 1;
+    dropDownCatBtn.innerText = 'Category';
+    dropDownBtn.innerText = 'A to Z';
+    searchParams.category = '';
+    delete searchParams.byPopularity;
+    delete searchParams.byPrice;
+    delete searchParams.byABC;
     localStorage.setItem('search-params', JSON.stringify(searchParams));
   } else {
     const searchParams = JSON.parse(localStorage.getItem('search-params'));
@@ -100,16 +123,20 @@ function changeKeywordInLocal(evt) {
 }
 
 function getCategoryInput() {
-  for (let i = 0; i < select.options.length; i++) {
-    if (select.options[i].value === searchParams.category) {
-      select.options[i].selected = true;
-      break;
+  const searchParams = JSON.parse(localStorage.getItem('search-params'));
+  if (searchParams) {
+    if (searchParams.category === '') {
+      dropDownCatBtn.innerText = 'Category';
+    } else {
+      categoryInput.value = searchParams.category;
+      const wordsArray = categoryInput.value.split('_');
+      const formattedText = wordsArray.join(' ');
+      dropDownCatBtn.innerText = formattedText;
     }
   }
 }
 
 function changeSortingInLocal(sort) {
-  console.log('Hi');
   const searchParams = JSON.parse(localStorage.getItem('search-params'));
   switch (sort.value) {
     case 'a_z':
@@ -161,43 +188,47 @@ function changeSortingInLocal(sort) {
     .catch(er => console.log(er));
 }
 
-// ========Filter Markup========
-document
-  .querySelectorAll('.dropdown-wrapper')
-  .forEach(function (dropDownWrapper) {
-    const dropDownBtn = dropDownWrapper.querySelector('.dropdown-sortingBtn');
-    const dropDownList = dropDownWrapper.querySelector(
-      '.dropdown-sorting__list'
-    );
-    const dropDownListItems = dropDownList.querySelectorAll(
-      '.dropdown-sorting__item'
-    );
-    const dropDownInput = dropDownWrapper.querySelector(
-      '.dropdown__input-hidden'
-    );
+// ========Filter Sorting Markup========
 
-    // Клик по кнопке. Открыть/Закрыть select
-    dropDownBtn.addEventListener('click', function (e) {
-      dropDownList.classList.toggle('dropdown__list--visible');
-      this.classList.add('dropdown__button--active');
-    });
+// Клик по кнопке. Открыть/Закрыть select
+dropDownBtn.addEventListener('click', function (e) {
+  dropDownList.classList.toggle('dropdown__list--visible');
+  this.classList.add('dropdown__button--active');
+});
 
-    // Выбор элемента списка. Запомнить выбранное значение. Закрыть дропдаун
-    dropDownListItems.forEach(function (listItem) {
-      listItem.addEventListener('click', function (e) {
-        e.stopPropagation();
-        dropDownBtn.innerText = this.innerText;
-        dropDownInput.value = this.dataset.value;
-        changeSortingInLocal(dropDownInput);
-        dropDownList.classList.remove('dropdown__list--visible');
-      });
-    });
-
-    // Клик снаружи дропдауна. Закрыть дропдаун
-    document.addEventListener('click', function (e) {
-      if (e.target !== dropDownBtn) {
-        dropDownBtn.classList.remove('dropdown__button--active');
-        dropDownList.classList.remove('dropdown__list--visible');
-      }
-    });
+// Выбор элемента списка. Запомнить выбранное значение. Закрыть дропдаун
+dropDownListItems.forEach(function (listItem) {
+  listItem.addEventListener('click', function (e) {
+    e.stopPropagation();
+    dropDownBtn.innerText = this.innerText;
+    dropDownInput.value = this.dataset.value;
+    changeSortingInLocal(dropDownInput);
+    dropDownList.classList.remove('dropdown__list--visible');
   });
+});
+
+// Клик снаружи дропдауна. Закрыть дропдаун
+document.addEventListener('click', function (e) {
+  if (e.target !== dropDownBtn) {
+    dropDownBtn.classList.remove('dropdown__button--active');
+    dropDownList.classList.remove('dropdown__list--visible');
+  }
+});
+
+// =====Filter Category Markup====
+
+// Клик по кнопке. Открыть/Закрыть select
+dropDownCatBtn.addEventListener('click', function (e) {
+  console.log('дропліст');
+  categoryList.classList.toggle('dropdown__list--visible');
+  this.classList.add('dropdown__button--active');
+});
+
+// Клик снаружи дропдауна. Закрыть дропдаун
+document.addEventListener('click', function (e) {
+  console.log('dropout');
+  if (e.target !== dropDownCatBtn) {
+    dropDownCatBtn.classList.remove('dropdown__button--active');
+    categoryList.classList.remove('dropdown__list--visible');
+  }
+});

@@ -33,11 +33,11 @@ if (!cartProducts) {
 import './JS/modal';
 
 export function updateCartFromLocalStorage() {
-  const productsInLocalStorage = JSON.parse(localStorage.getItem('cart-products-list')) || [];
+  const productsInLocalStorage =
+    JSON.parse(localStorage.getItem('cart-products-list')) || [];
   const objectsCount = productsInLocalStorage.length;
   const quantityCart = document.querySelector('.quantity_products');
   quantityCart.textContent = '(' + objectsCount + ')';
 }
 
-updateCartFromLocalStorage()
-
+updateCartFromLocalStorage();

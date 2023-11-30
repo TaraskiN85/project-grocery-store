@@ -67,13 +67,12 @@ getProductsByParams(options)
   .catch(er => console.log(er));
 
 document
-  .querySelector('.category-input')
+  .querySelector('.js-category-input')
   .addEventListener('change', handleSelectChange);
-
 
 function handleSelectChange() {
   container.innerHTML = '';
-  const selectedValue = document.querySelector('.category-input');
+  const selectedValue = document.querySelector('.js-category-input');
   const newOptions = JSON.parse(localStorage.getItem('search-params'));
   getProductsByParams(newOptions)
     .then(data => {
@@ -119,9 +118,9 @@ function handleSelectChange() {
     .catch(er => console.log(er));
 }
 
-
-document.querySelector('.js-search-input').addEventListener('change', handlInputChange);
-
+document
+  .querySelector('.js-search-input')
+  .addEventListener('change', handlInputChange);
 
 function handlInputChange(event) {
   event.preventDefault();
@@ -135,7 +134,7 @@ function handlInputChange(event) {
       let totalPages = data.totalPages;
       const itemsPerPage = options.limit;
       const totalItems = itemsPerPage * totalPages;
-   
+
       if (totalPages <= 1) {
         return;
       }
