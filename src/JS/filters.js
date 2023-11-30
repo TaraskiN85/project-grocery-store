@@ -78,6 +78,7 @@ function changeCategoryInLocal() {
 
 function changeKeywordInLocal(evt) {
   evt.preventDefault();
+  if (search_input.elements.searchQuery.value === '') {
     const searchParams = JSON.parse(localStorage.getItem('search-params'));
     searchParams.page = 1;
     sorting.selectedIndex = 0;
