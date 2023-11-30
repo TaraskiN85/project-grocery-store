@@ -1,8 +1,8 @@
-import{i as o,s as p,c as y}from"./assets/footer-subscription-969defa7.js";import"./assets/vendor-8a888f22.js";const _="/project-grocery-store/assets/basket_1x-97a514f0.png",S="/project-grocery-store/assets/basket_2x-e387b499.png",l=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const k=t=>{const e=t.map(({_id:c,name:s,img:r,category:a,price:h,size:f,popularity:w,quantity:P,is10PercentOff:N,desc:E})=>`<li class="card_container_product" id="${c}">
+import{i as r,s as p,c as y}from"./assets/footer-subscription-969defa7.js";import"./assets/vendor-8a888f22.js";const _="/project-grocery-store/assets/basket_1x-97a514f0.png",S="/project-grocery-store/assets/basket_2x-e387b499.png",o=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const k=e=>{const t=e.map(({_id:c,name:s,img:l,category:a,price:h,size:f,popularity:w,quantity:N,is10PercentOff:P,desc:J})=>`<li class="card_container_product" id="${c}">
 
          <div class="description">
           <div class="card_container-product_img">
-            <img class="card_product_img" src="${r}" alt="${s}" />
+            <img class="card_product_img" src="${l}" alt="${s}" />
           </div>
 
           <div class="card_container_product_fullDs">
@@ -26,7 +26,7 @@ import{i as o,s as p,c as y}from"./assets/footer-subscription-969defa7.js";impor
           <div class="card-product-delete-button">
             <button type="button" class="cart-product-delete-button" id="${c}">
               <svg class="cart-icon-close-" width="18" height="18">
-                 <use href="${o}#icon-delete-close"></use>
+                 <use href="${r}#icon-delete-close"></use>
               </svg>
             </button>
           </div>
@@ -36,7 +36,7 @@ import{i as o,s as p,c as y}from"./assets/footer-subscription-969defa7.js";impor
   <ul class="cart_list">
     <li class="cart-item">
       <svg class="cart-svg" width="18" height="18">
-        <use href="${o}#icon-cart"></use>
+        <use href="${r}#icon-cart"></use>
       </svg>
     </li>
     <li class="cart-item">
@@ -49,12 +49,12 @@ import{i as o,s as p,c as y}from"./assets/footer-subscription-969defa7.js";impor
         <span class="cart-product-delete-span">Delete all</span>
         <button type="button" class="cart-product-delete-all-button">
           <svg class="cart-icon-delete-all" width="24" height="24">
-            <use href="${o}#icon-delete-close"></use>
+            <use href="${r}#icon-delete-close"></use>
           </svg>
         </button>
       </div>
       <ul class="cart-list">
-        ${e}
+        ${t}
       </ul>
     </div>
     <div class="cart_container_total_price">
@@ -79,13 +79,13 @@ import{i as o,s as p,c as y}from"./assets/footer-subscription-969defa7.js";impor
       </div>
     </div>
   </div>
-</div>`},n=()=>{const t=JSON.parse(localStorage.getItem("cart-products-list"))||[];if(t.length>0)console.log("full"),l.innerHTML="",l.insertAdjacentHTML("afterbegin",k(t));else{l.innerHTML="",console.log("empty");const e=document.querySelector(".cart");e.innerHTML+=`<div class="container">
+</div>`},n=()=>{const e=JSON.parse(localStorage.getItem("cart-products-list"))||[];if(e.length>0)o.innerHTML="",o.insertAdjacentHTML("afterbegin",k(e));else{o.innerHTML="";const t=document.querySelector(".cart");t.innerHTML+=`<div class="container">
     <div class="empty-basket">
       <div class="basket_container">
         <ul class="basket_list">
           <li class="basket_item">
             <svg class="basket_svg" width="18" height="18">
-              <use href="${o}#icon-cart"></use>
+              <use href="${r}#icon-cart"></use>
             </svg>
           </li>
           <li class="basket_item">
@@ -111,5 +111,5 @@ import{i as o,s as p,c as y}from"./assets/footer-subscription-969defa7.js";impor
         </p>
       </div>
     </div>
-  </div>`}},i=document.querySelector(".modal-cart"),C=document.querySelector(".close-btn");function I(){i.classList.remove("is-hidden"),document.body.style.overflow="hidden"}function L(t){t.target===i&&m()}function m(){i.classList.add("is-hidden"),document.body.style.overflow="visible"}window.addEventListener("click",L);C.addEventListener("click",m);n();function d(){const e=(JSON.parse(localStorage.getItem("cart-products-list"))||[]).length,c=document.querySelector(".quantity_products"),s=document.querySelector(".cart-span");c.textContent="("+e+")",JSON.parse(localStorage.getItem("cart-products-list")).length&&(s.textContent="("+e+")")}d();const $=document.querySelector(".cart-product-delete-all-button");function O(t){let e=JSON.parse(localStorage.getItem("cart-products-list"))||[];const c=e.findIndex(s=>s._id===t);c!==-1&&(e.splice(c,1),localStorage.setItem("cart-products-list",JSON.stringify(e)),n(),d())}const g=document.querySelector(".cart-list");function u(t){const e=t.target.closest(".card-product-delete-button");if(e){const c=e.closest(".card_container_product").id;O(c),b()}}document.addEventListener("click",u);JSON.parse(localStorage.getItem("cart-products-list")).length&&g.addEventListener("click",u);function v(){localStorage.setItem("cart-products-list",JSON.stringify([])),l.innerHTML="",d(),g.removeEventListener("click",u),n()}JSON.parse(localStorage.getItem("cart-products-list")).length&&$.addEventListener("click",v);async function b(){const t=document.querySelector(".cart_total_cost"),c=(await JSON.parse(localStorage.getItem("cart-products-list"))||[]).reduce((s,r)=>s+r.price,0);t.textContent=`${c.toFixed(2)}`}b();const q=document.querySelector(".cart_form_button");JSON.parse(localStorage.getItem("cart-products-list")).length&&q.addEventListener("click",x);async function x(){const t=document.querySelector(".cart_form_input").value,c=JSON.parse(localStorage.getItem("cart-products-list")).map(a=>({productId:a._id,amount:a.amount}));if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)){p("Please, enter valid Email!");return}const r={email:t,products:c};try{const a=await y(r);v(),I(a)}catch(a){console.error("Error creating order:",a),p("Error creating order. Please try again later.")}}
+  </div>`}},i=document.querySelector(".modal-cart"),C=document.querySelector(".close-btn");function I(){i.classList.remove("is-hidden"),document.body.style.overflow="hidden"}function $(e){e.target===i&&m()}function m(){i.classList.add("is-hidden"),document.body.style.overflow="visible"}window.addEventListener("click",$);C.addEventListener("click",m);n();function d(){const t=(JSON.parse(localStorage.getItem("cart-products-list"))||[]).length,c=document.querySelector(".quantity_products"),s=document.querySelector(".cart-span");c.textContent="("+t+")",JSON.parse(localStorage.getItem("cart-products-list")).length&&(s.textContent="("+t+")")}d();const L=document.querySelector(".cart-product-delete-all-button");function O(e){let t=JSON.parse(localStorage.getItem("cart-products-list"))||[];const c=t.findIndex(s=>s._id===e);c!==-1&&(t.splice(c,1),localStorage.setItem("cart-products-list",JSON.stringify(t)),n(),d())}const g=document.querySelector(".cart-list");function u(e){const t=e.target.closest(".card-product-delete-button");if(t){const c=t.closest(".card_container_product").id;O(c),b()}}document.addEventListener("click",u);JSON.parse(localStorage.getItem("cart-products-list")).length&&g.addEventListener("click",u);function v(){localStorage.setItem("cart-products-list",JSON.stringify([])),o.innerHTML="",d(),g.removeEventListener("click",u),n()}JSON.parse(localStorage.getItem("cart-products-list")).length&&L.addEventListener("click",v);async function b(){const t=(await JSON.parse(localStorage.getItem("cart-products-list"))||[]).reduce((c,s)=>c+s.price,0);if(JSON.parse(localStorage.getItem("cart-products-list")).length){const c=document.querySelector(".cart_total_cost");c.textContent=`$ ${t.toFixed(2)}`}}b();const q=document.querySelector(".cart_form_button");JSON.parse(localStorage.getItem("cart-products-list")).length&&q.addEventListener("click",x);async function x(){const e=document.querySelector(".cart_form_input").value,c=JSON.parse(localStorage.getItem("cart-products-list")).map(a=>({productId:a._id,amount:a.amount}));if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){p("Please, enter valid Email!");return}const l={email:e,products:c};try{const a=await y(l);v(),I(a)}catch(a){console.error("Error creating order:",a),p("Error creating order. Please try again later.")}}
 //# sourceMappingURL=commonHelpers.js.map
