@@ -1,5 +1,6 @@
 import { getProductsByParams } from './API';
 import { appendMarkup } from './markup-product-cards';
+import { handleSelectChange } from './pagination';
 
 const categoryList = document.querySelector('.js-category-list');
 const search_input = document.querySelector('.js-search-input');
@@ -93,6 +94,7 @@ function changeCategoryInLocal(info) {
   getProductsByParams()
     .then(data => appendMarkup(data))
     .catch(er => console.log(er));
+    handleSelectChange();
 }
 
 function changeKeywordInLocal(evt) {
