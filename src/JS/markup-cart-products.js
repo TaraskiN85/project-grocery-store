@@ -1,3 +1,5 @@
+import icons from '../img/icons.svg';
+
 export const cartProductsList = document.querySelector('.cart');
 
 const cartProductsInfo = JSON.parse(localStorage.getItem('cart-products-list'));
@@ -45,7 +47,7 @@ const createMarkup = cartProductsInfo => {
           <div class="card-product-delete-button">
             <button type="button" class="cart-product-delete-button id="${_id}">
               <svg class="cart-icon-close-" width="18" height="18">
-                 <use href="./img/icons.svg#icon-delete-close"></use>
+                 <use href="${icons}#icon-delete-close"></use>
               </svg>
             </button>
           </div>
@@ -58,7 +60,7 @@ const createMarkup = cartProductsInfo => {
   <ul class="cart_list">
     <li class="cart-item">
       <svg class="cart-svg" width="18" height="18">
-        <use href="./img/icons.svg#icon-cart"></use>
+        <use href="${icons}#icon-cart"></use>
       </svg>
     </li>
     <li class="cart-item">
@@ -71,7 +73,7 @@ const createMarkup = cartProductsInfo => {
         <span class="cart-product-delete-span">Delete all</span>
         <button type="button" class="cart-product-delete-all-button">
           <svg class="cart-icon-delete-all" width="24" height="24">
-            <use href="./img/icons.svg#icon-delete-close"></use>
+            <use href="${icons}#icon-delete-close"></use>
           </svg>
         </button>
       </div>
@@ -124,7 +126,7 @@ export const renderCartProducts = () => {
         <ul class="basket_list">
           <li class="basket_item">
             <svg class="basket_svg" width="18" height="18">
-              <use href="./img/icons.svg#icon-cart"></use>
+              <use href="${icons}#icon-cart"></use>
             </svg>
           </li>
           <li class="basket_item">

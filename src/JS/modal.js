@@ -1,6 +1,7 @@
 import { getProductById } from './API';
 
 import { updateCartFromLocalStorage } from '../main';
+import icons from '../img/icons.svg';
 
 document.addEventListener('DOMContentLoaded', async function () {
   const productContainer = document.querySelector(
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         'Remove from <svg width="18" height="18"><use class="button-icon" href="../img/icons.svg#icon-cart"></use></svg>';
     } else {
       addToCartBtn.innerHTML =
-        'Add to <svg width="18" height="18"><use class="button-icon" href="../img/icons.svg#icon-cart"></use></svg>';
+        'Add to <svg width="18" height="18"><use class="button-icon" href="${icons}#icon-cart"></use></svg>';
     }
   }
 
