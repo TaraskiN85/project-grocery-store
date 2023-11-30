@@ -1,6 +1,7 @@
 import Pagination from 'tui-pagination';
 import { getProductsByParams } from './API';
 import { appendMarkup } from './markup-product-cards';
+import icons from '../img/icons.svg';
 
 const container = document.getElementById('pagination');
 
