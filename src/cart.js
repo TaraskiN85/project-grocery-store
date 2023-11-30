@@ -56,14 +56,16 @@ function handleContainerClick(event) {
 document.addEventListener('click', handleContainerClick);
 
 
-
+if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
+  cartContainer.addEventListener('click', handleContainerClick);
+}
 
 function deleteAllFromCart() {
   localStorage.setItem('cart-products-list', JSON.stringify([]));
   cartProductsList.innerHTML = '';
   updateCartFromLocalStorage();
   calculationTotalPrice();
-  cartContainer.removeEventListener('click', handleProductClick);
+  cartContainer.removeEventListener('click', handleContainerClick);
   renderCartProducts();
 }
 
