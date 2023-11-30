@@ -1,8 +1,7 @@
 import Pagination from 'tui-pagination';
 import { getProductsByParams } from './API';
 import { appendMarkup } from './markup-product-cards';
-
-
+import icons from '../img/icons.svg';
 
 const container = document.getElementById('pagination');
 
@@ -33,13 +32,13 @@ getProductsByParams(options)
         moveButton:
           '<a href="#" class="tui-page-btn tui-{{type}}">' +
           '<svg width="14" height="14">' +
-          '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+          `<use class="tui-btn-icon" href="${icons}#{{type}}"></use>` +
           '</svg>' +
           '</a>',
         disabledMoveButton:
           '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
           '<svg width="14" height="14">' +
-          '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+          `<use class="tui-btn-icon" href="${icons}#{{type}}"></use>` +
           '</svg>' +
           '</span>',
         moreButton:
@@ -100,14 +99,14 @@ function handleSelectChange() {
             '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
           moveButton:
             '<a href="#" class="tui-page-btn tui-{{type}}">' +
-            '<svg width="32" height="32">' +
-            '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+            '<svg width="14" height="14">' +
+            `<use class="tui-btn-icon" href="${icons}#{{type}}"></use>` +
             '</svg>' +
             '</a>',
           disabledMoveButton:
             '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-            '<svg width="32" height="32">' +
-            '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+            '<svg width="14" height="14">' +
+            `<use class="tui-btn-icon" href="${icons}#{{type}}"></use>` +
             '</svg>' +
             '</span>',
           moreButton:
@@ -155,14 +154,14 @@ function handlInputChange(event) {
             '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
           moveButton:
             '<a href="#" class="tui-page-btn tui-{{type}}">' +
-            '<svg width="32" height="32">' +
-            '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+            '<svg width="14" height="14">' +
+            `<use class="tui-btn-icon" href="${icons}#{{type}}"></use>` +
             '</svg>' +
             '</a>',
           disabledMoveButton:
             '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-            '<svg width="32" height="32">' +
-            '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+            '<svg width="14" height="14">' +
+            `<use class="tui-btn-icon" href="${icons}#{{type}}"></use>` +
             '</svg>' +
             '</span>',
           moreButton:

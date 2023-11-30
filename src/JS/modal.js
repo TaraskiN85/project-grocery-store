@@ -1,6 +1,7 @@
 import { getProductById } from './API';
 
 import { updateCartFromLocalStorage } from '../main';
+import icons from '../img/icons.svg';
 
 
 document.addEventListener('DOMContentLoaded', async function () {
@@ -69,10 +70,10 @@ document.addEventListener('DOMContentLoaded', async function () {
   function updateIconModal(isInCart) {
     if (isInCart) {
       addToCartBtn.innerHTML =
-        'Remove from <svg width="18" height="18"><use class="button-icon" href="../img/icons.svg#icon-cart"></use></svg>';
+        `Remove from <svg width="18" height="18"><use class="button-icon" href="${icons}#icon-cart"></use></svg>`;
     } else {
       addToCartBtn.innerHTML =
-        'Add to <svg width="18" height="18"><use class="button-icon" href="../img/icons.svg#icon-cart"></use></svg>';
+        `Add to <svg width="18" height="18"><use class="button-icon" href="${icons}#icon-cart"></use></svg>`;
     }
   }
 
@@ -100,10 +101,10 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             if (isInCart) {
               addButton.innerHTML =
-                '<svg width="18" height="18"><use class="button-icon" href="../img/icons.svg#icon-check"></use></svg>';
+                `<svg width="18" height="18"><use class="button-icon" href="${icons}#icon-check"></use></svg>`;
             } else {
               addButton.innerHTML =
-                '<svg width="18" height="18"><use class="button-icon" href="../img/icons.svg#icon-cart"></use></svg>';
+                `<svg width="18" height="18"><use class="button-icon" href="${icons}#icon-cart"></use></svg>`;
             }
           }
         });
@@ -137,10 +138,10 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             if (isInCart) {
               addButtons.innerHTML =
-                '<svg width="16" height="16"><use class="discount-button-icon" href="../img/icons.svg#icon-check"></use></svg>';
+                `<svg width="16" height="16"><use class="discount-button-icon" href="${icons}#icon-check"></use></svg>`;
             } else {
               addButtons.innerHTML =
-                '<svg width="16" height="16"><use class="discount-button-icon" href="../img/icons.svg#icon-cart"></use></svg>';
+                '<svg width="16" height="16"><use class="discount-button-icon" href="${icons}#icon-cart"></use></svg>';
             }
           }
         });
@@ -172,10 +173,10 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             if (isInCart) {
               addButtons.innerHTML =
-                '<svg width="16" height="16" fill="#6d8434"><use class="popular-button-icon" href="../img/icons.svg#icon-check"></use></svg>';
+                `<svg width="16" height="16" fill="#6d8434"><use class="popular-button-icon" href="${icons}#icon-check"></use></svg>`;
             } else {
               addButtons.innerHTML =
-                '<svg width="16" height="16" fill="#6d8434"><use class="popular-button-icon" href="../img/icons.svg#icon-cart"></use></svg>';
+                `<svg width="16" height="16" fill="#6d8434"><use class="popular-button-icon" href="${icons}#icon-cart"></use></svg>`;
             }
           }
         });

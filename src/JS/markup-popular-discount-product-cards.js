@@ -1,4 +1,5 @@
 import { getPopularProducts, getDiscountProducts } from './API';
+import icons from '../img/icons.svg';
 
 const refs = {
   popularProductCards: document.querySelector('.js-popular-product-cards'),
@@ -48,7 +49,7 @@ function createPopularMarkup(data) {
                   <div class="product-card-prices-btn">
                       <button type="button" class="products-card-btn" id="${_id}">
                           <svg width="16" height="16">
-                              <use class="popular-button-icon" href="./img/icons.svg#icon-cart"></use>
+                              <use class="popular-button-icon" href="${icons}#icon-cart"></use>
                           </svg>
                       </button>
                   </div>
@@ -79,7 +80,7 @@ function createDiscountMarkup(data) {
                           alt="${name}">
                           <span class="discount-svg">
                           <svg width="60" height="60" >
-                              <use  href="./img/icons.svg#icon-discount"></use>
+                              <use  href="${icons}#icon-discount"></use>
                           </svg>
                           </span>
                   </div>
@@ -90,7 +91,7 @@ function createDiscountMarkup(data) {
                       <p class="product-card-price">$${price}</p>
                       <button type="button" class="discount-product-card-btn" id="${_id}">
                           <svg width="18" height="18">
-                              <use class="discount-button-icon" href="./img/icons.svg#icon-cart"></use>
+                              <use class="discount-button-icon" href="${icons}#icon-cart"></use>
                           </svg>
                       </button>
                   </div>
