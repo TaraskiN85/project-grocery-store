@@ -9,10 +9,6 @@ import {
   renderSelect,
   fetchBasedOnScreenSize,
   checkedForm,
-  categoryList,
-  categoryInput,
-  dropDownCatBtn,
-  catListItems,
 } from './JS/filters';
 
 window.addEventListener('resize', fetchBasedOnScreenSize);
