@@ -9,6 +9,10 @@ import {
   renderSelect,
   fetchBasedOnScreenSize,
   checkedForm,
+  categoryList,
+  categoryInput,
+  dropDownCatBtn,
+  catListItems,
 } from './JS/filters';
 
 window.addEventListener('resize', fetchBasedOnScreenSize);
@@ -21,6 +25,15 @@ getProductsCategories()
   .catch(er => {
     console.log(er);
   });
+// catListItems.forEach(function (listItems) {
+//   listItems.addEventListener('click', function (e) {
+//     console.log('dropinner');
+//     e.stopPropagation();
+//     dropDownCatBtn.innerText = this.innerText;
+//     categoryInput.value = this.dataset.value;
+//     changeCategoryInLocal(categoryInput);
+//     categoryList.classList.remove('dropdown__list--visible');
+//   });
 
 appendPopularProductsMarkup();
 appendDiscountProductsMarkup();
@@ -33,11 +46,11 @@ if (!cartProducts) {
 import './JS/modal';
 
 export function updateCartFromLocalStorage() {
-  const productsInLocalStorage = JSON.parse(localStorage.getItem('cart-products-list')) || [];
+  const productsInLocalStorage =
+    JSON.parse(localStorage.getItem('cart-products-list')) || [];
   const objectsCount = productsInLocalStorage.length;
   const quantityCart = document.querySelector('.quantity_products');
   quantityCart.textContent = '(' + objectsCount + ')';
 }
 
-updateCartFromLocalStorage()
-
+updateCartFromLocalStorage();

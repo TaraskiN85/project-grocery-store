@@ -16,34 +16,70 @@
       </button>
     </form>
 
-    <form class="form">
+    <!-- <form class="form">
       <select class="category-input js-category" name="category">
         <option value="All">Show All</option>
         <option value="category" selected hidden>Category</option>
       </select>
-    </form>
+    </form> -->
 
-    <div class="form-sorting">
+    <div class="form-category">
       <div class="dropdown-wrapper">
-        <button class="dropdown-sortingBtn">A to Z</button>
-        <ul class="dropdown-sorting__list">
-          <li class="dropdown-sorting__item" data-value="a_z">A to Z</li>
-          <li class="dropdown-sorting__item" data-value="z_a">Z to A</li>
-          <li class="dropdown-sorting__item" data-value="cheap">Cheap</li>
-          <li class="dropdown-sorting__item" data-value="expensive">
-            Expensive
+        <button class="dropdown-categoryBtn">Category</button>
+        <ul class="dropdown-sorting__list js-category-list">
+          <li class="dropdown-sorting__item js-category-item" data-value="All">
+            Show All
           </li>
-          <li class="dropdown-sorting__item" data-value="popular">Popular</li>
-          <li class="dropdown-sorting__item" data-value="not_popular">
-            Not Popular
-          </li>
-          <li class="dropdown-sorting__item" data-value="All">Show All</li>
         </ul>
         <input
           type="text"
           name="sorting"
           value=""
-          class="dropdown__input-hidden"
+          class="dropdown__input-hidden js-category-input"
+        />
+      </div>
+    </div>
+
+    <div class="form-sorting">
+      <div class="dropdown-wrapper">
+        <button class="dropdown-sortingBtn">A to Z</button>
+        <ul class="dropdown-sorting__list js-sorting-list">
+          <li class="dropdown-sorting__item js-sorting-item" data-value="a_z">
+            A to Z
+          </li>
+          <li class="dropdown-sorting__item js-sorting-item" data-value="z_a">
+            Z to A
+          </li>
+          <li class="dropdown-sorting__item js-sorting-item" data-value="cheap">
+            Cheap
+          </li>
+          <li
+            class="dropdown-sorting__item js-sorting-item"
+            data-value="expensive"
+          >
+            Expensive
+          </li>
+          <li
+            class="dropdown-sorting__item js-sorting-item"
+            data-value="popular"
+          >
+            Popular
+          </li>
+          <li
+            class="dropdown-sorting__item js-sorting-item"
+            data-value="not_popular"
+          >
+            Not Popular
+          </li>
+          <li class="dropdown-sorting__item js-sorting-item" data-value="All">
+            Show All
+          </li>
+        </ul>
+        <input
+          type="text"
+          name="sorting"
+          value=""
+          class="dropdown__input-hidden js-sorting-input"
         />
       </div>
     </div>
