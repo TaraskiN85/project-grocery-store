@@ -1,4 +1,6 @@
 import icons from '../img/icons.svg';
+import basket_1 from '../img/basket_1x.png';
+import basket_2 from '../img/basket_2x.png';
 
 export const cartProductsList = document.querySelector('.cart');
 
@@ -136,8 +138,8 @@ export const renderCartProducts = () => {
       </div>
       <img
         class="basket_img"
-        srcset="./img/basket_1x.png, ./img/basket_2x.png"
-        src="./img/basket_1x.png"
+        srcset="${basket_1}, ${basket_2}"
+        src="${basket_1}"
         alt="yellow shopping basket"
         width="132"
         height="114"
