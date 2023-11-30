@@ -1,4 +1,4 @@
-import{s as u,c as v}from"./assets/footer-subscription-27fb641b.js";import"./assets/vendor-8a888f22.js";const r=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const b=t=>`  <div class="container">
+import{s as l,c as b}from"./assets/footer-subscription-27fb641b.js";import"./assets/vendor-8a888f22.js";const r=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const f=t=>`  <div class="container">
   <ul class="cart_list">
     <li class="cart-item">
       <svg class="cart-svg" width="18" height="18">
@@ -20,7 +20,7 @@ import{s as u,c as v}from"./assets/footer-subscription-27fb641b.js";import"./ass
         </button>
       </div>
       <ul class="cart-list">
-        ${t.map(({_id:c,name:s,img:o,category:a,price:m,size:_,popularity:q,quantity:x,is10PercentOff:P,desc:w})=>`<li class="card_container_product" id="${c}">
+        ${t.map(({_id:c,name:s,img:o,category:a,price:v,size:h,popularity:x,quantity:P,is10PercentOff:N,desc:J})=>`<li class="card_container_product" id="${c}">
 
          <div class="description">
           <div class="card_container-product_img">
@@ -37,12 +37,12 @@ import{s as u,c as v}from"./assets/footer-subscription-27fb641b.js";import"./ass
                   <span class="cart_product_span">Category:</span>${a}
                 </p>
                 <p class="cart_product_description">
-                  <span class="cart_product_span">Size:</span>${_}
+                  <span class="cart_product_span">Size:</span>${h}
                 </p>
               </div>
             </div>
             <div class="card_container_price">
-              <p class="card_product_price">$${m}</p>
+              <p class="card_product_price">$${v}</p>
             </div>
           </div>
           <div class="card-product-delete-button">
@@ -79,7 +79,7 @@ import{s as u,c as v}from"./assets/footer-subscription-27fb641b.js";import"./ass
       </div>
     </div>
   </div>
-</div>`,l=()=>{const t=JSON.parse(localStorage.getItem("cart-products-list"))||[];if(t.length>0)console.log("full"),r.innerHTML="",r.insertAdjacentHTML("afterbegin",b(t));else{r.innerHTML="",console.log("empty");const e=document.querySelector(".cart");e.innerHTML+=`<div class="container">
+</div>`,i=()=>{const t=JSON.parse(localStorage.getItem("cart-products-list"))||[];if(t.length>0)console.log("full"),r.innerHTML="",r.insertAdjacentHTML("afterbegin",f(t));else{r.innerHTML="",console.log("empty");const e=document.querySelector(".cart");e.innerHTML+=`<div class="container">
     <div class="empty-basket">
       <div class="basket_container">
         <ul class="basket_list">
@@ -111,5 +111,5 @@ import{s as u,c as v}from"./assets/footer-subscription-27fb641b.js";import"./ass
         </p>
       </div>
     </div>
-  </div>`}},i=document.querySelector(".modal-cart"),h=document.querySelector(".close-btn");function f(){i.classList.remove("is-hidden"),document.body.style.overflow="hidden"}function y(t){t.target===i&&p()}function p(){i.classList.add("is-hidden"),document.body.style.overflow="visible"}window.addEventListener("click",y);h.addEventListener("click",p);l();function n(){const e=(JSON.parse(localStorage.getItem("cart-products-list"))||[]).length,c=document.querySelector(".quantity_products"),s=document.querySelector(".cart-span");c.textContent="("+e+")",JSON.parse(localStorage.getItem("cart-products-list")).length&&(s.textContent="("+e+")")}n();const S=document.querySelector(".cart-product-delete-all-button");function k(t){let e=JSON.parse(localStorage.getItem("cart-products-list"))||[];const c=e.findIndex(s=>s._id===t);c!==-1&&(e.splice(c,1),localStorage.setItem("cart-products-list",JSON.stringify(e)),l(),n())}document.querySelector(".cart-list");function C(t){const e=t.target.closest(".card-product-delete-button");if(e){const c=e.closest(".card_container_product").id;k(c),d()}}document.addEventListener("click",C);function g(){localStorage.setItem("cart-products-list",JSON.stringify([])),r.innerHTML="",n(),d(),l()}JSON.parse(localStorage.getItem("cart-products-list")).length&&S.addEventListener("click",g);const I=document.querySelector(".cart_total_cost");function d(){const e=JSON.parse(localStorage.getItem("cart-products-list")).reduce((c,s)=>c+s.price,0);JSON.parse(localStorage.getItem("cart-products-list")).length&&(I.textContent=`$ ${e.toFixed(2)}`)}d();const L=document.querySelector(".cart_form_button");JSON.parse(localStorage.getItem("cart-products-list")).length&&L.addEventListener("click",O);async function O(){const t=document.querySelector(".cart_form_input").value,c=JSON.parse(localStorage.getItem("cart-products-list")).map(a=>({productId:a._id,amount:a.amount}));if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)){u("Please, enter valid Email!");return}const o={email:t,products:c};try{const a=await v(o);g(),f(a)}catch(a){console.error("Error creating order:",a),u("Error creating order. Please try again later.")}}
+  </div>`}},n=document.querySelector(".modal-cart"),S=document.querySelector(".close-btn");function y(){n.classList.remove("is-hidden"),document.body.style.overflow="hidden"}function k(t){t.target===n&&p()}function p(){n.classList.add("is-hidden"),document.body.style.overflow="visible"}window.addEventListener("click",k);S.addEventListener("click",p);i();function d(){const e=(JSON.parse(localStorage.getItem("cart-products-list"))||[]).length,c=document.querySelector(".quantity_products"),s=document.querySelector(".cart-span");c.textContent="("+e+")",JSON.parse(localStorage.getItem("cart-products-list")).length&&(s.textContent="("+e+")")}d();const C=document.querySelector(".cart-product-delete-all-button");function I(t){let e=JSON.parse(localStorage.getItem("cart-products-list"))||[];const c=e.findIndex(s=>s._id===t);c!==-1?(e.splice(c,1),localStorage.setItem("cart-products-list",JSON.stringify(e)),i(),d(),JSON.parse(localStorage.getItem("cart-products-list")).length&&g.addEventListener("click",m)):l("Product not found in cart"),location.reload()}const g=document.querySelector(".cart-list");function m(t){const e=t.target.closest(".card-product-delete-button");if(e){const c=e.closest(".card_container_product").id;I(c),u()}}JSON.parse(localStorage.getItem("cart-products-list")).length&&g.addEventListener("click",m);function _(){localStorage.setItem("cart-products-list",JSON.stringify([])),r.innerHTML="",d(),u(),i()}JSON.parse(localStorage.getItem("cart-products-list")).length&&C.addEventListener("click",_);const L=document.querySelector(".cart_total_cost");function u(){const e=JSON.parse(localStorage.getItem("cart-products-list")).reduce((c,s)=>c+s.price,0);JSON.parse(localStorage.getItem("cart-products-list")).length&&(L.textContent=`$ ${e.toFixed(2)}`)}u();const O=document.querySelector(".cart_form_button");JSON.parse(localStorage.getItem("cart-products-list")).length&&O.addEventListener("click",q);async function q(){const t=document.querySelector(".cart_form_input").value,c=JSON.parse(localStorage.getItem("cart-products-list")).map(a=>({productId:a._id,amount:a.amount}));if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)){l("Please, enter valid Email!");return}const o={email:t,products:c};try{const a=await b(o);_(),y(a)}catch(a){console.error("Error creating order:",a),l("Error creating order. Please try again later.")}}
 //# sourceMappingURL=commonHelpers.js.map
