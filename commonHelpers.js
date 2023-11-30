@@ -1,4 +1,4 @@
-import{i as o,s as p,c as y}from"./assets/footer-subscription-115f49fa.js";import"./assets/vendor-8a888f22.js";const _="/project-grocery-store/assets/basket_1x-97a514f0.png",S="/project-grocery-store/assets/basket_2x-e387b499.png",l=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const k=t=>{const e=t.map(({_id:c,name:s,img:r,category:a,price:h,size:f,popularity:w,quantity:P,is10PercentOff:N,desc:E})=>`<li class="card_container_product" id="${c}">
+import{i as o,s as p,c as y}from"./assets/footer-subscription-969defa7.js";import"./assets/vendor-8a888f22.js";const _="/project-grocery-store/assets/basket_1x-97a514f0.png",S="/project-grocery-store/assets/basket_2x-e387b499.png",l=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const k=t=>{const e=t.map(({_id:c,name:s,img:r,category:a,price:h,size:f,popularity:w,quantity:P,is10PercentOff:N,desc:E})=>`<li class="card_container_product" id="${c}">
 
          <div class="description">
           <div class="card_container-product_img">
