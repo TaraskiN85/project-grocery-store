@@ -2,7 +2,6 @@ p, h3 {
   margin: 0;
 }
 .cart {
-  padding-top: 77px;
   padding-bottom: 80px;
 }
 
@@ -234,7 +233,6 @@ padding: 12px 20px;
 
 @media screen and (min-width: 768px) {
 .cart {
-    padding-top: 99px;
     padding-bottom: 100px;
   }
   .container {
