@@ -66,13 +66,17 @@ getProductsByParams(options)
   })
   .catch(er => console.log(er));
 
-document
-  .querySelector('.js-category-input')
-  .addEventListener('change', handleSelectChange);
 
-function handleSelectChange() {
+
+
+// const select = document.querySelector('.js-category-input')
+// select.addEventListener('change', handleSelectChange);
+// console.log(select);
+
+
+export function handleSelectChange() {
+
   container.innerHTML = '';
-  const selectedValue = document.querySelector('.js-category-input');
   const newOptions = JSON.parse(localStorage.getItem('search-params'));
   getProductsByParams(newOptions)
     .then(data => {
@@ -118,9 +122,9 @@ function handleSelectChange() {
     .catch(er => console.log(er));
 }
 
-document
-  .querySelector('.js-search-input')
-  .addEventListener('change', handlInputChange);
+
+const input = document.querySelector('.js-search-input')
+input.addEventListener('change', handlInputChange);
 
 function handlInputChange(event) {
   event.preventDefault();

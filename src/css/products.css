@@ -30,6 +30,7 @@
   height: 178px;
   border-radius: 10px;
   background: var(--background-color);
+  cursor: pointer;
 }
 
 .card-img-prod {
