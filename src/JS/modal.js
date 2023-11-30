@@ -3,7 +3,6 @@ import { getProductById } from './API';
 import { updateCartFromLocalStorage } from '../main';
 import icons from '../img/icons.svg';
 
-
 document.addEventListener('DOMContentLoaded', async function () {
   const productContainer = document.querySelector(
     '.container-product-cards-prod'
@@ -35,7 +34,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         );
         checkProductCart();
         updateCartFromLocalStorage();
-        
       } else {
         product.amount = 1;
         cartProducts.push(product);
@@ -45,7 +43,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         );
         checkProductCart();
         updateCartFromLocalStorage();
-      
       }
     } catch (error) {
       console.error('Error managing cart:', error);
@@ -62,18 +59,15 @@ document.addEventListener('DOMContentLoaded', async function () {
     );
     updateIconModal(isInCart);
     updateButtonContent();
-    updateButtonDiscounts()
-    updateButtonPopular()
-
+    updateButtonDiscounts();
+    updateButtonPopular();
   }
 
   function updateIconModal(isInCart) {
     if (isInCart) {
-      addToCartBtn.innerHTML =
-        `Remove from <svg width="18" height="18"><use class="button-icon" href="${icons}#icon-cart"></use></svg>`;
+      addToCartBtn.innerHTML = `Remove from <svg width="18" height="18"><use class="button-icon" href="${icons}#icon-cart"></use></svg>`;
     } else {
-      addToCartBtn.innerHTML =
-        `Add to <svg width="18" height="18"><use class="button-icon" href="${icons}#icon-cart"></use></svg>`;
+      addToCartBtn.innerHTML = `Add to <svg width="18" height="18"><use class="button-icon" href="${icons}#icon-cart"></use></svg>`;
     }
   }
 
@@ -100,11 +94,9 @@ document.addEventListener('DOMContentLoaded', async function () {
             addButton.disabled = isInCart;
 
             if (isInCart) {
-              addButton.innerHTML =
-                `<svg width="18" height="18"><use class="button-icon" href="${icons}#icon-check"></use></svg>`;
+              addButton.innerHTML = `<svg width="18" height="18"><use class="button-icon" href="${icons}#icon-check"></use></svg>`;
             } else {
-              addButton.innerHTML =
-                `<svg width="18" height="18"><use class="button-icon" href="${icons}#icon-cart"></use></svg>`;
+              addButton.innerHTML = `<svg width="18" height="18"><use class="button-icon" href="${icons}#icon-cart"></use></svg>`;
             }
           }
         });
@@ -137,8 +129,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             addButtons.disabled = isInCart;
 
             if (isInCart) {
-              addButtons.innerHTML =
-                `<svg width="16" height="16"><use class="discount-button-icon" href="${icons}#icon-check"></use></svg>`;
+              addButtons.innerHTML = `<svg width="16" height="16"><use class="discount-button-icon" href="${icons}#icon-check"></use></svg>`;
             } else {
               addButtons.innerHTML =
                 '<svg width="16" height="16"><use class="discount-button-icon" href="${icons}#icon-cart"></use></svg>';
@@ -172,11 +163,9 @@ document.addEventListener('DOMContentLoaded', async function () {
             addButtons.disabled = isInCart;
 
             if (isInCart) {
-              addButtons.innerHTML =
-                `<svg width="16" height="16" fill="#6d8434"><use class="popular-button-icon" href="${icons}#icon-check"></use></svg>`;
+              addButtons.innerHTML = `<svg width="16" height="16" fill="#6d8434"><use class="popular-button-icon" href="${icons}#icon-check"></use></svg>`;
             } else {
-              addButtons.innerHTML =
-                `<svg width="16" height="16" fill="#6d8434"><use class="popular-button-icon" href="${icons}#icon-cart"></use></svg>`;
+              addButtons.innerHTML = `<svg width="16" height="16" fill="#6d8434"><use class="popular-button-icon" href="${icons}#icon-cart"></use></svg>`;
             }
           }
         });
@@ -188,15 +177,15 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   setTimeout(() => {
     updateButtonDiscounts();
-}, 2000);
+  }, 2000);
 
-setTimeout(() => {
+  setTimeout(() => {
     updateButtonContent();
-}, 2000);
+  }, 2000);
 
-setTimeout(() => {
+  setTimeout(() => {
     updateButtonPopular();
-}, 2000);
+  }, 2000);
 
   function openModal() {
     modal.classList.remove('is-hidden');
@@ -358,8 +347,6 @@ setTimeout(() => {
     } else {
       discountSvg.style.display = 'none';
     }
-
-    console.log(is10PercentOff);
 
     const modalNameElement = document.querySelector('.modal-title');
     const modalPriceElement = document.querySelector('.price');

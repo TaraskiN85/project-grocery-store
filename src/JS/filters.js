@@ -94,7 +94,7 @@ function changeCategoryInLocal(info) {
   getProductsByParams()
     .then(data => appendMarkup(data))
     .catch(er => console.log(er));
-    handleSelectChange();
+  handleSelectChange();
 }
 
 function changeKeywordInLocal(evt) {
@@ -192,13 +192,11 @@ function changeSortingInLocal(sort) {
 
 // ========Filter Sorting Markup========
 
-// Клик по кнопке. Открыть/Закрыть select
 dropDownBtn.addEventListener('click', function (e) {
   dropDownList.classList.toggle('dropdown__list--visible');
   this.classList.add('dropdown__button--active');
 });
 
-// Выбор элемента списка. Запомнить выбранное значение. Закрыть дропдаун
 dropDownListItems.forEach(function (listItem) {
   listItem.addEventListener('click', function (e) {
     e.stopPropagation();
@@ -209,7 +207,6 @@ dropDownListItems.forEach(function (listItem) {
   });
 });
 
-// Клик снаружи дропдауна. Закрыть дропдаун
 document.addEventListener('click', function (e) {
   if (e.target !== dropDownBtn) {
     dropDownBtn.classList.remove('dropdown__button--active');
@@ -219,16 +216,13 @@ document.addEventListener('click', function (e) {
 
 // =====Filter Category Markup====
 
-// Клик по кнопке. Открыть/Закрыть select
 dropDownCatBtn.addEventListener('click', function (e) {
   console.log('дропліст');
   categoryList.classList.toggle('dropdown__list--visible');
   this.classList.add('dropdown__button--active');
 });
 
-// Клик снаружи дропдауна. Закрыть дропдаун
 document.addEventListener('click', function (e) {
-  console.log('dropout');
   if (e.target !== dropDownCatBtn) {
     dropDownCatBtn.classList.remove('dropdown__button--active');
     categoryList.classList.remove('dropdown__list--visible');
