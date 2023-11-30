@@ -64,7 +64,7 @@ function deleteAllFromCart() {
   localStorage.setItem('cart-products-list', JSON.stringify([]));
   cartProductsList.innerHTML = '';
   updateCartFromLocalStorage();
-  calculationTotalPrice();
+
   cartContainer.removeEventListener('click', handleContainerClick);
   renderCartProducts();
 }
@@ -72,15 +72,17 @@ function deleteAllFromCart() {
 if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
   deleteAllButton.addEventListener('click', deleteAllFromCart);
 }
-const totalPriceProducts = document.querySelector('.cart_total_cost');
-function calculationTotalPrice() {
-  const objectProducts = JSON.parse(localStorage.getItem('cart-products-list'));
+
+
+async function calculationTotalPrice() {
+  const totalPriceProducts = document.querySelector('.cart_total_cost');
+  const objectProducts = await JSON.parse(localStorage.getItem('cart-products-list')) || [];
   const totalPrice = objectProducts.reduce((acc, product) => {
     return acc + product.price;
+     
   }, 0);
-  if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
-    totalPriceProducts.textContent = `$ ${totalPrice.toFixed(2)}`;
-  }
+  
+  totalPriceProducts.textContent = `${totalPrice.toFixed(2)}`; 
 }
 calculationTotalPrice();
 
