@@ -66,7 +66,8 @@ function changeCategoryInLocal() {
   if (select.options[select.selectedIndex].value === 'All') {
     console.log('categAll');
     sorting.selectedIndex = 0;
-    select.selectedIndex = 13;
+    select.selectedIndex = select.options.length - 1;
+    console.log(select.options);
     localStorage.setItem('search-params', JSON.stringify(defaultParams));
   } else {
     searchParams.category = select.options[select.selectedIndex].value;
@@ -80,10 +81,15 @@ function changeCategoryInLocal() {
 function changeKeywordInLocal(evt) {
   evt.preventDefault();
   if (search_input.elements.searchQuery.value === '') {
+    const searchParams = JSON.parse(localStorage.getItem('search-params'));
+    searchParams.page = 1;
     sorting.selectedIndex = 0;
-    select.selectedIndex = 13;
-    localStorage.setItem('search-params', JSON.stringify(defaultParams));
+    searchParams.sorting = '';
+    // select.selectedIndex = select.options.length - 1;
+    localStorage.setItem('search-params', JSON.stringify(searchParams));
   } else {
+    const searchParams = JSON.parse(localStorage.getItem('search-params'));
+    searchParams.page = 1;
     searchParams.keyword = search_input.elements.searchQuery.value;
     localStorage.setItem('search-params', JSON.stringify(searchParams));
   }
