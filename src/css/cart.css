@@ -18,11 +18,17 @@ p, h3 {
   align-items: center;
   gap: 14px;
   margin-bottom: 17px;
-
+  padding-top: 77px;
 } 
 
-
-
+.cart-list {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: 510px;
+    padding-top: 10px;
+    padding-bottom: 10px
+}
 
 .cart-svg {
   fill: var(--background-color) ;
@@ -80,7 +86,7 @@ p, h3 {
   display: flex;
 }
 .card_container_product {
-margin-bottom: 80px;
+margin-bottom: 60px;
     display: flex;
     flex-direction: column;
   
@@ -136,8 +142,7 @@ margin-bottom: 80px;
 }
 
 .full {
-  display: flex;
-  flex-direction: column;
+
 }
 
 .card_container_price {}
@@ -161,6 +166,7 @@ margin-bottom: 80px;
     line-height: 1.6;
     margin-bottom: 40px;
     text-transform: uppercase;
+    padding-top: 80px;
 }
 
 .cart_total_price {
@@ -232,6 +238,10 @@ padding: 12px 20px;
 
 }
 
+.cart-section-scroll {
+  padding-top: 0;
+}
+
 @media screen and (min-width: 768px) {
 .cart {
     padding-top: 99px;
@@ -262,7 +272,7 @@ padding: 12px 20px;
   margin-bottom: 42px;
 }
 .card_container_product {
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 }
 
 .card_container-product_img {
@@ -352,6 +362,30 @@ padding: 12px 20px;
   line-height: 1.2;
   border: none;
 }
+
+
+.cart-section-scroll {
+  border-radius: 20px;
+  background-color: rgba(1, 1, 1, 0.08);
+   border: 1px solid #ccc;
+   overflow-y: scroll; /* Включає вертикальний скрол */
+  scrollbar-width: thin; /* Ширина скролбару */
+  width: 100%; /* Ширина контейнера, можливо, вам потрібно налаштувати відповідно до вашого дизайну */
+  position: relative; /* Позиціонуємо відносно батьківського елементу */
+}
+
+.scroll-cart {
+
+}
+
+.cart-list {
+  height: 580px;
+    overflow-y: auto;
+  min-width: 672px;
+
+}
+
+
 }
 @media screen and (min-width: 1440px) {
   .container {
@@ -409,7 +443,15 @@ padding: 12px 20px;
   justify-content: space-between;
   gap: 101px;
 }
+
+
+.full {
+  height: 590px;
 }
+
+}
+
+
 
 /* =================================empty-basket================================ */
 
