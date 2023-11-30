@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         );
         checkProductCart();
         updateCartFromLocalStorage();
-        updateButtonContent();
+        
       } else {
         product.amount = 1;
         cartProducts.push(product);
@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', async function () {
           'cart-products-list',
           JSON.stringify(cartProducts)
         );
-        updateButtonContent();
         checkProductCart();
         updateCartFromLocalStorage();
+      
       }
     } catch (error) {
       console.error('Error managing cart:', error);
@@ -60,15 +60,18 @@ document.addEventListener('DOMContentLoaded', async function () {
     );
     updateIconModal(isInCart);
     updateButtonContent();
+    updateButtonDiscounts()
+    updateButtonPopular()
+
   }
 
   function updateIconModal(isInCart) {
     if (isInCart) {
       addToCartBtn.innerHTML =
-        'Remove from <svg width="18" height="18"><use class="button-icon" href="./img/icons.svg#icon-cart"></use></svg>';
+        'Remove from <svg width="18" height="18"><use class="button-icon" href="../img/icons.svg#icon-cart"></use></svg>';
     } else {
       addToCartBtn.innerHTML =
-        'Add to <svg width="18" height="18"><use class="button-icon" href="./img/icons.svg#icon-cart"></use></svg>';
+        'Add to <svg width="18" height="18"><use class="button-icon" href="../img/icons.svg#icon-cart"></use></svg>';
     }
   }
 
@@ -92,14 +95,14 @@ document.addEventListener('DOMContentLoaded', async function () {
             const isInCart = cartProductsList.some(
               product => product._id === cardId
             );
-            addButton.disabled = isInCart; // Встановлюємо значення властивості disabled згідно з умовою
+            addButton.disabled = isInCart;
 
             if (isInCart) {
               addButton.innerHTML =
-                '<svg width="18" height="18"><use class="button-icon" href="./src/img/icons.svg#icon-check"></use></svg>';
+                '<svg width="18" height="18"><use class="button-icon" href="../img/icons.svg#icon-check"></use></svg>';
             } else {
               addButton.innerHTML =
-                '<svg width="18" height="18"><use class="button-icon" href="./src/img/icons.svg#icon-cart"></use></svg>';
+                '<svg width="18" height="18"><use class="button-icon" href="../img/icons.svg#icon-cart"></use></svg>';
             }
           }
         });
@@ -108,6 +111,82 @@ document.addEventListener('DOMContentLoaded', async function () {
       console.error('Error updating button content:', error);
     }
   }
+
+  async function updateButtonDiscounts() {
+    try {
+      const cartProductsList =
+        (await JSON.parse(localStorage.getItem('cart-products-list'))) || [];
+
+      const cardContainers = document.querySelector(
+        '.container-discount-product-cards'
+      );
+      if (cardContainers) {
+        const cards = cardContainers.querySelectorAll(
+          '.container-for-discount-items'
+        );
+        cards.forEach(card => {
+          const cardId = card.id;
+          const addButtons = card.querySelector('.discount-product-card-btn');
+
+          if (addButtons) {
+            const isInCart = cartProductsList.some(
+              product => product._id === cardId
+            );
+            addButtons.disabled = isInCart;
+
+            if (isInCart) {
+              addButtons.innerHTML =
+                '<svg width="16" height="16"><use class="discount-button-icon" href="../img/icons.svg#icon-check"></use></svg>';
+            } else {
+              addButtons.innerHTML =
+                '<svg width="16" height="16"><use class="discount-button-icon" href="../img/icons.svg#icon-cart"></use></svg>';
+            }
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Error updating button content:', error);
+    }
+  }
+
+  async function updateButtonPopular() {
+    try {
+      const cartProductsList =
+        (await JSON.parse(localStorage.getItem('cart-products-list'))) || [];
+
+      const cardContainers = document.querySelector('.container-aside-cards');
+      if (cardContainers) {
+        const cards = cardContainers.querySelectorAll(
+          '.container-for-popular-items'
+        );
+        cards.forEach(card => {
+          const cardId = card.id;
+          const addButtons = card.querySelector('.products-card-btn');
+
+          if (addButtons) {
+            const isInCart = cartProductsList.some(
+              product => product._id === cardId
+            );
+            addButtons.disabled = isInCart;
+
+            if (isInCart) {
+              addButtons.innerHTML =
+                '<svg width="16" height="16" fill="#6d8434"><use class="popular-button-icon" href="../img/icons.svg#icon-check"></use></svg>';
+            } else {
+              addButtons.innerHTML =
+                '<svg width="16" height="16" fill="#6d8434"><use class="popular-button-icon" href="../img/icons.svg#icon-cart"></use></svg>';
+            }
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Error updating button content:', error);
+    }
+  }
+
+  setInterval(updateButtonDiscounts, 2000);
+  setInterval(updateButtonContent, 2000);
+  setInterval(updateButtonPopular, 2000);
 
   function openModal() {
     modal.classList.remove('is-hidden');

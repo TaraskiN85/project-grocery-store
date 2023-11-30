@@ -106,6 +106,7 @@
   border: none;
   border-radius: 30px;
   background: var(--accent-color);
+  color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
