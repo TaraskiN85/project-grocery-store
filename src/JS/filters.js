@@ -2,7 +2,7 @@ import { getProductsByParams } from './API';
 import { appendMarkup } from './markup-product-cards';
 
 const select = document.querySelector('.js-category');
-const sorting = document.querySelector('.js-sorting');
+const sorting = document.querySelector('.dropdown__input-hidden');
 const search_input = document.querySelector('.js-search-input');
 const defaultParams = {
   keyword: '',
@@ -11,7 +11,7 @@ const defaultParams = {
   limit: 6,
 };
 
-const searchParams = JSON.parse(localStorage.getItem('search-params'));
+localStorage.setItem('search-params', JSON.stringify(defaultParams));
 
 select.addEventListener('input', changeCategoryInLocal);
 sorting.addEventListener('input', changeSortingInLocal);
@@ -64,9 +64,8 @@ export function checkedForm() {
 function changeCategoryInLocal() {
   const searchParams = JSON.parse(localStorage.getItem('search-params'));
   if (select.options[select.selectedIndex].value === 'All') {
-    console.log('categAll');
     sorting.selectedIndex = 0;
-    select.selectedIndex = 13;
+    select.selectedIndex = select.options.length - 1;
     localStorage.setItem('search-params', JSON.stringify(defaultParams));
   } else {
     searchParams.category = select.options[select.selectedIndex].value;
@@ -80,10 +79,18 @@ function changeCategoryInLocal() {
 function changeKeywordInLocal(evt) {
   evt.preventDefault();
   if (search_input.elements.searchQuery.value === '') {
+    const searchParams = JSON.parse(localStorage.getItem('search-params'));
+    searchParams.page = 1;
     sorting.selectedIndex = 0;
-    select.selectedIndex = 13;
-    localStorage.setItem('search-params', JSON.stringify(defaultParams));
+    // select.selectedIndex = select.options.length - 1;
+    localStorage.setItem('search-params', JSON.stringify(searchParams));
   } else {
+    const searchParams = JSON.parse(localStorage.getItem('search-params'));
+    searchParams.page = 1;
+    console.log('sort');
+    delete searchParams.byPopularity;
+    delete searchParams.byPrice;
+    delete searchParams.byABC;
     searchParams.keyword = search_input.elements.searchQuery.value;
     localStorage.setItem('search-params', JSON.stringify(searchParams));
   }
@@ -101,9 +108,10 @@ function getCategoryInput() {
   }
 }
 
-function changeSortingInLocal() {
+function changeSortingInLocal(sort) {
+  console.log('Hi');
   const searchParams = JSON.parse(localStorage.getItem('search-params'));
-  switch (sorting.options[sorting.selectedIndex].value) {
+  switch (sort.value) {
     case 'a_z':
       searchParams.byABC = true;
       delete searchParams.byPrice;
@@ -152,3 +160,44 @@ function changeSortingInLocal() {
     .then(data => appendMarkup(data))
     .catch(er => console.log(er));
 }
+
+// ========Filter Markup========
+document
+  .querySelectorAll('.dropdown-wrapper')
+  .forEach(function (dropDownWrapper) {
+    const dropDownBtn = dropDownWrapper.querySelector('.dropdown-sortingBtn');
+    const dropDownList = dropDownWrapper.querySelector(
+      '.dropdown-sorting__list'
+    );
+    const dropDownListItems = dropDownList.querySelectorAll(
+      '.dropdown-sorting__item'
+    );
+    const dropDownInput = dropDownWrapper.querySelector(
+      '.dropdown__input-hidden'
+    );
+
+    // Клик по кнопке. Открыть/Закрыть select
+    dropDownBtn.addEventListener('click', function (e) {
+      dropDownList.classList.toggle('dropdown__list--visible');
+      this.classList.add('dropdown__button--active');
+    });
+
+    // Выбор элемента списка. Запомнить выбранное значение. Закрыть дропдаун
+    dropDownListItems.forEach(function (listItem) {
+      listItem.addEventListener('click', function (e) {
+        e.stopPropagation();
+        dropDownBtn.innerText = this.innerText;
+        dropDownInput.value = this.dataset.value;
+        changeSortingInLocal(dropDownInput);
+        dropDownList.classList.remove('dropdown__list--visible');
+      });
+    });
+
+    // Клик снаружи дропдауна. Закрыть дропдаун
+    document.addEventListener('click', function (e) {
+      if (e.target !== dropDownBtn) {
+        dropDownBtn.classList.remove('dropdown__button--active');
+        dropDownList.classList.remove('dropdown__list--visible');
+      }
+    });
+  });
