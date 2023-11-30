@@ -1,4 +1,4 @@
-import{s as o,c as b}from"./assets/footer-subscription-6a804ea6.js";import"./assets/vendor-8a888f22.js";const l=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const f=t=>`  <div class="container">
+import{s as u,c as v}from"./assets/footer-subscription-6a49ac83.js";import"./assets/vendor-8a888f22.js";const r=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const h=t=>`  <div class="container">
   <ul class="cart_list">
     <li class="cart-item">
       <svg class="cart-svg" width="18" height="18">
@@ -20,11 +20,11 @@ import{s as o,c as b}from"./assets/footer-subscription-6a804ea6.js";import"./ass
         </button>
       </div>
       <ul class="cart-list">
-        ${t.map(({_id:c,name:s,img:r,category:a,price:v,size:h,popularity:x,quantity:P,is10PercentOff:N,desc:J})=>`<li class="card_container_product" id="${c}">
+        ${t.map(({_id:c,name:s,img:o,category:a,price:g,size:_,popularity:x,quantity:P,is10PercentOff:w,desc:N})=>`<li class="card_container_product" id="${c}">
 
          <div class="description">
           <div class="card_container-product_img">
-            <img class="card_product_img" src="${r}" alt="${s}" />
+            <img class="card_product_img" src="${o}" alt="${s}" />
           </div>
 
           <div class="card_container_product_fullDs">
@@ -37,12 +37,12 @@ import{s as o,c as b}from"./assets/footer-subscription-6a804ea6.js";import"./ass
                   <span class="cart_product_span">Category:</span>${a}
                 </p>
                 <p class="cart_product_description">
-                  <span class="cart_product_span">Size:</span>${h}
+                  <span class="cart_product_span">Size:</span>${_}
                 </p>
               </div>
             </div>
             <div class="card_container_price">
-              <p class="card_product_price">$${v}</p>
+              <p class="card_product_price">$${g}</p>
             </div>
           </div>
           <div class="card-product-delete-button">
@@ -79,7 +79,7 @@ import{s as o,c as b}from"./assets/footer-subscription-6a804ea6.js";import"./ass
       </div>
     </div>
   </div>
-</div>`,i=()=>{const t=JSON.parse(localStorage.getItem("cart-products-list"))||[];if(t.length>0)console.log("full"),l.innerHTML="",l.insertAdjacentHTML("afterbegin",f(t));else{console.log("empty");const e=document.querySelector(".cart");e.innerHTML+=`<div class="container">
+</div>`,l=()=>{const t=JSON.parse(localStorage.getItem("cart-products-list"))||[];if(t.length>0)console.log("full"),r.innerHTML="",r.insertAdjacentHTML("afterbegin",h(t));else{r.innerHTML="",console.log("empty");const e=document.querySelector(".cart");e.innerHTML+=`<div class="container">
     <div class="empty-basket">
       <div class="basket_container">
         <ul class="basket_list">
@@ -111,5 +111,5 @@ import{s as o,c as b}from"./assets/footer-subscription-6a804ea6.js";import"./ass
         </p>
       </div>
     </div>
-  </div>`}},n=document.querySelector(".modal-cart"),S=document.querySelector(".close-btn");function y(){n.classList.remove("is-hidden"),document.body.style.overflow="hidden"}function k(t){t.target===n&&m()}function m(){n.classList.add("is-hidden"),document.body.style.overflow="visible"}window.addEventListener("click",k);S.addEventListener("click",m);i();function d(){const e=(JSON.parse(localStorage.getItem("cart-products-list"))||[]).length,c=document.querySelector(".quantity_products"),s=document.querySelector(".cart-span");c.textContent="("+e+")",JSON.parse(localStorage.getItem("cart-products-list")).length&&(s.textContent="("+e+")")}d();const C=document.querySelector(".cart-product-delete-all-button");function I(t){let e=JSON.parse(localStorage.getItem("cart-products-list"))||[];const c=e.findIndex(s=>s._id===t);c!==-1?(e.splice(c,1),localStorage.setItem("cart-products-list",JSON.stringify(e)),i(),d(),JSON.parse(localStorage.getItem("cart-products-list")).length&&u.addEventListener("click",p)):o("Product not found in cart"),location.reload()}const u=document.querySelector(".cart-list");function p(t){const e=t.target.closest(".card-product-delete-button");if(e){const c=e.closest(".card_container_product").id;I(c)}g()}JSON.parse(localStorage.getItem("cart-products-list")).length&&u.addEventListener("click",p);function _(){localStorage.setItem("cart-products-list",JSON.stringify([])),l.innerHTML="",d(),g(),u.removeEventListener("click",p),i()}JSON.parse(localStorage.getItem("cart-products-list")).length&&C.addEventListener("click",_);const L=document.querySelector(".cart_total_cost");function g(){const e=JSON.parse(localStorage.getItem("cart-products-list")).reduce((c,s)=>c+s.price,0);JSON.parse(localStorage.getItem("cart-products-list")).length&&(L.textContent=`$ ${e.toFixed(2)}`)}g();const O=document.querySelector(".cart_form_button");JSON.parse(localStorage.getItem("cart-products-list")).length&&O.addEventListener("click",q);async function q(){const t=document.querySelector(".cart_form_input").value,c=JSON.parse(localStorage.getItem("cart-products-list")).map(a=>({productId:a._id,amount:a.amount}));if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)){o("Please, enter valid Email!");return}const r={email:t,products:c};try{const a=await b(r);_(),y(a)}catch(a){console.error("Error creating order:",a),o("Error creating order. Please try again later.")}}
+  </div>`}},i=document.querySelector(".modal-cart"),b=document.querySelector(".close-btn");function f(){i.classList.remove("is-hidden"),document.body.style.overflow="hidden"}function y(t){t.target===i&&p()}function p(){i.classList.add("is-hidden"),document.body.style.overflow="visible"}window.addEventListener("click",y);b.addEventListener("click",p);l();function n(){const e=(JSON.parse(localStorage.getItem("cart-products-list"))||[]).length,c=document.querySelector(".quantity_products"),s=document.querySelector(".cart-span");c.textContent="("+e+")",JSON.parse(localStorage.getItem("cart-products-list")).length&&(s.textContent="("+e+")")}n();const S=document.querySelector(".cart-product-delete-all-button");function k(t){let e=JSON.parse(localStorage.getItem("cart-products-list"))||[];const c=e.findIndex(s=>s._id===t);c!==-1&&(e.splice(c,1),localStorage.setItem("cart-products-list",JSON.stringify(e)),l(),n())}const C=document.querySelector(".cart-list");function I(t){const e=t.target.closest(".card-product-delete-button");if(e){const c=e.closest(".card_container_product").id;k(c),d()}}document.addEventListener("click",I);function m(){localStorage.setItem("cart-products-list",JSON.stringify([])),r.innerHTML="",n(),d(),C.removeEventListener("click",handleProductClick),l()}JSON.parse(localStorage.getItem("cart-products-list")).length&&S.addEventListener("click",m);const L=document.querySelector(".cart_total_cost");function d(){const e=JSON.parse(localStorage.getItem("cart-products-list")).reduce((c,s)=>c+s.price,0);JSON.parse(localStorage.getItem("cart-products-list")).length&&(L.textContent=`$ ${e.toFixed(2)}`)}d();const O=document.querySelector(".cart_form_button");JSON.parse(localStorage.getItem("cart-products-list")).length&&O.addEventListener("click",q);async function q(){const t=document.querySelector(".cart_form_input").value,c=JSON.parse(localStorage.getItem("cart-products-list")).map(a=>({productId:a._id,amount:a.amount}));if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)){u("Please, enter valid Email!");return}const o={email:t,products:c};try{const a=await v(o);m(),f(a)}catch(a){console.error("Error creating order:",a),u("Error creating order. Please try again later.")}}
 //# sourceMappingURL=commonHelpers.js.map
