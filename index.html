@@ -8,8 +8,8 @@
     
     <script type="module" crossorigin src="/project-grocery-store/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/project-grocery-store/assets/vendor-8a888f22.js">
-    <link rel="modulepreload" crossorigin href="/project-grocery-store/assets/footer-subscription-6a49ac83.js">
-    <link rel="stylesheet" href="/project-grocery-store/assets/footer-subscription-b4c6daee.css">
+    <link rel="modulepreload" crossorigin href="/project-grocery-store/assets/footer-subscription-27fb641b.js">
+    <link rel="stylesheet" href="/project-grocery-store/assets/footer-subscription-a3e0bfde.css">
   </head>
   <body>
     <header class="header">
@@ -90,17 +90,30 @@
       </select>
     </form>
 
-    <form>
-      <select class="sorting-input js-sorting" name="sorting">
-        <option value="a_z">A to Z</option>
-        <option value="z_a">Z to A</option>
-        <option value="cheap">Cheap</option>
-        <option value="expensive">Expensive</option>
-        <option value="popular">Popular</option>
-        <option value="not_popular">Not Popular</option>
-        <option value="All">Show All</option>
-      </select>
-    </form>
+    <div class="form-sorting">
+      <div class="dropdown-wrapper">
+        <button class="dropdown-sortingBtn">A to Z</button>
+        <ul class="dropdown-sorting__list">
+          <li class="dropdown-sorting__item" data-value="a_z">A to Z</li>
+          <li class="dropdown-sorting__item" data-value="z_a">Z to A</li>
+          <li class="dropdown-sorting__item" data-value="cheap">Cheap</li>
+          <li class="dropdown-sorting__item" data-value="expensive">
+            Expensive
+          </li>
+          <li class="dropdown-sorting__item" data-value="popular">Popular</li>
+          <li class="dropdown-sorting__item" data-value="not_popular">
+            Not Popular
+          </li>
+          <li class="dropdown-sorting__item" data-value="All">Show All</li>
+        </ul>
+        <input
+          type="text"
+          name="sorting"
+          value=""
+          class="dropdown__input-hidden"
+        />
+      </div>
+    </div>
   </div>
 
   <div class="container-product-cards-prod js-product-cards"></div>

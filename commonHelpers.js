@@ -1,4 +1,4 @@
-import{s as u,c as v}from"./assets/footer-subscription-6a49ac83.js";import"./assets/vendor-8a888f22.js";const r=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const h=t=>`  <div class="container">
+import{s as u,c as v}from"./assets/footer-subscription-27fb641b.js";import"./assets/vendor-8a888f22.js";const r=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const h=t=>`  <div class="container">
   <ul class="cart_list">
     <li class="cart-item">
       <svg class="cart-svg" width="18" height="18">
