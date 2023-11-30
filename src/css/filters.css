@@ -87,6 +87,11 @@
     border: 1px solid #6D8434;
 }
 
+.dropdown-categoryBtn:active:after,
+.dropdown-categoryBtn:focus:after {
+    transform: rotate(135deg);
+}
+
 .dropdown-categoryBtn::after {
     content: "";
     position: absolute;

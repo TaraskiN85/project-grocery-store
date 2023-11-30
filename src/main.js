@@ -21,15 +21,6 @@ getProductsCategories()
   .catch(er => {
     console.log(er);
   });
-// catListItems.forEach(function (listItems) {
-//   listItems.addEventListener('click', function (e) {
-//     console.log('dropinner');
-//     e.stopPropagation();
-//     dropDownCatBtn.innerText = this.innerText;
-//     categoryInput.value = this.dataset.value;
-//     changeCategoryInLocal(categoryInput);
-//     categoryList.classList.remove('dropdown__list--visible');
-//   });
 
 appendPopularProductsMarkup();
 appendDiscountProductsMarkup();
