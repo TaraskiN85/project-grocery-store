@@ -112,7 +112,6 @@ export const renderCartProducts = () => {
   const productsArr =
     JSON.parse(localStorage.getItem('cart-products-list')) || [];
   if (productsArr.length > 0) {
-    console.log('full');
     cartProductsList.innerHTML = '';
     cartProductsList.insertAdjacentHTML(
       'afterbegin',
@@ -120,7 +119,6 @@ export const renderCartProducts = () => {
     );
   } else {
     cartProductsList.innerHTML = '';
-    console.log('empty');
     const cartContainer = document.querySelector('.cart');
     cartContainer.innerHTML += `<div class="container">
     <div class="empty-basket">

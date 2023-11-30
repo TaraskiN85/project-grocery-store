@@ -38,7 +38,7 @@ function deleteProductAndUpdateCart(productId) {
     localStorage.setItem('cart-products-list', JSON.stringify(productsArr));
     renderCartProducts();
     updateCartFromLocalStorage();
-  } 
+  }
 }
 
 const cartContainer = document.querySelector('.cart-list');
@@ -54,7 +54,6 @@ function handleContainerClick(event) {
 }
 
 document.addEventListener('click', handleContainerClick);
-
 
 if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
   cartContainer.addEventListener('click', handleContainerClick);
@@ -73,16 +72,16 @@ if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
   deleteAllButton.addEventListener('click', deleteAllFromCart);
 }
 
-
 async function calculationTotalPrice() {
-  const totalPriceProducts = document.querySelector('.cart_total_cost');
-  const objectProducts = await JSON.parse(localStorage.getItem('cart-products-list')) || [];
+  const objectProducts =
+    (await JSON.parse(localStorage.getItem('cart-products-list'))) || [];
   const totalPrice = objectProducts.reduce((acc, product) => {
     return acc + product.price;
-     
   }, 0);
-  
-  totalPriceProducts.textContent = `${totalPrice.toFixed(2)}`; 
+  if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
+    const totalPriceProducts = document.querySelector('.cart_total_cost');
+    totalPriceProducts.textContent = `$ ${totalPrice.toFixed(2)}`;
+  }
 }
 calculationTotalPrice();
 
