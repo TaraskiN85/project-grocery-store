@@ -2,7 +2,7 @@ import { getProductsByParams } from './API';
 import { appendMarkup } from './markup-product-cards';
 
 const select = document.querySelector('.js-category');
-// const sorting = document.querySelector('.dropdown__input-hidden');
+const sorting = document.querySelector('.dropdown__input-hidden');
 const search_input = document.querySelector('.js-search-input');
 const defaultParams = {
   keyword: '',
@@ -11,10 +11,10 @@ const defaultParams = {
   limit: 6,
 };
 
-const searchParams = JSON.parse(localStorage.getItem('search-params'));
+localStorage.setItem('search-params', JSON.stringify(defaultParams));
 
 select.addEventListener('input', changeCategoryInLocal);
-// sorting.addEventListener('input', changeSortingInLocal);
+sorting.addEventListener('input', changeSortingInLocal);
 search_input.addEventListener('submit', changeKeywordInLocal);
 
 export function renderSelect(categories) {
@@ -82,12 +82,15 @@ function changeKeywordInLocal(evt) {
     const searchParams = JSON.parse(localStorage.getItem('search-params'));
     searchParams.page = 1;
     sorting.selectedIndex = 0;
-    searchParams.sorting = '';
     // select.selectedIndex = select.options.length - 1;
     localStorage.setItem('search-params', JSON.stringify(searchParams));
   } else {
     const searchParams = JSON.parse(localStorage.getItem('search-params'));
     searchParams.page = 1;
+    console.log('sort');
+    delete searchParams.byPopularity;
+    delete searchParams.byPrice;
+    delete searchParams.byABC;
     searchParams.keyword = search_input.elements.searchQuery.value;
     localStorage.setItem('search-params', JSON.stringify(searchParams));
   }
