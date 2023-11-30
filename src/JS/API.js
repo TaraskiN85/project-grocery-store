@@ -42,7 +42,7 @@ export const getProductById = async id => {
 };
 
 export const createNewOrder = async orderObj => {
-  const res = await axios.post(`${BASE_URL}orders/`, JSON.stringify(orderObj));
+  const res = await axios.post(`${BASE_URL}orders/`, orderObj);
   return await res.data;
 };
 

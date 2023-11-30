@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         updateCartFromLocalStorage();
         
       } else {
+        product.amount = 1;
         cartProducts.push(product);
         localStorage.setItem(
           'cart-products-list',
