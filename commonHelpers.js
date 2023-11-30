@@ -1,26 +1,26 @@
-import{i as o,s as p,c as f}from"./assets/footer-subscription-115f49fa.js";import"./assets/vendor-8a888f22.js";const l=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const y=t=>{const e=t.map(({_id:c,name:a,img:r,category:s,price:b,size:h,popularity:x,quantity:$,is10PercentOff:w,desc:P})=>`<li class="card_container_product" id="${c}">
+import{i as o,s as p,c as y}from"./assets/footer-subscription-115f49fa.js";import"./assets/vendor-8a888f22.js";const _="/project-grocery-store/assets/basket_1x-97a514f0.png",S="/project-grocery-store/assets/basket_2x-e387b499.png",l=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const k=t=>{const e=t.map(({_id:c,name:s,img:r,category:a,price:h,size:f,popularity:w,quantity:P,is10PercentOff:N,desc:E})=>`<li class="card_container_product" id="${c}">
 
          <div class="description">
           <div class="card_container-product_img">
-            <img class="card_product_img" src="${r}" alt="${a}" />
+            <img class="card_product_img" src="${r}" alt="${s}" />
           </div>
 
           <div class="card_container_product_fullDs">
             <div class="card_container_product_name">
-              <h3 class="card_product_name">${a}</h3>
+              <h3 class="card_product_name">${s}</h3>
             </div>
             <div class="card_container_product_description">
               <div class="card-description">
                 <p class="cart_product_description">
-                  <span class="cart_product_span">Category:</span>${s}
+                  <span class="cart_product_span">Category:</span>${a}
                 </p>
                 <p class="cart_product_description">
-                  <span class="cart_product_span">Size:</span>${h}
+                  <span class="cart_product_span">Size:</span>${f}
                 </p>
               </div>
             </div>
             <div class="card_container_price">
-              <p class="card_product_price">$${b}</p>
+              <p class="card_product_price">$${h}</p>
             </div>
           </div>
           <div class="card-product-delete-button">
@@ -79,7 +79,7 @@ import{i as o,s as p,c as f}from"./assets/footer-subscription-115f49fa.js";impor
       </div>
     </div>
   </div>
-</div>`},n=()=>{const t=JSON.parse(localStorage.getItem("cart-products-list"))||[];if(t.length>0)console.log("full"),l.innerHTML="",l.insertAdjacentHTML("afterbegin",y(t));else{l.innerHTML="",console.log("empty");const e=document.querySelector(".cart");e.innerHTML+=`<div class="container">
+</div>`},n=()=>{const t=JSON.parse(localStorage.getItem("cart-products-list"))||[];if(t.length>0)console.log("full"),l.innerHTML="",l.insertAdjacentHTML("afterbegin",k(t));else{l.innerHTML="",console.log("empty");const e=document.querySelector(".cart");e.innerHTML+=`<div class="container">
     <div class="empty-basket">
       <div class="basket_container">
         <ul class="basket_list">
@@ -95,8 +95,8 @@ import{i as o,s as p,c as f}from"./assets/footer-subscription-115f49fa.js";impor
       </div>
       <img
         class="basket_img"
-        srcset="./img/basket_1x.png, ./img/basket_2x.png"
-        src="./img/basket_1x.png"
+        srcset="${_}, ${S}"
+        src="${_}"
         alt="yellow shopping basket"
         width="132"
         height="114"
@@ -111,5 +111,5 @@ import{i as o,s as p,c as f}from"./assets/footer-subscription-115f49fa.js";impor
         </p>
       </div>
     </div>
-  </div>`}},i=document.querySelector(".modal-cart"),S=document.querySelector(".close-btn");function k(){i.classList.remove("is-hidden"),document.body.style.overflow="hidden"}function C(t){t.target===i&&_()}function _(){i.classList.add("is-hidden"),document.body.style.overflow="visible"}window.addEventListener("click",C);S.addEventListener("click",_);n();function d(){const e=(JSON.parse(localStorage.getItem("cart-products-list"))||[]).length,c=document.querySelector(".quantity_products"),a=document.querySelector(".cart-span");c.textContent="("+e+")",JSON.parse(localStorage.getItem("cart-products-list")).length&&(a.textContent="("+e+")")}d();const I=document.querySelector(".cart-product-delete-all-button");function L(t){let e=JSON.parse(localStorage.getItem("cart-products-list"))||[];const c=e.findIndex(a=>a._id===t);c!==-1&&(e.splice(c,1),localStorage.setItem("cart-products-list",JSON.stringify(e)),n(),d())}const m=document.querySelector(".cart-list");function u(t){const e=t.target.closest(".card-product-delete-button");if(e){const c=e.closest(".card_container_product").id;L(c),v()}}document.addEventListener("click",u);JSON.parse(localStorage.getItem("cart-products-list")).length&&m.addEventListener("click",u);function g(){localStorage.setItem("cart-products-list",JSON.stringify([])),l.innerHTML="",d(),m.removeEventListener("click",u),n()}JSON.parse(localStorage.getItem("cart-products-list")).length&&I.addEventListener("click",g);async function v(){const t=document.querySelector(".cart_total_cost"),c=(await JSON.parse(localStorage.getItem("cart-products-list"))||[]).reduce((a,r)=>a+r.price,0);t.textContent=`${c.toFixed(2)}`}v();const O=document.querySelector(".cart_form_button");JSON.parse(localStorage.getItem("cart-products-list")).length&&O.addEventListener("click",q);async function q(){const t=document.querySelector(".cart_form_input").value,c=JSON.parse(localStorage.getItem("cart-products-list")).map(s=>({productId:s._id,amount:s.amount}));if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)){p("Please, enter valid Email!");return}const r={email:t,products:c};try{const s=await f(r);g(),k(s)}catch(s){console.error("Error creating order:",s),p("Error creating order. Please try again later.")}}
+  </div>`}},i=document.querySelector(".modal-cart"),C=document.querySelector(".close-btn");function I(){i.classList.remove("is-hidden"),document.body.style.overflow="hidden"}function L(t){t.target===i&&m()}function m(){i.classList.add("is-hidden"),document.body.style.overflow="visible"}window.addEventListener("click",L);C.addEventListener("click",m);n();function d(){const e=(JSON.parse(localStorage.getItem("cart-products-list"))||[]).length,c=document.querySelector(".quantity_products"),s=document.querySelector(".cart-span");c.textContent="("+e+")",JSON.parse(localStorage.getItem("cart-products-list")).length&&(s.textContent="("+e+")")}d();const $=document.querySelector(".cart-product-delete-all-button");function O(t){let e=JSON.parse(localStorage.getItem("cart-products-list"))||[];const c=e.findIndex(s=>s._id===t);c!==-1&&(e.splice(c,1),localStorage.setItem("cart-products-list",JSON.stringify(e)),n(),d())}const g=document.querySelector(".cart-list");function u(t){const e=t.target.closest(".card-product-delete-button");if(e){const c=e.closest(".card_container_product").id;O(c),b()}}document.addEventListener("click",u);JSON.parse(localStorage.getItem("cart-products-list")).length&&g.addEventListener("click",u);function v(){localStorage.setItem("cart-products-list",JSON.stringify([])),l.innerHTML="",d(),g.removeEventListener("click",u),n()}JSON.parse(localStorage.getItem("cart-products-list")).length&&$.addEventListener("click",v);async function b(){const t=document.querySelector(".cart_total_cost"),c=(await JSON.parse(localStorage.getItem("cart-products-list"))||[]).reduce((s,r)=>s+r.price,0);t.textContent=`${c.toFixed(2)}`}b();const q=document.querySelector(".cart_form_button");JSON.parse(localStorage.getItem("cart-products-list")).length&&q.addEventListener("click",x);async function x(){const t=document.querySelector(".cart_form_input").value,c=JSON.parse(localStorage.getItem("cart-products-list")).map(a=>({productId:a._id,amount:a.amount}));if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)){p("Please, enter valid Email!");return}const r={email:t,products:c};try{const a=await y(r);v(),I(a)}catch(a){console.error("Error creating order:",a),p("Error creating order. Please try again later.")}}
 //# sourceMappingURL=commonHelpers.js.map
