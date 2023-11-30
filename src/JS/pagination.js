@@ -32,13 +32,13 @@ getProductsByParams(options)
         moveButton:
           '<a href="#" class="tui-page-btn tui-{{type}}">' +
           '<svg width="14" height="14">' +
-          '<use class="tui-btn-icon" href="${icons}#{{type}}"></use>' +
+          `<use class="tui-btn-icon" href="${icons}#{{type}}"></use>` +
           '</svg>' +
           '</a>',
         disabledMoveButton:
           '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
           '<svg width="14" height="14">' +
-          '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+          `<use class="tui-btn-icon" href="${icons}#{{type}}"></use>` +
           '</svg>' +
           '</span>',
         moreButton:
@@ -100,13 +100,13 @@ function handleSelectChange() {
           moveButton:
             '<a href="#" class="tui-page-btn tui-{{type}}">' +
             '<svg width="14" height="14">' +
-            '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+            `<use class="tui-btn-icon" href="${icons}#{{type}}"></use>` +
             '</svg>' +
             '</a>',
           disabledMoveButton:
             '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
             '<svg width="14" height="14">' +
-            '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+            `<use class="tui-btn-icon" href="${icons}#{{type}}"></use>` +
             '</svg>' +
             '</span>',
           moreButton:
@@ -155,13 +155,13 @@ function handlInputChange(event) {
           moveButton:
             '<a href="#" class="tui-page-btn tui-{{type}}">' +
             '<svg width="14" height="14">' +
-            '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+            `<use class="tui-btn-icon" href="${icons}#{{type}}"></use>` +
             '</svg>' +
             '</a>',
           disabledMoveButton:
             '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
             '<svg width="14" height="14">' +
-            '<use class="tui-btn-icon" href="../img/icons.svg#{{type}}"></use>' +
+            `<use class="tui-btn-icon" href="${icons}#{{type}}"></use>` +
             '</svg>' +
             '</span>',
           moreButton:
