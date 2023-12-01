@@ -15,6 +15,9 @@
 }
 
 .product-card-prod {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   max-width: 295px;
   border-radius: 20px;
   background: var(--white-color);
