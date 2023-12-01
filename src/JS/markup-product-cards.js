@@ -22,6 +22,8 @@ function createMarkup(data) {
       .map(
         ({ _id, name, img, category, price, size, popularity }) =>
           `<div class="product-card-prod" id="${_id}">
+      
+          <div>
             <div class="product-card-img-prod">
               <img class="card-img-prod" src="${img}" alt="${name}">
             </div>
@@ -40,6 +42,7 @@ function createMarkup(data) {
                 <p class="card-description-value-prod">${popularity}</p>
               </div>
             </div>
+          </div>
             
             <div class="product-card-price-btn-prod">
               <p class="product-card-price-prod">${price}</p>
@@ -49,6 +52,7 @@ function createMarkup(data) {
                 </svg>
               </button>
             </div>
+
           </div>`
       )
       .join('');
