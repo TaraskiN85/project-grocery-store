@@ -129,10 +129,10 @@ document.addEventListener('DOMContentLoaded', async function () {
             addButtons.disabled = isInCart;
 
             if (isInCart) {
-              addButtons.innerHTML = `<svg width="16" height="16"><use class="discount-button-icon" href="${icons}#icon-check"></use></svg>`;
+              addButtons.innerHTML = `<svg width="18" height="18"><use class="discount-button-icon" href="${icons}#icon-check"></use></svg>`;
             } else {
               addButtons.innerHTML =
-                '<svg width="16" height="16"><use class="discount-button-icon" href="${icons}#icon-cart"></use></svg>';
+                `<svg width="18" height="18"><use class="discount-button-icon" href="${icons}#icon-cart"></use></svg>`;
             }
           }
         });

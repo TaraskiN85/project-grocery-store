@@ -1,6 +1,6 @@
 import { getProductsByParams } from './API';
 import { appendMarkup } from './markup-product-cards';
-import { handleSelectChange } from './pagination';
+import { handleSelectChange, handlInputChange } from './pagination';
 
 const categoryList = document.querySelector('.js-category-list');
 const search_input = document.querySelector('.js-search-input');
@@ -37,7 +37,7 @@ export function renderSelect(categories) {
   const catListItems = document.querySelectorAll('.js-category-item');
   catListItems.forEach(function (listItems) {
     listItems.addEventListener('click', function (e) {
-      console.log('dropinner');
+      // console.log('dropinner');
       e.stopPropagation();
       dropDownCatBtn.innerText = this.innerText;
       categoryInput.value = this.dataset.value;
@@ -105,6 +105,7 @@ function changeKeywordInLocal(evt) {
     dropDownCatBtn.innerText = 'Category';
     dropDownBtn.innerText = 'A to Z';
     searchParams.category = '';
+    searchParams.keyword = '';
     delete searchParams.byPopularity;
     delete searchParams.byPrice;
     delete searchParams.byABC;
@@ -112,7 +113,7 @@ function changeKeywordInLocal(evt) {
   } else {
     const searchParams = JSON.parse(localStorage.getItem('search-params'));
     searchParams.page = 1;
-    console.log('sort');
+    // console.log('sort');
     delete searchParams.byPopularity;
     delete searchParams.byPrice;
     delete searchParams.byABC;
@@ -122,6 +123,8 @@ function changeKeywordInLocal(evt) {
   getProductsByParams()
     .then(data => appendMarkup(data))
     .catch(er => console.log(er));
+
+    handlInputChange()
 }
 
 function getCategoryInput() {
@@ -217,7 +220,7 @@ document.addEventListener('click', function (e) {
 // =====Filter Category Markup====
 
 dropDownCatBtn.addEventListener('click', function (e) {
-  console.log('дропліст');
+  // console.log('дропліст');
   categoryList.classList.toggle('dropdown__list--visible');
   this.classList.add('dropdown__button--active');
 });

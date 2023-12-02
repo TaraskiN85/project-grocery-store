@@ -24,6 +24,7 @@
   padding: 20px;
   position: relative;
   width: calc((100% - 0px * 1) / 1);
+  height: 316px;
 }
 
 .product-card-img-prod {
@@ -184,6 +185,7 @@ p.products-nothing-headline {
 
   .product-card-prod {
     width: calc((100% - 32px * 1) / 2);
+    height: 320px;
   }
 
   .produc-card-name-prod {
@@ -229,6 +231,7 @@ p.products-nothing-headline {
   .product-card-prod {
     max-width: 255px;
     width: calc((100% - 20px * 2) / 3);
+    height: 323px;
   }
 
   .product-card-img-prod {
