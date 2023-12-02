@@ -6,6 +6,7 @@ import icons from '../img/icons.svg';
 const container = document.getElementById('pagination');
 
 const options = JSON.parse(localStorage.getItem('search-params'));
+
 getProductsByParams(options)
   .then(data => {
     const page = data.page;
@@ -69,15 +70,10 @@ getProductsByParams(options)
 
 
 
-// const select = document.querySelector('.js-category-input')
-// select.addEventListener('change', handleSelectChange);
-// console.log(select);
-
-
 export function handleSelectChange() {
-
   container.innerHTML = '';
   const newOptions = JSON.parse(localStorage.getItem('search-params'));
+  console.log('After change:', newOptions);
   getProductsByParams(newOptions)
     .then(data => {
       let totalPages = data.totalPages;
@@ -118,21 +114,39 @@ export function handleSelectChange() {
             '</a>',
         },
       });
+
+
+      pagination.on('afterMove', function (eventData) {
+        const currentPage = eventData.page;
+        async function fetchDataPagination(pageNum) {
+          try {
+            const options = JSON.parse(localStorage.getItem('search-params'));
+            options.page = pageNum;
+            localStorage.setItem('search-params', JSON.stringify(options));
+            const data = await getProductsByParams(options);
+            appendMarkup(data);
+          } catch (error) {
+            console.error(error);
+          }
+        }
+        fetchDataPagination(currentPage);
+      });
+
+
+
     })
     .catch(er => console.log(er));
+    
 }
 
 
-const input = document.querySelector('.js-search-input')
-input.addEventListener('change', handlInputChange);
-
-function handlInputChange(event) {
+export function handlInputChange() {
   event.preventDefault();
 
-  options.keyword = event.target.value;
   container.innerHTML = '';
-  localStorage.setItem('search-params', JSON.stringify(options));
+
   const newOptions = JSON.parse(localStorage.getItem('search-params'));
+  console.log('After search:', newOptions);
   getProductsByParams(newOptions)
     .then(data => {
       let totalPages = data.totalPages;
@@ -173,6 +187,25 @@ function handlInputChange(event) {
             '</a>',
         },
       });
+
+      pagination.on('afterMove', function (eventData) {
+        const currentPage = eventData.page;
+        async function fetchDataPagination(pageNum) {
+          try {
+            const options = JSON.parse(localStorage.getItem('search-params'));
+            options.page = pageNum;
+            localStorage.setItem('search-params', JSON.stringify(options));
+            const data = await getProductsByParams(options);
+            appendMarkup(data);
+          } catch (error) {
+            console.error(error);
+          }
+        }
+        fetchDataPagination(currentPage);
+      });
+
+
+
     })
     .catch(er => console.log(er));
 }
