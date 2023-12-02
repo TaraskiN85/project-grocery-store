@@ -23,16 +23,11 @@
   row-gap: 20px;
 }
 
-.aside {
-}
+
 
 /* .js-discount-product-cards {
   padding-top: 80px;
 } */
-
-
-.container-for-name-descr {
-}
 
 .descr-p {
   font-size: 12px;
@@ -56,9 +51,6 @@
   gap: 20px;
   justify-content: center;
   align-items: center;
-}
-
-.before-descr-container {
 }
 
 .discount-price-icon-container {
