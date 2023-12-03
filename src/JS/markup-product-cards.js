@@ -10,7 +10,6 @@ export function appendMarkup(data) {
 }
 
 function createMarkup(data) {
-  console.log(data.results);
   if (data.results.length === 0) {
     return `<div clas="products-nothing-container">
               <p class="products-nothing-headline">Nothing was found for the selected

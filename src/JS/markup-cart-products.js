@@ -2,25 +2,15 @@ import icons from '../img/icons.svg';
 import basket_1 from '../img/basket_1x.png';
 import basket_2 from '../img/basket_2x.png';
 
-export const cartProductsList = document.querySelector('.cart');
+export const cartFullMarkup = document.querySelector('.cart');
 
-const cartProductsInfo = JSON.parse(localStorage.getItem('cart-products-list'));
-
-const createMarkup = cartProductsInfo => {
+export const createListMarkup = () => {
+  const cartProductsInfo = JSON.parse(
+    localStorage.getItem('cart-products-list')
+  );
   const cardsList = cartProductsInfo
     .map(
-      ({
-        _id,
-        name,
-        img,
-        category,
-        price,
-        size,
-        popularity,
-        quantity,
-        is10PercentOff,
-        desc,
-      }) =>
+      ({ _id, name, img, category, price, size }) =>
         `<li class="card_container_product" id="${_id}">
 
          <div class="description">
@@ -48,7 +38,7 @@ const createMarkup = cartProductsInfo => {
           </div>
           <div class="card-product-delete-button">
             <button type="button" class="cart-product-delete-button" id="${_id}">
-              <svg class="cart-icon-close-" width="18" height="18">
+              <svg class="cart-icon-close" width="18" height="18">
                  <use href="${icons}#icon-delete-close"></use>
               </svg>
             </button>
@@ -58,7 +48,13 @@ const createMarkup = cartProductsInfo => {
     </li>`
     )
     .join('');
-  return `  <div class="container">
+
+  const cartProductsList = cartFullMarkup.querySelector('.cart-list');
+  cartProductsList.innerHTML = '';
+  cartProductsList.insertAdjacentHTML('afterbegin', cardsList);
+};
+const createMarkup = () => {
+  return `<div class="container">
   <ul class="cart_list">
     <li class="cart-item">
       <svg class="cart-svg" width="18" height="18">
@@ -72,15 +68,15 @@ const createMarkup = cartProductsInfo => {
   <div class="container_full_cart">
     <div class="full">
       <div class="cart-container-delete">
-        <span class="cart-product-delete-span">Delete all</span>
-        <button type="button" class="cart-product-delete-all-button">
-          <svg class="cart-icon-delete-all" width="24" height="24">
-            <use href="${icons}#icon-delete-close"></use>
+        <button type="button" 
+          class="cart-product-delete-all-button" aria-label="Delete">
+          <span class="cart-product-delete-span">Delete all</span>
+          <svg aria-hidden="true" class="cart-icon-delete-all" width="20" height="20">
+            <use width="20" height="20" href="${icons}#icon-delete-close"></use>
           </svg>
         </button>
       </div>
       <ul class="cart-list">
-        ${cardsList}
       </ul>
     </div>
     <div class="cart_container_total_price">
@@ -112,13 +108,11 @@ export const renderCartProducts = () => {
   const productsArr =
     JSON.parse(localStorage.getItem('cart-products-list')) || [];
   if (productsArr.length > 0) {
-    cartProductsList.innerHTML = '';
-    cartProductsList.insertAdjacentHTML(
-      'afterbegin',
-      createMarkup(productsArr)
-    );
+    cartFullMarkup.innerHTML = '';
+    cartFullMarkup.insertAdjacentHTML('afterbegin', createMarkup(productsArr));
+    createListMarkup();
   } else {
-    cartProductsList.innerHTML = '';
+    cartFullMarkup.innerHTML = '';
     const cartContainer = document.querySelector('.cart');
     cartContainer.innerHTML += `<div class="container">
     <div class="empty-basket">
@@ -155,3 +149,5 @@ export const renderCartProducts = () => {
   </div>`;
   }
 };
+
+renderCartProducts();
