@@ -1,30 +1,45 @@
 import {
   renderCartProducts,
-  cartProductsList,
+  createListMarkup,
 } from './JS/markup-cart-products';
 import { displayByBuyModal } from './JS/modal-cart';
 import { createNewOrder } from './JS/API';
 import { showError } from './JS/helpers';
 
-renderCartProducts();
+const containerFull = document.querySelector('.container_full_cart');
+const handleCart = event => {
+  if (event.target.classList.contains('cart-icon-close')) {
+    const clickedButton = event.target.closest('.cart-product-delete-button');
+    deleteProductAndUpdateCart(clickedButton.id);
+    createListMarkup();
+    calculationTotalPrice();
+  }
+
+  if (
+    event.target.classList.contains('cart-product-delete-all-button') ||
+    event.target.classList.contains('cart-icon-delete-all')
+  ) {
+    deleteAllFromCart();
+  }
+};
+
+if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
+  containerFull.addEventListener('click', handleCart);
+}
 
 function updateCartFromLocalStorage() {
-  const productsInLocalStorage =
-    JSON.parse(localStorage.getItem('cart-products-list')) || [];
-  const objectsCount = productsInLocalStorage.length;
+  const productsNumber = JSON.parse(
+    localStorage.getItem('cart-products-list')
+  ).length;
   const quantityCart = document.querySelector('.quantity_products');
-  const quantityCartIcon = document.querySelector('.cart-span');
-  quantityCart.textContent = '(' + objectsCount + ')';
+  const quantityInCart = document.querySelector('.cart-span');
+  quantityCart.textContent = '(' + productsNumber + ')';
   if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
-    quantityCartIcon.textContent = '(' + objectsCount + ')';
+    quantityInCart.textContent = '(' + productsNumber + ')';
   }
 }
 
 updateCartFromLocalStorage();
-
-const deleteAllButton = document.querySelector(
-  '.cart-product-delete-all-button'
-);
 
 function deleteProductAndUpdateCart(productId) {
   let productsArr =
@@ -32,49 +47,23 @@ function deleteProductAndUpdateCart(productId) {
   const indexToDelete = productsArr.findIndex(
     product => product._id === productId
   );
-
   if (indexToDelete !== -1) {
     productsArr.splice(indexToDelete, 1);
     localStorage.setItem('cart-products-list', JSON.stringify(productsArr));
-    renderCartProducts();
+    createListMarkup();
     updateCartFromLocalStorage();
   }
 }
 
-const cartContainer = document.querySelector('.cart-list');
-
-function handleContainerClick(event) {
-  const clickedButton = event.target.closest('.card-product-delete-button');
-
-  if (clickedButton) {
-    const productId = clickedButton.closest('.card_container_product').id;
-    deleteProductAndUpdateCart(productId);
-    calculationTotalPrice();
-  }
-}
-
-document.addEventListener('click', handleContainerClick);
-
-if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
-  cartContainer.addEventListener('click', handleContainerClick);
-}
-
 function deleteAllFromCart() {
   localStorage.setItem('cart-products-list', JSON.stringify([]));
-  cartProductsList.innerHTML = '';
   updateCartFromLocalStorage();
-
-  cartContainer.removeEventListener('click', handleContainerClick);
   renderCartProducts();
 }
 
-if (JSON.parse(localStorage.getItem('cart-products-list')).length) {
-  deleteAllButton.addEventListener('click', deleteAllFromCart);
-}
-
-async function calculationTotalPrice() {
+function calculationTotalPrice() {
   const objectProducts =
-    (await JSON.parse(localStorage.getItem('cart-products-list'))) || [];
+    JSON.parse(localStorage.getItem('cart-products-list')) || [];
   const totalPrice = objectProducts.reduce((acc, product) => {
     return acc + product.price;
   }, 0);
