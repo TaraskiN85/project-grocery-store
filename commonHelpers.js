@@ -1,18 +1,18 @@
-import{i as r,s as p,c as y}from"./assets/footer-subscription-ffe03d18.js";import"./assets/vendor-8a888f22.js";const _="/project-grocery-store/assets/basket_1x-97a514f0.png",S="/project-grocery-store/assets/basket_2x-e387b499.png",o=document.querySelector(".cart");JSON.parse(localStorage.getItem("cart-products-list"));const k=e=>{const t=e.map(({_id:c,name:s,img:l,category:a,price:h,size:f,popularity:w,quantity:N,is10PercentOff:P,desc:J})=>`<li class="card_container_product" id="${c}">
+import{i as l,s as u,c as y}from"./assets/footer-subscription-056b423b.js";import"./assets/vendor-8a888f22.js";const p="/project-grocery-store/assets/basket_1x-97a514f0.png",S="/project-grocery-store/assets/basket_2x-e387b499.png",o=document.querySelector(".cart"),i=()=>{const e=JSON.parse(localStorage.getItem("cart-products-list")).map(({_id:s,name:r,img:a,category:b,price:h,size:f})=>`<li class="card_container_product" id="${s}">
 
          <div class="description">
           <div class="card_container-product_img">
-            <img class="card_product_img" src="${l}" alt="${s}" />
+            <img class="card_product_img" src="${a}" alt="${r}" />
           </div>
 
           <div class="card_container_product_fullDs">
             <div class="card_container_product_name">
-              <h3 class="card_product_name">${s}</h3>
+              <h3 class="card_product_name">${r}</h3>
             </div>
             <div class="card_container_product_description">
               <div class="card-description">
                 <p class="cart_product_description">
-                  <span class="cart_product_span">Category:</span>${a}
+                  <span class="cart_product_span">Category:</span>${b}
                 </p>
                 <p class="cart_product_description">
                   <span class="cart_product_span">Size:</span>${f}
@@ -24,19 +24,19 @@ import{i as r,s as p,c as y}from"./assets/footer-subscription-ffe03d18.js";impor
             </div>
           </div>
           <div class="card-product-delete-button">
-            <button type="button" class="cart-product-delete-button" id="${c}">
-              <svg class="cart-icon-close-" width="18" height="18">
-                 <use href="${r}#icon-delete-close"></use>
+            <button type="button" class="cart-product-delete-button" id="${s}">
+              <svg class="cart-icon-close" width="18" height="18">
+                 <use href="${l}#icon-delete-close"></use>
               </svg>
             </button>
           </div>
         </div>
 
-    </li>`).join("");return`  <div class="container">
+    </li>`).join(""),c=o.querySelector(".cart-list");c.innerHTML="",c.insertAdjacentHTML("afterbegin",e)},k=()=>`<div class="container">
   <ul class="cart_list">
     <li class="cart-item">
       <svg class="cart-svg" width="18" height="18">
-        <use href="${r}#icon-cart"></use>
+        <use href="${l}#icon-cart"></use>
       </svg>
     </li>
     <li class="cart-item">
@@ -46,15 +46,15 @@ import{i as r,s as p,c as y}from"./assets/footer-subscription-ffe03d18.js";impor
   <div class="container_full_cart">
     <div class="full">
       <div class="cart-container-delete">
-        <span class="cart-product-delete-span">Delete all</span>
-        <button type="button" class="cart-product-delete-all-button">
-          <svg class="cart-icon-delete-all" width="24" height="24">
-            <use href="${r}#icon-delete-close"></use>
+        <button type="button" 
+          class="cart-product-delete-all-button" aria-label="Delete">
+          <span class="cart-product-delete-span">Delete all</span>
+          <svg aria-hidden="true" class="cart-icon-delete-all" width="20" height="20">
+            <use width="20" height="20" href="${l}#icon-delete-close"></use>
           </svg>
         </button>
       </div>
       <ul class="cart-list">
-        ${t}
       </ul>
     </div>
     <div class="cart_container_total_price">
@@ -79,13 +79,13 @@ import{i as r,s as p,c as y}from"./assets/footer-subscription-ffe03d18.js";impor
       </div>
     </div>
   </div>
-</div>`},n=()=>{const e=JSON.parse(localStorage.getItem("cart-products-list"))||[];if(e.length>0)o.innerHTML="",o.insertAdjacentHTML("afterbegin",k(e));else{o.innerHTML="";const t=document.querySelector(".cart");t.innerHTML+=`<div class="container">
+</div>`,_=()=>{if((JSON.parse(localStorage.getItem("cart-products-list"))||[]).length>0)o.innerHTML="",o.insertAdjacentHTML("afterbegin",k()),i();else{o.innerHTML="";const e=document.querySelector(".cart");e.innerHTML+=`<div class="container">
     <div class="empty-basket">
       <div class="basket_container">
         <ul class="basket_list">
           <li class="basket_item">
             <svg class="basket_svg" width="18" height="18">
-              <use href="${r}#icon-cart"></use>
+              <use href="${l}#icon-cart"></use>
             </svg>
           </li>
           <li class="basket_item">
@@ -95,8 +95,8 @@ import{i as r,s as p,c as y}from"./assets/footer-subscription-ffe03d18.js";impor
       </div>
       <img
         class="basket_img"
-        srcset="${_}, ${S}"
-        src="${_}"
+        srcset="${p}, ${S}"
+        src="${p}"
         alt="yellow shopping basket"
         width="132"
         height="114"
@@ -111,5 +111,5 @@ import{i as r,s as p,c as y}from"./assets/footer-subscription-ffe03d18.js";impor
         </p>
       </div>
     </div>
-  </div>`}},i=document.querySelector(".modal-cart"),C=document.querySelector(".close-btn");function I(){i.classList.remove("is-hidden"),document.body.style.overflow="hidden"}function $(e){e.target===i&&m()}function m(){i.classList.add("is-hidden"),document.body.style.overflow="visible"}window.addEventListener("click",$);C.addEventListener("click",m);n();function d(){const t=(JSON.parse(localStorage.getItem("cart-products-list"))||[]).length,c=document.querySelector(".quantity_products"),s=document.querySelector(".cart-span");c.textContent="("+t+")",JSON.parse(localStorage.getItem("cart-products-list")).length&&(s.textContent="("+t+")")}d();const L=document.querySelector(".cart-product-delete-all-button");function O(e){let t=JSON.parse(localStorage.getItem("cart-products-list"))||[];const c=t.findIndex(s=>s._id===e);c!==-1&&(t.splice(c,1),localStorage.setItem("cart-products-list",JSON.stringify(t)),n(),d())}const g=document.querySelector(".cart-list");function u(e){const t=e.target.closest(".card-product-delete-button");if(t){const c=t.closest(".card_container_product").id;O(c),b()}}document.addEventListener("click",u);JSON.parse(localStorage.getItem("cart-products-list")).length&&g.addEventListener("click",u);function v(){localStorage.setItem("cart-products-list",JSON.stringify([])),o.innerHTML="",d(),g.removeEventListener("click",u),n()}JSON.parse(localStorage.getItem("cart-products-list")).length&&L.addEventListener("click",v);async function b(){const t=(await JSON.parse(localStorage.getItem("cart-products-list"))||[]).reduce((c,s)=>c+s.price,0);if(JSON.parse(localStorage.getItem("cart-products-list")).length){const c=document.querySelector(".cart_total_cost");c.textContent=`$ ${t.toFixed(2)}`}}b();const q=document.querySelector(".cart_form_button");JSON.parse(localStorage.getItem("cart-products-list")).length&&q.addEventListener("click",x);async function x(){const e=document.querySelector(".cart_form_input").value,c=JSON.parse(localStorage.getItem("cart-products-list")).map(a=>({productId:a._id,amount:a.amount}));if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){p("Please, enter valid Email!");return}const l={email:e,products:c};try{const a=await y(l);v(),I(a)}catch(a){console.error("Error creating order:",a),p("Error creating order. Please try again later.")}}
+  </div>`}};_();const n=document.querySelector(".modal-cart"),C=document.querySelector(".close-btn");function L(){n.classList.remove("is-hidden"),document.body.style.overflow="hidden"}function $(t){t.target===n&&g()}function g(){n.classList.add("is-hidden"),document.body.style.overflow="visible"}window.addEventListener("click",$);C.addEventListener("click",g);const I=document.querySelector(".container_full_cart"),O=t=>{if(t.target.classList.contains("cart-icon-close")){const e=t.target.closest(".cart-product-delete-button");q(e.id),i(),v()}(t.target.classList.contains("cart-product-delete-all-button")||t.target.classList.contains("cart-icon-delete-all"))&&m()};JSON.parse(localStorage.getItem("cart-products-list")).length&&I.addEventListener("click",O);function d(){const t=JSON.parse(localStorage.getItem("cart-products-list")).length,e=document.querySelector(".quantity_products"),c=document.querySelector(".cart-span");e.textContent="("+t+")",JSON.parse(localStorage.getItem("cart-products-list")).length&&(c.textContent="("+t+")")}d();function q(t){let e=JSON.parse(localStorage.getItem("cart-products-list"))||[];const c=e.findIndex(s=>s._id===t);c!==-1&&(e.splice(c,1),localStorage.setItem("cart-products-list",JSON.stringify(e)),i(),d())}function m(){localStorage.setItem("cart-products-list",JSON.stringify([])),d(),_()}function v(){const e=(JSON.parse(localStorage.getItem("cart-products-list"))||[]).reduce((c,s)=>c+s.price,0);if(JSON.parse(localStorage.getItem("cart-products-list")).length){const c=document.querySelector(".cart_total_cost");c.textContent=`$ ${e.toFixed(2)}`}}v();const x=document.querySelector(".cart_form_button");JSON.parse(localStorage.getItem("cart-products-list")).length&&x.addEventListener("click",P);async function P(){const t=document.querySelector(".cart_form_input").value,c=JSON.parse(localStorage.getItem("cart-products-list")).map(a=>({productId:a._id,amount:a.amount}));if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)){u("Please, enter valid Email!");return}const r={email:t,products:c};try{const a=await y(r);m(),L(a)}catch(a){console.error("Error creating order:",a),u("Error creating order. Please try again later.")}}
 //# sourceMappingURL=commonHelpers.js.map
