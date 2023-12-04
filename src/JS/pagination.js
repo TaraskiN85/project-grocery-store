@@ -17,13 +17,12 @@ getProductsByParams(options)
     if (totalPages <= 1) {
       return;
     }
-
     const pagination = new Pagination(container, {
       totalItems,
       itemsPerPage,
       visiblePages: 3,
       page,
-      centerAlign: false,
+      centerAlign: true,
       firstItemClassName: 'tui-first-child',
       lastItemClassName: 'tui-last-child',
       template: {
@@ -63,17 +62,16 @@ getProductsByParams(options)
         }
       }
       fetchDataPagination(currentPage);
+      scrollToFilters()
     });
   })
   .catch(er => console.log(er));
 
 
-
-
 export function handleSelectChange() {
   container.innerHTML = '';
   const newOptions = JSON.parse(localStorage.getItem('search-params'));
-  console.log('After change:', newOptions);
+
   getProductsByParams(newOptions)
     .then(data => {
       let totalPages = data.totalPages;
@@ -87,9 +85,9 @@ export function handleSelectChange() {
       const pagination = new Pagination(container, {
         totalItems,
         itemsPerPage,
-        visiblePages: 4,
+        visiblePages: 3,
         page: 1,
-        centerAlign: false,
+        centerAlign: true,
         firstItemClassName: 'tui-first-child',
         lastItemClassName: 'tui-last-child',
         template: {
@@ -114,8 +112,6 @@ export function handleSelectChange() {
             '</a>',
         },
       });
-
-
       pagination.on('afterMove', function (eventData) {
         const currentPage = eventData.page;
         async function fetchDataPagination(pageNum) {
@@ -130,10 +126,8 @@ export function handleSelectChange() {
           }
         }
         fetchDataPagination(currentPage);
+        scrollToFilters()
       });
-
-
-
     })
     .catch(er => console.log(er));
     
@@ -146,7 +140,6 @@ export function handlInputChange() {
   container.innerHTML = '';
 
   const newOptions = JSON.parse(localStorage.getItem('search-params'));
-  console.log('After search:', newOptions);
   getProductsByParams(newOptions)
     .then(data => {
       let totalPages = data.totalPages;
@@ -160,9 +153,9 @@ export function handlInputChange() {
       const pagination = new Pagination(container, {
         totalItems,
         itemsPerPage,
-        visiblePages: 4,
+        visiblePages: 3,
         page: 1,
-        centerAlign: false,
+        centerAlign: true,
         firstItemClassName: 'tui-first-child',
         lastItemClassName: 'tui-last-child',
         template: {
@@ -202,10 +195,18 @@ export function handlInputChange() {
           }
         }
         fetchDataPagination(currentPage);
+        scrollToFilters()
       });
-
-
-
     })
     .catch(er => console.log(er));
 }
+
+function scrollToFilters() {
+  const scrollUp = document.querySelector(".catalog-container"); 
+    if (scrollUp) {
+      scrollUp.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  }
