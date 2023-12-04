@@ -1,4 +1,4 @@
-import{i as l,s as u,c as y}from"./assets/footer-subscription-056b423b.js";import"./assets/vendor-8a888f22.js";const p="/project-grocery-store/assets/basket_1x-97a514f0.png",S="/project-grocery-store/assets/basket_2x-e387b499.png",o=document.querySelector(".cart"),i=()=>{const e=JSON.parse(localStorage.getItem("cart-products-list")).map(({_id:s,name:r,img:a,category:b,price:h,size:f})=>`<li class="card_container_product" id="${s}">
+import{i as l,s as u,c as y}from"./assets/footer-subscription-368acc3f.js";import"./assets/vendor-8a888f22.js";const p="/project-grocery-store/assets/basket_1x-97a514f0.png",S="/project-grocery-store/assets/basket_2x-e387b499.png",o=document.querySelector(".cart"),i=()=>{const e=JSON.parse(localStorage.getItem("cart-products-list")).map(({_id:s,name:r,img:a,category:b,price:h,size:f})=>`<li class="card_container_product" id="${s}">
 
          <div class="description">
           <div class="card_container-product_img">
